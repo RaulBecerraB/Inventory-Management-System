@@ -52,10 +52,33 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMatCatalogue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMatCatalogue.Designer.cs">
+      <DependentUpon>frmMatCatalogue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMatCatalogue2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMatCatalogue2.Designer.cs">
+      <DependentUpon>frmMatCatalogue2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TechMateInventoryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TechMateInventoryDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMatCatalogue.resx">
+      <DependentUpon>frmMatCatalogue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMatCatalogue2.resx">
+      <DependentUpon>frmMatCatalogue2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -75,6 +98,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TechMateInventoryDataSet.xsc">
+      <DependentUpon>TechMateInventoryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TechMateInventoryDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TechMateInventoryDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TechMateInventoryDataSet.xss">
+      <DependentUpon>TechMateInventoryDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
