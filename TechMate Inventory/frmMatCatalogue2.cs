@@ -31,5 +31,10 @@ namespace TechMate_Inventory
             this.materialsTableAdapter.Fill(this.techMateInventoryDataSet.Materials);
 
         }
+
+        private void materialsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
