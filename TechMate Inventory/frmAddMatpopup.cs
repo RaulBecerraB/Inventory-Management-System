@@ -54,19 +54,26 @@ namespace TechMate_Inventory
 
                     string Catquery = "SELECT ID_Category, Name FROM Categories";
                     string MatTypequery = "SELECT ID_MatType, Name FROM MatTypes";
+                    string MatUnitquery = "SELECT ID_Unit, Name FROM MatUnits";
 
                     SqlDataAdapter Catadapter = new SqlDataAdapter(Catquery, connection);
                     SqlDataAdapter MatTypeAdapter = new SqlDataAdapter(MatTypequery, connection);
+                    SqlDataAdapter MatUnitAdapter = new SqlDataAdapter(MatUnitquery, connection);
 
                     DataTable categoriesName = new DataTable();
                     DataTable matTypeName = new DataTable();
+                    DataTable matUnitName = new DataTable();
+
 
                     Catadapter.Fill(categoriesName);
                     MatTypeAdapter.Fill(matTypeName);
+                    MatUnitAdapter.Fill(matUnitName);
+
 
                     // Asignar DataTable como DataSource del ComboBox.
                     comboBoxCategories.DataSource = categoriesName;
                     comboBoxMatTypes.DataSource = matTypeName;
+                    comboBoxMatUnit.DataSource = matUnitName;
 
                     // Configurar DisplayMember y ValueMember.
                     comboBoxCategories.DisplayMember = "Name";  // Columna para mostrar en el ComboBox.
@@ -76,6 +83,10 @@ namespace TechMate_Inventory
                     comboBoxMatTypes.DisplayMember = "Name";  // Columna para mostrar en el ComboBox.
                     comboBoxMatTypes.ValueMember = "ID_MatType";  // Columna como valor que representa los items.
 
+                    //Configurar DisplayMember y ValueMember
+                    comboBoxMatUnit.DisplayMember = "Name";
+                    comboBoxMatUnit.ValueMember = "ID_Unit";
+
                 }
                 catch (Exception ex)
                 {
@@ -84,8 +95,81 @@ namespace TechMate_Inventory
             }
         }
 
+        private int GetNextMaterialId()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT MAX(ID_Material) FROM Materials";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    object result = command.ExecuteScalar();
+                    if (result != DBNull.Value)
+                    {
+                        return Convert.ToInt32(result) + 1;
+                    }
+                    return 1; // Devuelve 1 si la tabla está vacía
+                }
+            }
+        }
+
+
 
         private void comboBoxCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    string insertQuery = @"INSERT INTO Materials (ID_Material, ID_MatType, ID_Unit, unitValue, BorrowLimitDays) VALUES (@MaterialID, @MatType, @Unit, @UnitValue, @BorrowDays)";
+
+                    using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                    {
+                        // Obteniendo los valores seleccionados de los ComboBoxes y el valor de la descripción
+                        int newMaterialId = GetNextMaterialId(); // Obtén el próximo ID
+                        int matType = (int)comboBoxMatTypes.SelectedValue;
+                        int unit = (int)comboBoxMatUnit.SelectedValue;
+                        int unitValue = string.IsNullOrEmpty(richTextBoxMatDesc.Text) ? 0 : int.Parse(richTextBoxMatDesc.Text); // Asumiendo que 'unitValue' se maneja en la descripción como un entero
+                                                                                                                                // Seguro manejo de la conversión de BorrowLimitDays
+                        int borrowLimitDays = 0;
+                        int.TryParse(textBoxBorrowLimitDays.Text, out borrowLimitDays);
+
+                        // Añadiendo los parámetros al comando
+                        command.Parameters.AddWithValue("@MaterialID", newMaterialId);
+                        command.Parameters.AddWithValue("@MatType", matType);
+                        command.Parameters.AddWithValue("@Unit", unit);
+                        command.Parameters.AddWithValue("@UnitValue", unitValue);
+                        command.Parameters.AddWithValue("@BorrowDays", borrowLimitDays);
+
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Material added successfully!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to add material: " + ex.Message);
+                }
+            }
+        }
+
+        private void richTextBoxMatDesc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxBorrowLimitDays_TextChanged(object sender, EventArgs e)
         {
 
         }

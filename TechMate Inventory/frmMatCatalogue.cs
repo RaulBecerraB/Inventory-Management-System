@@ -23,11 +23,26 @@ namespace TechMate_Inventory
 
         private void frmMatCatalogue_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'techMateInventoryDataSet.vwMaterialCatalogue' Puede moverla o quitarla según sea necesario.
-            this.vwMaterialCatalogueTableAdapter.Fill(this.techMateInventoryDataSet.vwMaterialCatalogue);
-            // TODO: esta línea de código carga datos en la tabla 'techMateInventoryDataSet.vwMaterialCatalogue' Puede moverla o quitarla según sea necesario.
-            this.vwMaterialCatalogueTableAdapter.Fill(this.techMateInventoryDataSet.vwMaterialCatalogue);
-            LoadDataFromView();
+
+            try
+            {
+                // Carga datos en la tabla 'techMateInventoryDataSet.vwMaterialCatalogue'
+                this.vwMaterialCatalogueTableAdapter.Fill(this.techMateInventoryDataSet.vwMaterialCatalogue);
+                this.vwMaterialCatalogueTableAdapter.Fill(this.techMateInventoryDataSet.vwMaterialCatalogue);
+
+                // Llama a la función para cargar datos desde la vista
+                LoadDataFromView();
+            }
+            catch (Exception ex)
+            {
+                // Muestra un mensaje de error al usuario con información sobre la excepción
+                MessageBox.Show("Error al cargar el catálogo de materiales: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // Puedes registrar el error si es necesario
+                // LogException(ex); // Si tienes un mecanismo de registro de errores
+
+                // Puedes realizar acciones adicionales para manejar el error, como detener el proceso o limpiar recursos
+            }
 
         }
 
@@ -41,13 +56,19 @@ namespace TechMate_Inventory
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable table = new DataTable();
+                DataTable table = new DataTable();          
 
                 try
                 {
                     connection.Open();
                     adapter.Fill(table);
                     vwMatCatGridView.DataSource = table;
+                    // Opcionalmente configurar las cabeceras si es necesario
+                    vwMatCatGridView.Columns["Category"].HeaderText = "Categoría";
+                    vwMatCatGridView.Columns["MaterialType"].HeaderText = "Tipo";
+                    vwMatCatGridView.Columns["unitValue"].HeaderText = "Valor";
+                    vwMatCatGridView.Columns["UnitName"].HeaderText = "Unidad";
+                    vwMatCatGridView.Columns["BorrowLimitDays"].HeaderText = "Días máximos de préstamo";
                 }
                 catch (Exception ex)
                 {
