@@ -18,7 +18,11 @@ namespace TechMate_Inventory
     {
         private frmMatCatalogue parentForm;
 
-        private string connectionString = ConfigurationManager.ConnectionStrings["TechMate_Inventory.Properties.Settings.TechMateInventoryConnectionString"].ConnectionString;
+        private frmMatCatalogue catalogue = new frmMatCatalogue();
+
+        // private string connectionString = catalogue.connectionString;
+        public string connectionString;
+
         public frmAddMatpopup(frmMatCatalogue parent)
         {
             InitializeComponent();  // Esto inicializa todos los controles del formulario

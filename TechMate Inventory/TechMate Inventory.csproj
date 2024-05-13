@@ -55,6 +55,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddCatpopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddCatpopup.Designer.cs">
+      <DependentUpon>frmAddCatpopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddMatpopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddCatpopup.resx">
+      <DependentUpon>frmAddCatpopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddMatpopup.resx">
       <DependentUpon>frmAddMatpopup.cs</DependentUpon>

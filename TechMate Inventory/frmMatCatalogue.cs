@@ -16,6 +16,7 @@ namespace TechMate_Inventory
 {
     public partial class frmMatCatalogue : Form
     {
+        public string connectionString = ConfigurationManager.ConnectionStrings["TechMate_Inventory.Properties.Settings.TechMateInventoryConnectionString"].ConnectionString;
         public int selectedIndex = 0;
         public frmMatCatalogue()
         {
@@ -50,7 +51,6 @@ namespace TechMate_Inventory
 
         public void LoadDataFromView()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["TechMate_Inventory.Properties.Settings.TechMateInventoryConnectionString"].ConnectionString;
             //MessageBox.Show(connectionString);
             string query = "-- Query para checar Materials\r\nSELECT \r\n    Materials.ID_Material,  -- ID del material\r\n\tMaterials.shortDescription,\r\n    Categories.Name AS Category,  -- Nombre de la categoría\r\n    MatTypes.Name AS MaterialType,  -- Nombre del tipo de material\r\n    MatUnits.Name AS UnitName,  -- Nombre de la unidad\r\n    Materials.BorrowLimitDays  -- Límite de días de préstamo\r\nFROM \r\n    Materials  -- Tabla principal\r\nLEFT JOIN \r\n    MatTypes \r\n    ON Materials.ID_MatType = MatTypes.ID_MatType  -- Unir con MatTypes por el tipo de material\r\nLEFT JOIN \r\n    Categories\r\n    ON MatTypes.ID_Category = Categories.ID_Category  -- Unir con Categories por la categoría del MatType\r\nLEFT JOIN \r\n    MatUnits \r\n    ON Materials.ID_Unit = MatUnits.ID_Unit  -- Unir con MatUnits por la unidad\r\n";
 
@@ -77,7 +77,22 @@ namespace TechMate_Inventory
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error cargando los MATERIALES: " + ex.Message);
+                }
+            }
+        }
+
+        public void LoadCategoriesData()
+        {
+            using (SqlConnection connection = new SqlConnection())
+            {
+                try
+                {
+                    connection.Open();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show( " Error cargando las CATEGORÍAS: " + ex.Message);
                 }
             }
         }
@@ -100,7 +115,6 @@ namespace TechMate_Inventory
 
         private void DeleteMaterial(int materialId)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["TechMate_Inventory.Properties.Settings.TechMateInventoryConnectionString"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = "DELETE FROM Materials WHERE ID_Material = @MaterialId";
@@ -134,6 +148,7 @@ namespace TechMate_Inventory
         private void addNewMatBtn_Click(object sender, EventArgs e)
         {
             frmAddMatpopup addMatpopup = new frmAddMatpopup(this);
+            addMatpopup.connectionString = connectionString;
             addMatpopup.Show();
         }
 
@@ -146,6 +161,7 @@ namespace TechMate_Inventory
                 DataGridViewRow clickedRow = vwMatCatGridView.Rows[e.RowIndex];
 
                 Material_CRUD_PopUp1 editPopup = new Material_CRUD_PopUp1(this);
+                editPopup.connectionString = connectionString;
                 editPopup.intMaterialId = (int)clickedRow.Cells["ID_Material"].Value;
                 editPopup.Show();
 
@@ -169,5 +185,10 @@ namespace TechMate_Inventory
             }
         }
 
+        private void addNewCatBtn_Click(object sender, EventArgs e)
+        {
+            frmAddCatpopup addCatpopup = new frmAddCatpopup(this);
+            addCatpopup.connectionString = connectionString;
+        }
     }
 }

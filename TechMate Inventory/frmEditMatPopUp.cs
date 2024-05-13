@@ -20,7 +20,7 @@ namespace TechMate_Inventory
 
         public int intMaterialId;
 
-        private string connectionString = ConfigurationManager.ConnectionStrings["TechMate_Inventory.Properties.Settings.TechMateInventoryConnectionString"].ConnectionString;
+        public string connectionString;
         public Material_CRUD_PopUp1(frmMatCatalogue parent)
         {
             InitializeComponent();  // Esto inicializa todos los controles del formulario
