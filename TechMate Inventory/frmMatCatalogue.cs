@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using TechMate_Inventory.TechMateInventoryDataSetTableAdapters;
+using System.Data.Common;
 
 
 namespace TechMate_Inventory
@@ -33,6 +34,7 @@ namespace TechMate_Inventory
 
                 // Llama a la función para cargar datos desde la vista
                 LoadDataFromView();
+                LoadCategoriesData();
 
                 AddDeleteButtonColumn();
             }
@@ -84,11 +86,24 @@ namespace TechMate_Inventory
 
         public void LoadCategoriesData()
         {
-            using (SqlConnection connection = new SqlConnection())
+            string loadCategoriesquery = "SELECT * FROM Categories" ;
+            
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                SqlCommand loadCategoriesCmd = new SqlCommand(loadCategoriesquery, connection);
+                SqlDataAdapter loadCategoriesadapter = new SqlDataAdapter(loadCategoriesCmd);
+                DataTable table = new DataTable();
+
                 try
                 {
                     connection.Open();
+                    loadCategoriesadapter.Fill(table);
+                    vwCategoriesGridView.DataSource = table;
+
+                    //Renaming rows (READ ONLY)
+
+                    vwCategoriesGridView.Columns["ID_Category"].HeaderText = "Índice";
+                    vwCategoriesGridView.Columns["Name"].HeaderText = "Nombre";
                 }
                 catch (Exception ex)
                 {
@@ -147,8 +162,7 @@ namespace TechMate_Inventory
 
         private void addNewMatBtn_Click(object sender, EventArgs e)
         {
-            frmAddMatpopup addMatpopup = new frmAddMatpopup(this);
-            addMatpopup.connectionString = connectionString;
+            frmAddMatpopup addMatpopup = new frmAddMatpopup(this,connectionString);
             addMatpopup.Show();
         }
 
@@ -160,8 +174,7 @@ namespace TechMate_Inventory
                 // Aquí puedes acceder a la fila en la que se hizo doble clic
                 DataGridViewRow clickedRow = vwMatCatGridView.Rows[e.RowIndex];
 
-                Material_CRUD_PopUp1 editPopup = new Material_CRUD_PopUp1(this);
-                editPopup.connectionString = connectionString;
+                Material_CRUD_PopUp1 editPopup = new Material_CRUD_PopUp1(this,connectionString);
                 editPopup.intMaterialId = (int)clickedRow.Cells["ID_Material"].Value;
                 editPopup.Show();
 
@@ -187,8 +200,9 @@ namespace TechMate_Inventory
 
         private void addNewCatBtn_Click(object sender, EventArgs e)
         {
-            frmAddCatpopup addCatpopup = new frmAddCatpopup(this);
+            frmAddCatpopup addCatpopup = new frmAddCatpopup(this, connectionString);
             addCatpopup.connectionString = connectionString;
+            addCatpopup.Show();
         }
     }
 }

@@ -20,36 +20,22 @@ namespace TechMate_Inventory
 
         public int intMaterialId;
 
-        public string connectionString;
-        public Material_CRUD_PopUp1(frmMatCatalogue parent)
+        private string connectionString;
+        public Material_CRUD_PopUp1(frmMatCatalogue parent, string connectionString)
         {
             InitializeComponent();  // Esto inicializa todos los controles del formulario
+            //Primero se inicializa el connectionString antes de tocar SQL
+            this.connectionString = connectionString; 
             LoadMaterialDetails();
             this.parentForm = parent;
         }
 
         private void frmAddMatpopup_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'techMateInventoryDataSet.Categories' Puede moverla o quitarla según sea necesario.
-            this.categoriesTableAdapter.Fill(this.techMateInventoryDataSet.Categories);
-
             // Asegúrate que esta línea está después de InitializeComponent();
             LoadMaterialDetails();
 
-            MessageBox.Show($"Doble clic en la fila con ID: " + intMaterialId);
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.categoriesTableAdapter.FillBy(this.techMateInventoryDataSet.Categories);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
+            //MessageBox.Show($"Doble clic en la fila con ID: " + intMaterialId);
         }
 
         private void LoadMaterialDetails()
@@ -141,7 +127,6 @@ namespace TechMate_Inventory
                 }
             }
         }
-
         private void SetInitialComboBoxValues(int materialId, SqlConnection connection)
         {
             // Consulta para obtener los valores actuales del material
@@ -162,7 +147,6 @@ namespace TechMate_Inventory
                 }
             }
         }
-
         private int GetNextMaterialId()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -180,19 +164,14 @@ namespace TechMate_Inventory
                 }
             }
         }
-
-
-
         private void comboBoxCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btnAccept_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

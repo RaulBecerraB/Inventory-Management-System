@@ -18,14 +18,13 @@ namespace TechMate_Inventory
     {
         private frmMatCatalogue parentForm;
 
-        private frmMatCatalogue catalogue = new frmMatCatalogue();
-
         // private string connectionString = catalogue.connectionString;
         public string connectionString;
 
-        public frmAddMatpopup(frmMatCatalogue parent)
+        public frmAddMatpopup(frmMatCatalogue parent, string connectionString)
         {
             InitializeComponent();  // Esto inicializa todos los controles del formulario
+            this.connectionString = connectionString;
             LoadDataIntoComboBox();
             this.parentForm = parent;
         }
@@ -86,6 +85,8 @@ namespace TechMate_Inventory
                 catch (Exception ex)
                 {
                     MessageBox.Show("POPUP ERROR: " + ex.Message);
+                    // Copiar al Portapapeles
+                    Clipboard.SetText(ex.Message);
                 }
             }
         }
