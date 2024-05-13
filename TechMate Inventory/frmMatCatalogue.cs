@@ -34,7 +34,7 @@ namespace TechMate_Inventory
 
                 // Llama a la función para cargar datos desde la vista
                 LoadDataFromView();
-                LoadCategoriesData();
+                LoadLowerTables();
 
                 AddDeleteButtonColumn();
             }
@@ -51,6 +51,26 @@ namespace TechMate_Inventory
 
         }
 
+        // Función genérica para eliminar un item de cualquier tabla
+        private void DeleteItem(string tableName, string idColumn, int itemId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = $"DELETE FROM {tableName} WHERE {idColumn} = @ItemId";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@ItemId", itemId);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"No se pudo eliminar el item: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
         public void LoadDataFromView()
         {
             //MessageBox.Show(connectionString);
@@ -83,27 +103,51 @@ namespace TechMate_Inventory
                 }
             }
         }
-
-        public void LoadCategoriesData()
+        public void LoadLowerTables()
         {
-            string loadCategoriesquery = "SELECT * FROM Categories" ;
-            
+            string categoriesQuery = "SELECT * FROM Categories" ;
+            string matTypesQuery = "SELECT ID_MatType,Name FROM MatTypes";
+            string matUnitsQuery = "SELECT * FROM MatUnits";
+
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand loadCategoriesCmd = new SqlCommand(loadCategoriesquery, connection);
-                SqlDataAdapter loadCategoriesadapter = new SqlDataAdapter(loadCategoriesCmd);
-                DataTable table = new DataTable();
+                SqlCommand CategoriesCmd = new SqlCommand(categoriesQuery, connection);
+                SqlCommand MatTypesCmd = new SqlCommand (matTypesQuery, connection);
+                SqlCommand MatUnitsCmd = new SqlCommand(matUnitsQuery, connection);
+                
+                SqlDataAdapter Categoriesadapter = new SqlDataAdapter(CategoriesCmd);
+                SqlDataAdapter MatTypesadapter = new SqlDataAdapter(MatTypesCmd);
+                SqlDataAdapter MatUnitsadapter = new SqlDataAdapter(MatUnitsCmd);
+
+                DataTable tableCategories = new DataTable();
+                DataTable tableMatTypes = new DataTable();
+                DataTable tableMatUnits = new DataTable();
 
                 try
                 {
                     connection.Open();
-                    loadCategoriesadapter.Fill(table);
-                    vwCategoriesGridView.DataSource = table;
+
+                    Categoriesadapter.Fill(tableCategories);
+                    MatTypesadapter.Fill(tableMatTypes);
+                    MatUnitsadapter.Fill(tableMatUnits);
+
+                    vwCategoriesGridView.DataSource = tableCategories;
+                    vwMatTypesGridView.DataSource = tableMatTypes;
+                    vwMatUnitsGridView.DataSource = tableMatUnits;
 
                     //Renaming rows (READ ONLY)
 
                     vwCategoriesGridView.Columns["ID_Category"].HeaderText = "Índice";
                     vwCategoriesGridView.Columns["Name"].HeaderText = "Nombre";
+
+                    vwMatTypesGridView.Columns["ID_MatType"].HeaderText = "Índice";
+                    vwMatTypesGridView.Columns["Name"].HeaderText = "Nombre";
+
+                    vwMatUnitsGridView.Columns["ID_Unit"].HeaderText = "Índice";
+                    vwMatUnitsGridView.Columns["Name"].HeaderText = "Nombre";
+
+
                 }
                 catch (Exception ex)
                 {
@@ -111,63 +155,62 @@ namespace TechMate_Inventory
                 }
             }
         }
-        private void AddDeleteButtonColumn()
+        private void AddDeleteButtonColumnToGridView(DataGridView gridView)
         {
             // Verifica si la columna ya existe para evitar duplicados
-            if (!vwMatCatGridView.Columns.Contains("deleteColumn"))
+            if (!gridView.Columns.Contains("deleteColumn"))
             {
                 DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
                 deleteButtonColumn.Name = "deleteColumn";
                 deleteButtonColumn.HeaderText = "";
                 deleteButtonColumn.Text = "Borrar";
                 deleteButtonColumn.UseColumnTextForButtonValue = true;  // Hace que el texto del botón sea el valor por defecto de la columna
-                deleteButtonColumn.Width = 60; // Ancho de la columna de botón
+                deleteButtonColumn.Width = 60;  // Ancho de la columna de botón
 
                 // Añade la columna de botón al final de todas las columnas existentes
-                vwMatCatGridView.Columns.Add(deleteButtonColumn);
+                gridView.Columns.Add(deleteButtonColumn);
             }
         }
-
-        private void DeleteMaterial(int materialId)
+        private void AddDeleteButtonColumn()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = "DELETE FROM Materials WHERE ID_Material = @MaterialId";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@MaterialId", materialId);
-
-                try
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se pudo eliminar el material: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            // Aplica el método refactorizado a cada DataGridView relevante
+            AddDeleteButtonColumnToGridView(vwMatCatGridView);
+            AddDeleteButtonColumnToGridView(vwCategoriesGridView);
+            AddDeleteButtonColumnToGridView(vwMatUnitsGridView);
+            AddDeleteButtonColumnToGridView(vwMatTypesGridView);
         }
-
-
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
         private void catMatTitle_Click(object sender, EventArgs e)
         {
 
         }
-
         private void addNewMatBtn_Click(object sender, EventArgs e)
         {
+            //THE CREATE MATERIAL
             frmAddMatpopup addMatpopup = new frmAddMatpopup(this,connectionString);
             addMatpopup.Show();
         }
-
+        // Event handlers refactored to use DeleteItem
+        private void vwMatCatGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == vwMatCatGridView.Columns["deleteColumn"].Index)
+            {
+                if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int materialId = Convert.ToInt32(vwMatCatGridView.Rows[e.RowIndex].Cells["ID_Material"].Value);
+                    DeleteItem("Materials", "ID_Material", materialId);
+                    vwMatCatGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                }
+            }
+        }
         private void vwMatCatGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //THE EDIT MATERIAL
+
             // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
             if (e.RowIndex >= 0)
             {
@@ -184,25 +227,57 @@ namespace TechMate_Inventory
             }
             
         }
-        private void vwMatCatGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void addNewCatBtn_Click(object sender, EventArgs e)
         {
-            // Asegúrate de que el clic sea en la columna de botones y no en el encabezado o una fila no válida
-            if (e.RowIndex >= 0 && e.ColumnIndex == vwMatCatGridView.Columns["deleteColumn"].Index)
+            frmAddCatpopup addCatPoPup = new frmAddCatpopup(this, connectionString);
+            addCatPoPup.Show();
+        }
+        private void vwCategoriesGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == vwCategoriesGridView.Columns["deleteColumn"].Index)
             {
                 if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int materialId = Convert.ToInt32(vwMatCatGridView.Rows[e.RowIndex].Cells["ID_Material"].Value);
-                    DeleteMaterial(materialId);
-                    vwMatCatGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                    int categoryId = Convert.ToInt32(vwCategoriesGridView.Rows[e.RowIndex].Cells["ID_Category"].Value);
+                    DeleteItem("Categories", "ID_Category", categoryId);
+                    vwCategoriesGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                }
+            }
+        }
+        private void addNewTypeBtn_Click(object sender, EventArgs e)
+        {
+            frmAddMaterialTypepopup addMatTypePopUp = new frmAddMaterialTypepopup(this, connectionString);
+            addMatTypePopUp.Show();
+        }
+        private void addNewUnitBtn_Click(object sender, EventArgs e)
+        {
+            frmAddUnitPopUp addUnitPopUp = new frmAddUnitPopUp(this, connectionString);
+            addUnitPopUp.Show();
+        }
+        private void vwMatUnitsGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == vwMatUnitsGridView.Columns["deleteColumn"].Index)
+            {
+                if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int unitId = Convert.ToInt32(vwMatUnitsGridView.Rows[e.RowIndex].Cells["ID_Unit"].Value);
+                    DeleteItem("MatUnits", "ID_Unit", unitId);
+                    vwMatUnitsGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
                 }
             }
         }
 
-        private void addNewCatBtn_Click(object sender, EventArgs e)
+        private void vwMatTypesGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            frmAddCatpopup addCatpopup = new frmAddCatpopup(this, connectionString);
-            addCatpopup.connectionString = connectionString;
-            addCatpopup.Show();
+            if (e.RowIndex >= 0 && e.ColumnIndex == vwMatTypesGridView.Columns["deleteColumn"].Index)
+            {
+                if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int unitId = Convert.ToInt32(vwMatTypesGridView.Rows[e.RowIndex].Cells["ID_MatType"].Value);
+                    DeleteItem("MatTypes", "ID_MatType", unitId);
+                    vwMatTypesGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                }
+            }
         }
     }
 }

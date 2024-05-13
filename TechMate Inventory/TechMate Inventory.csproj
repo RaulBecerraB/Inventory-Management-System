@@ -61,11 +61,23 @@
     <Compile Include="frmAddCatpopup.Designer.cs">
       <DependentUpon>frmAddCatpopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddMaterialTypepopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddMaterialTypepopup.Designer.cs">
+      <DependentUpon>frmAddMaterialTypepopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddMatpopup.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAddMatpopup.Designer.cs">
       <DependentUpon>frmAddMatpopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUnitPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUnitPopUp.Designer.cs">
+      <DependentUpon>frmAddUnitPopUp.cs</DependentUpon>
     </Compile>
     <Compile Include="frmKardex.cs">
       <SubType>Form</SubType>
@@ -107,8 +119,14 @@
     <EmbeddedResource Include="frmAddCatpopup.resx">
       <DependentUpon>frmAddCatpopup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddMaterialTypepopup.resx">
+      <DependentUpon>frmAddMaterialTypepopup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddMatpopup.resx">
       <DependentUpon>frmAddMatpopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUnitPopUp.resx">
+      <DependentUpon>frmAddUnitPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKardex.resx">
       <DependentUpon>frmKardex.cs</DependentUpon>

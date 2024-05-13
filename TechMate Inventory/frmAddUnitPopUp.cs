@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -12,43 +11,42 @@ using System.Windows.Forms;
 
 namespace TechMate_Inventory
 {
-    public partial class frmAddCatpopup : Form
+    public partial class frmAddUnitPopUp : Form
     {
-
-        private frmMatCatalogue catalogueParent;
         public string connectionString;
-        public frmAddCatpopup(frmMatCatalogue catalogue, string connectionString)
+        private frmMatCatalogue catalogueParent;
+        public frmAddUnitPopUp(frmMatCatalogue parent, string connectionString)
         {
             InitializeComponent();
-            this.catalogueParent = catalogue;
             this.connectionString = connectionString;
+            this.catalogueParent = parent;
 
         }
 
-        private void frmAddCatpopup_Load(object sender, EventArgs e)
+        private void frmAddUnitPopUp_Load(object sender, EventArgs e)
         {
-
+            //Used this to solve line break problem
+            label6.Text = "Ingrese la nueva unidad\nde medida";
         }
 
-        private void addCategoryInTextBox()
+        private void addUnitInTextBox()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
                 try
                 {
                     connection.Open();
 
-                    String queryINSERT = @"INSERT INTO Categories (ID_Category,Name) 
-                                           VALUES (@newMatID,@newCatName);
-";
-                    using (SqlCommand cmd = new SqlCommand(queryINSERT,connection))
+                    String queryINSERT = @"INSERT INTO MatUnits (ID_Unit,Name) 
+                                           VALUES (@newUnitID,@newUnitName)";
+                    using (SqlCommand cmd = new SqlCommand(queryINSERT, connection))
                     {
                         //Obtener valores desde el FrontEnd
                         int newID = GetNextMaterialId();
-                        string newCatName = textBoxNewCat.Text;
+                        string newUnitName = textBoxNewUnit.Text;
 
                         //Añadir parámetros al comando
-                        cmd.Parameters.AddWithValue("@newMatID" , newID);
-                        cmd.Parameters.AddWithValue("@newCatName", newCatName);
+                        cmd.Parameters.AddWithValue("@newUnitID", newID);
+                        cmd.Parameters.AddWithValue("@newUnitName", newUnitName);
                         cmd.ExecuteNonQuery();
                     }
                     if (catalogueParent != null)
@@ -64,22 +62,12 @@ namespace TechMate_Inventory
 
         }
 
-        private void btnAccept_Click(object sender, EventArgs e)
-        {
-            addCategoryInTextBox();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private int GetNextMaterialId()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT MAX(ID_Material) FROM Materials";
+                string query = "SELECT MAX(ID_Unit) FROM MatUnits";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     object result = command.ExecuteScalar();
@@ -92,5 +80,14 @@ namespace TechMate_Inventory
             }
         }
 
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            addUnitInTextBox();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
