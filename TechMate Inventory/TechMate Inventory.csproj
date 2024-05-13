@@ -79,6 +79,12 @@
     <Compile Include="frmMatCatalogue2.Designer.cs">
       <DependentUpon>frmMatCatalogue2.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditMatPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditMatPopUp.Designer.cs">
+      <DependentUpon>frmEditMatPopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TechMateInventoryDataSet.cs">
@@ -103,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMatCatalogue2.resx">
       <DependentUpon>frmMatCatalogue2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditMatPopUp.resx">
+      <DependentUpon>frmEditMatPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -5,6 +5,12 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechMate Inventory", "TechMate Inventory\TechMate Inventory.csproj", "{C6147648-CD08-4CC1-BD6D-DD04D18967D5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{D31A642D-1090-476B-9DFA-D03E01973D7A}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\OneDrive\Documentos\Visual Studio 2022\Templates\ItemTemplates\Material CRUD PopUp.zip = ..\..\..\OneDrive\Documentos\Visual Studio 2022\Templates\ItemTemplates\Material CRUD PopUp.zip
+		..\..\..\OneDrive\Documentos\Visual Studio 2022\My Exported Templates\Material CRUD PopUp\MyTemplate.vstemplate = ..\..\..\OneDrive\Documentos\Visual Studio 2022\My Exported Templates\Material CRUD PopUp\MyTemplate.vstemplate
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
