@@ -10,16 +10,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace TechMate_Inventory
 {
     public partial class frmAddMatpopup : Form
     {
+        private frmMatCatalogue parentForm;
+
         private string connectionString = ConfigurationManager.ConnectionStrings["TechMate_Inventory.Properties.Settings.TechMateInventoryConnectionString"].ConnectionString;
-        public frmAddMatpopup()
+        public frmAddMatpopup(frmMatCatalogue parent)
         {
             InitializeComponent();  // Esto inicializa todos los controles del formulario
             LoadDataIntoComboBox();
+            this.parentForm = parent;
         }
 
         private void frmAddMatpopup_Load(object sender, EventArgs e)
@@ -133,7 +137,7 @@ namespace TechMate_Inventory
                 {
                     connection.Open();
 
-                    string insertQuery = @"INSERT INTO Materials (ID_Material, ID_MatType, ID_Unit, unitValue, BorrowLimitDays) VALUES (@MaterialID, @MatType, @Unit, @UnitValue, @BorrowDays)";
+                    string insertQuery = @"INSERT INTO Materials (ID_Material, ID_MatType, ID_Unit, BorrowLimitDays, Description, shortDescription) VALUES (@MaterialID, @MatType, @Unit, @BorrowDays, @Description, @shortDescription)";
 
                     using (SqlCommand command = new SqlCommand(insertQuery, connection))
                     {
@@ -141,8 +145,10 @@ namespace TechMate_Inventory
                         int newMaterialId = GetNextMaterialId(); // Obtén el próximo ID
                         int matType = (int)comboBoxMatTypes.SelectedValue;
                         int unit = (int)comboBoxMatUnit.SelectedValue;
-                        int unitValue = string.IsNullOrEmpty(richTextBoxMatDesc.Text) ? 0 : int.Parse(richTextBoxMatDesc.Text); // Asumiendo que 'unitValue' se maneja en la descripción como un entero
-                                                                                                                                // Seguro manejo de la conversión de BorrowLimitDays
+                        String shortDescription = textBoxshortDescription.Text;
+                        String description = richTextBoxMatDesc.Text;
+                        
+                        // Seguro manejo de la conversión de BorrowLimitDays
                         int borrowLimitDays = 0;
                         int.TryParse(textBoxBorrowLimitDays.Text, out borrowLimitDays);
 
@@ -150,12 +156,20 @@ namespace TechMate_Inventory
                         command.Parameters.AddWithValue("@MaterialID", newMaterialId);
                         command.Parameters.AddWithValue("@MatType", matType);
                         command.Parameters.AddWithValue("@Unit", unit);
-                        command.Parameters.AddWithValue("@UnitValue", unitValue);
                         command.Parameters.AddWithValue("@BorrowDays", borrowLimitDays);
+                        command.Parameters.AddWithValue("@Description", description);
+                        command.Parameters.AddWithValue("@shortDescription", shortDescription);
 
                         command.ExecuteNonQuery();
                         MessageBox.Show("Material added successfully!");
                     }
+
+                    // Si el formulario padre está configurado, actualízalo
+                    if (parentForm != null)
+                    {
+                        parentForm.LoadDataFromView();
+                    }
+                    this.Close(); // Opcionalmente cierra este formulario
                 }
                 catch (Exception ex)
                 {

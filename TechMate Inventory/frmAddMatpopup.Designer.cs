@@ -46,6 +46,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxBorrowLimitDays = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxshortDescription = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSetBindingSource)).BeginInit();
@@ -66,7 +68,7 @@
             this.comboBoxCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategories.FormattingEnabled = true;
-            this.comboBoxCategories.Location = new System.Drawing.Point(19, 120);
+            this.comboBoxCategories.Location = new System.Drawing.Point(31, 116);
             this.comboBoxCategories.Name = "comboBoxCategories";
             this.comboBoxCategories.Size = new System.Drawing.Size(205, 37);
             this.comboBoxCategories.TabIndex = 2;
@@ -103,10 +105,10 @@
             // 
             // richTextBoxMatDesc
             // 
-            this.richTextBoxMatDesc.Location = new System.Drawing.Point(19, 277);
+            this.richTextBoxMatDesc.Location = new System.Drawing.Point(31, 277);
             this.richTextBoxMatDesc.MaxLength = 150;
             this.richTextBoxMatDesc.Name = "richTextBoxMatDesc";
-            this.richTextBoxMatDesc.Size = new System.Drawing.Size(736, 96);
+            this.richTextBoxMatDesc.Size = new System.Drawing.Size(724, 96);
             this.richTextBoxMatDesc.TabIndex = 6;
             this.richTextBoxMatDesc.Text = "";
             this.richTextBoxMatDesc.TextChanged += new System.EventHandler(this.richTextBoxMatDesc_TextChanged);
@@ -115,7 +117,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 92);
+            this.label3.Location = new System.Drawing.Point(26, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 25);
             this.label3.TabIndex = 7;
@@ -126,7 +128,7 @@
             this.comboBoxMatTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMatTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMatTypes.FormattingEnabled = true;
-            this.comboBoxMatTypes.Location = new System.Drawing.Point(245, 120);
+            this.comboBoxMatTypes.Location = new System.Drawing.Point(300, 116);
             this.comboBoxMatTypes.Name = "comboBoxMatTypes";
             this.comboBoxMatTypes.Size = new System.Drawing.Size(205, 37);
             this.comboBoxMatTypes.TabIndex = 8;
@@ -135,7 +137,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(240, 92);
+            this.label4.Location = new System.Drawing.Point(295, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 25);
             this.label4.TabIndex = 9;
@@ -146,7 +148,7 @@
             this.comboBoxMatUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMatUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMatUnit.FormattingEnabled = true;
-            this.comboBoxMatUnit.Location = new System.Drawing.Point(475, 120);
+            this.comboBoxMatUnit.Location = new System.Drawing.Point(550, 116);
             this.comboBoxMatUnit.Name = "comboBoxMatUnit";
             this.comboBoxMatUnit.Size = new System.Drawing.Size(205, 37);
             this.comboBoxMatUnit.TabIndex = 10;
@@ -155,7 +157,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(470, 92);
+            this.label5.Location = new System.Drawing.Point(545, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 25);
             this.label5.TabIndex = 11;
@@ -187,7 +189,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(14, 169);
+            this.label6.Location = new System.Drawing.Point(545, 169);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(184, 25);
             this.label6.TabIndex = 14;
@@ -196,17 +198,37 @@
             // textBoxBorrowLimitDays
             // 
             this.textBoxBorrowLimitDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBorrowLimitDays.Location = new System.Drawing.Point(19, 197);
+            this.textBoxBorrowLimitDays.Location = new System.Drawing.Point(550, 197);
             this.textBoxBorrowLimitDays.Name = "textBoxBorrowLimitDays";
-            this.textBoxBorrowLimitDays.Size = new System.Drawing.Size(171, 34);
+            this.textBoxBorrowLimitDays.Size = new System.Drawing.Size(205, 34);
             this.textBoxBorrowLimitDays.TabIndex = 15;
             this.textBoxBorrowLimitDays.TextChanged += new System.EventHandler(this.textBoxBorrowLimitDays_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(26, 169);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(152, 25);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Descripción CORTA";
+            // 
+            // textBoxshortDescription
+            // 
+            this.textBoxshortDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxshortDescription.Location = new System.Drawing.Point(31, 197);
+            this.textBoxshortDescription.Name = "textBoxshortDescription";
+            this.textBoxshortDescription.Size = new System.Drawing.Size(474, 34);
+            this.textBoxshortDescription.TabIndex = 18;
             // 
             // frmAddMatpopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxshortDescription);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxBorrowLimitDays);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCancel);
@@ -250,5 +272,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxBorrowLimitDays;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxshortDescription;
     }
 }

@@ -51,6 +51,7 @@ namespace TechMate_Inventory
             string connectionString = ConfigurationManager.ConnectionStrings["TechMate_Inventory.Properties.Settings.TechMateInventoryConnectionString"].ConnectionString;
             //MessageBox.Show(connectionString);
             string query = "SELECT * FROM vwMaterialCatalogue";
+            
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -63,10 +64,13 @@ namespace TechMate_Inventory
                     connection.Open();
                     adapter.Fill(table);
                     vwMatCatGridView.DataSource = table;
+
                     // Opcionalmente configurar las cabeceras si es necesario
+
+                    vwMatCatGridView.Columns["ID_Material"].HeaderText = "Índice";
+                    vwMatCatGridView.Columns["shortDescription"].HeaderText = "Descripción corta";
                     vwMatCatGridView.Columns["Category"].HeaderText = "Categoría";
                     vwMatCatGridView.Columns["MaterialType"].HeaderText = "Tipo";
-                    vwMatCatGridView.Columns["unitValue"].HeaderText = "Valor";
                     vwMatCatGridView.Columns["UnitName"].HeaderText = "Unidad";
                     vwMatCatGridView.Columns["BorrowLimitDays"].HeaderText = "Días máximos de préstamo";
                 }
@@ -89,8 +93,21 @@ namespace TechMate_Inventory
 
         private void addNewMatBtn_Click(object sender, EventArgs e)
         {
-            frmAddMatpopup addMatpopup = new frmAddMatpopup();
+            frmAddMatpopup addMatpopup = new frmAddMatpopup(this);
             addMatpopup.Show();
+        }
+
+        private void vwMatCatGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
+            if (e.RowIndex >= 0)
+            {
+                // Aquí puedes acceder a la fila en la que se hizo doble clic
+                DataGridViewRow clickedRow = vwMatCatGridView.Rows[e.RowIndex];
+
+                // Por ejemplo, mostrar información de la fila
+                MessageBox.Show($"Doble clic en la fila con ID: {clickedRow.Cells["ID_Material"].Value.ToString()}");
+            }
         }
     }
 }
