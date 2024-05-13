@@ -29,10 +29,11 @@ namespace TechMate_Inventory
             {
                 // Carga datos en la tabla 'techMateInventoryDataSet.vwMaterialCatalogue'
                 this.vwMaterialCatalogueTableAdapter.Fill(this.techMateInventoryDataSet.vwMaterialCatalogue);
-                this.vwMaterialCatalogueTableAdapter.Fill(this.techMateInventoryDataSet.vwMaterialCatalogue);
 
                 // Llama a la función para cargar datos desde la vista
                 LoadDataFromView();
+
+                AddDeleteButtonColumn();
             }
             catch (Exception ex)
             {
@@ -80,6 +81,45 @@ namespace TechMate_Inventory
                 }
             }
         }
+        private void AddDeleteButtonColumn()
+        {
+            // Verifica si la columna ya existe para evitar duplicados
+            if (!vwMatCatGridView.Columns.Contains("deleteColumn"))
+            {
+                DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
+                deleteButtonColumn.Name = "deleteColumn";
+                deleteButtonColumn.HeaderText = "";
+                deleteButtonColumn.Text = "Borrar";
+                deleteButtonColumn.UseColumnTextForButtonValue = true;  // Hace que el texto del botón sea el valor por defecto de la columna
+                deleteButtonColumn.Width = 60; // Ancho de la columna de botón
+
+                // Añade la columna de botón al final de todas las columnas existentes
+                vwMatCatGridView.Columns.Add(deleteButtonColumn);
+            }
+        }
+
+        private void DeleteMaterial(int materialId)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["TechMate_Inventory.Properties.Settings.TechMateInventoryConnectionString"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM Materials WHERE ID_Material = @MaterialId";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@MaterialId", materialId);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudo eliminar el material: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -113,6 +153,21 @@ namespace TechMate_Inventory
                 //MessageBox.Show($"Doble clic en la fila con ID: {clickedRow.Cells["ID_Material"].Value.ToString()}");
                 //selectedIndex = clickedRow.Cells["ID_Material"].Value;
             }
+            
         }
+        private void vwMatCatGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Asegúrate de que el clic sea en la columna de botones y no en el encabezado o una fila no válida
+            if (e.RowIndex >= 0 && e.ColumnIndex == vwMatCatGridView.Columns["deleteColumn"].Index)
+            {
+                if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int materialId = Convert.ToInt32(vwMatCatGridView.Rows[e.RowIndex].Cells["ID_Material"].Value);
+                    DeleteMaterial(materialId);
+                    vwMatCatGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                }
+            }
+        }
+
     }
 }

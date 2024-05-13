@@ -160,6 +160,7 @@
             this.vwMatCatGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.vwMatCatGridView.Size = new System.Drawing.Size(1489, 286);
             this.vwMatCatGridView.TabIndex = 4;
+            this.vwMatCatGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwMatCatGridView_CellClick);
             this.vwMatCatGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwMatCatGridView_CellDoubleClick);
             // 
             // frmMatCatalogue
