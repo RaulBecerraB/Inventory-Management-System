@@ -29,9 +29,9 @@ namespace TechMate_Inventory
             switch (e.ClickedItem.Name)
             {
                 case "catalogueBtn":
-                    int childIndex = fnBuscaMDIChild("frmMatCatalogue");
+                    int childIndexCatalogue = fnBuscaMDIChild("frmMatCatalogue");
          
-                    if (childIndex == -1)
+                    if (childIndexCatalogue == -1)
                     {
                         frmMatCatalogue Catalogue = new frmMatCatalogue();
                         Catalogue.MdiParent = this;
@@ -40,14 +40,26 @@ namespace TechMate_Inventory
                     }
                     else
                     {
-                        this.MdiChildren[childIndex].Focus();
+                        this.MdiChildren[childIndexCatalogue].Focus();
                     }
                     break;
+
                 case "kardexBtn":
-                    frmKardex Kardex = new frmKardex();
-                    Kardex.MdiParent = this;
-                    Kardex.Dock = DockStyle.Fill;
-                    Kardex.Show();
+
+                    int childIndexKardex = fnBuscaMDIChild("frmKardex");
+
+                    if (childIndexKardex == -1)
+                    {
+                        frmKardex Kardex = new frmKardex();
+                        Kardex.MdiParent = this;
+                        Kardex.Dock = DockStyle.Fill;
+                        Kardex.Show();
+                    }
+                    else
+                    {
+                        this.MdiChildren[childIndexKardex].Focus();
+                    }
+                    
                     break;
 
                 default:

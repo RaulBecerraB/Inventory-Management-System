@@ -35,19 +35,6 @@ namespace TechMate_Inventory
             LoadDataIntoComboBox();
         }
 
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.categoriesTableAdapter.FillBy(this.techMateInventoryDataSet.Categories);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
         private void LoadDataIntoComboBox()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -116,8 +103,6 @@ namespace TechMate_Inventory
                 }
             }
         }
-
-
 
         private void comboBoxCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
