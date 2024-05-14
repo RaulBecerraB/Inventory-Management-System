@@ -30,14 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxCategories = new System.Windows.Forms.ComboBox();
             this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.techMateInventoryDataSet = new TechMate_Inventory.TechMateInventoryDataSet();
             this.techMateInventoryDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriesTableAdapter = new TechMate_Inventory.TechMateInventoryDataSetTableAdapters.CategoriesTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.richTextBoxMatDesc = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.comboBoxMatTypes = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxMatUnit = new System.Windows.Forms.ComboBox();
@@ -62,17 +60,6 @@
             this.label1.Size = new System.Drawing.Size(310, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Editar material existente";
-            // 
-            // comboBoxCategories
-            // 
-            this.comboBoxCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxCategories.FormattingEnabled = true;
-            this.comboBoxCategories.Location = new System.Drawing.Point(31, 116);
-            this.comboBoxCategories.Name = "comboBoxCategories";
-            this.comboBoxCategories.Size = new System.Drawing.Size(205, 37);
-            this.comboBoxCategories.TabIndex = 2;
-            this.comboBoxCategories.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategories_SelectedIndexChanged);
             // 
             // categoriesBindingSource
             // 
@@ -113,22 +100,12 @@
             this.richTextBoxMatDesc.Text = "";
             this.richTextBoxMatDesc.TextChanged += new System.EventHandler(this.richTextBoxMatDesc_TextChanged);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 25);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Categorías";
-            // 
             // comboBoxMatTypes
             // 
             this.comboBoxMatTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMatTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMatTypes.FormattingEnabled = true;
-            this.comboBoxMatTypes.Location = new System.Drawing.Point(300, 116);
+            this.comboBoxMatTypes.Location = new System.Drawing.Point(31, 116);
             this.comboBoxMatTypes.Name = "comboBoxMatTypes";
             this.comboBoxMatTypes.Size = new System.Drawing.Size(205, 37);
             this.comboBoxMatTypes.TabIndex = 8;
@@ -137,7 +114,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(295, 88);
+            this.label4.Location = new System.Drawing.Point(26, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 25);
             this.label4.TabIndex = 9;
@@ -148,7 +125,7 @@
             this.comboBoxMatUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMatUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMatUnit.FormattingEnabled = true;
-            this.comboBoxMatUnit.Location = new System.Drawing.Point(550, 116);
+            this.comboBoxMatUnit.Location = new System.Drawing.Point(275, 116);
             this.comboBoxMatUnit.Name = "comboBoxMatUnit";
             this.comboBoxMatUnit.Size = new System.Drawing.Size(205, 37);
             this.comboBoxMatUnit.TabIndex = 10;
@@ -157,7 +134,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(545, 88);
+            this.label5.Location = new System.Drawing.Point(270, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 25);
             this.label5.TabIndex = 11;
@@ -189,7 +166,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(545, 169);
+            this.label6.Location = new System.Drawing.Point(514, 91);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(184, 25);
             this.label6.TabIndex = 14;
@@ -198,7 +175,7 @@
             // textBoxBorrowLimitDays
             // 
             this.textBoxBorrowLimitDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBorrowLimitDays.Location = new System.Drawing.Point(550, 197);
+            this.textBoxBorrowLimitDays.Location = new System.Drawing.Point(519, 119);
             this.textBoxBorrowLimitDays.Name = "textBoxBorrowLimitDays";
             this.textBoxBorrowLimitDays.Size = new System.Drawing.Size(205, 34);
             this.textBoxBorrowLimitDays.TabIndex = 15;
@@ -219,7 +196,7 @@
             this.textBoxshortDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxshortDescription.Location = new System.Drawing.Point(31, 197);
             this.textBoxshortDescription.Name = "textBoxshortDescription";
-            this.textBoxshortDescription.Size = new System.Drawing.Size(474, 34);
+            this.textBoxshortDescription.Size = new System.Drawing.Size(724, 34);
             this.textBoxshortDescription.TabIndex = 18;
             // 
             // Material_CRUD_PopUp1
@@ -237,10 +214,8 @@
             this.Controls.Add(this.comboBoxMatUnit);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBoxMatTypes);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.richTextBoxMatDesc);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBoxCategories);
             this.Controls.Add(this.label1);
             this.Name = "Material_CRUD_PopUp1";
             this.Text = "frmEditMatPopUp";
@@ -256,14 +231,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxCategories;
         private System.Windows.Forms.BindingSource techMateInventoryDataSetBindingSource;
         private TechMateInventoryDataSet techMateInventoryDataSet;
         private System.Windows.Forms.BindingSource categoriesBindingSource;
         private TechMateInventoryDataSetTableAdapters.CategoriesTableAdapter categoriesTableAdapter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBoxMatDesc;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxMatTypes;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBoxMatUnit;

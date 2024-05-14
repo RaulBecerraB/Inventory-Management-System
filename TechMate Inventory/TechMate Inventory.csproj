@@ -79,6 +79,12 @@
     <Compile Include="frmAddUnitPopUp.Designer.cs">
       <DependentUpon>frmAddUnitPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditMaterialTypePopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditMaterialTypePopUp.Designer.cs">
+      <DependentUpon>frmEditMaterialTypePopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmKardex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUnitPopUp.resx">
       <DependentUpon>frmAddUnitPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditMaterialTypePopUp.resx">
+      <DependentUpon>frmEditMaterialTypePopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKardex.resx">
       <DependentUpon>frmKardex.cs</DependentUpon>

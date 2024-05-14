@@ -35,7 +35,6 @@ namespace TechMate_Inventory
                 // Llama a la función para cargar datos desde la vista
                 LoadDataFromView();
                 LoadLowerTables();
-
                 AddDeleteButtonColumn();
             }
             catch (Exception ex)
@@ -80,7 +79,7 @@ namespace TechMate_Inventory
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable table = new DataTable();          
+                DataTable table = new DataTable();
 
                 try
                 {
@@ -105,7 +104,7 @@ namespace TechMate_Inventory
         }
         public void LoadLowerTables()
         {
-            string categoriesQuery = "SELECT * FROM Categories" ;
+            string categoriesQuery = "SELECT * FROM Categories";
             string matTypesQuery = "SELECT ID_MatType,Name FROM MatTypes";
             string matUnitsQuery = "SELECT * FROM MatUnits";
 
@@ -113,9 +112,9 @@ namespace TechMate_Inventory
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand CategoriesCmd = new SqlCommand(categoriesQuery, connection);
-                SqlCommand MatTypesCmd = new SqlCommand (matTypesQuery, connection);
+                SqlCommand MatTypesCmd = new SqlCommand(matTypesQuery, connection);
                 SqlCommand MatUnitsCmd = new SqlCommand(matUnitsQuery, connection);
-                
+
                 SqlDataAdapter Categoriesadapter = new SqlDataAdapter(CategoriesCmd);
                 SqlDataAdapter MatTypesadapter = new SqlDataAdapter(MatTypesCmd);
                 SqlDataAdapter MatUnitsadapter = new SqlDataAdapter(MatUnitsCmd);
@@ -151,7 +150,7 @@ namespace TechMate_Inventory
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show( " Error cargando las CATEGORÍAS: " + ex.Message);
+                    MessageBox.Show(" Error cargando las CATEGORÍAS: " + ex.Message);
                 }
             }
         }
@@ -191,7 +190,7 @@ namespace TechMate_Inventory
         private void addNewMatBtn_Click(object sender, EventArgs e)
         {
             //THE CREATE MATERIAL
-            frmAddMatpopup addMatpopup = new frmAddMatpopup(this,connectionString);
+            frmAddMatpopup addMatpopup = new frmAddMatpopup(this, connectionString);
             addMatpopup.Show();
         }
         // Event handlers refactored to use DeleteItem
@@ -217,7 +216,7 @@ namespace TechMate_Inventory
                 // Aquí puedes acceder a la fila en la que se hizo doble clic
                 DataGridViewRow clickedRow = vwMatCatGridView.Rows[e.RowIndex];
 
-                Material_CRUD_PopUp1 editPopup = new Material_CRUD_PopUp1(this,connectionString);
+                Material_CRUD_PopUp1 editPopup = new Material_CRUD_PopUp1(this, connectionString);
                 editPopup.intMaterialId = (int)clickedRow.Cells["ID_Material"].Value;
                 editPopup.Show();
 
@@ -225,7 +224,7 @@ namespace TechMate_Inventory
                 //MessageBox.Show($"Doble clic en la fila con ID: {clickedRow.Cells["ID_Material"].Value.ToString()}");
                 //selectedIndex = clickedRow.Cells["ID_Material"].Value;
             }
-            
+
         }
         private void addNewCatBtn_Click(object sender, EventArgs e)
         {
@@ -277,6 +276,20 @@ namespace TechMate_Inventory
                     DeleteItem("MatTypes", "ID_MatType", unitId);
                     vwMatTypesGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
                 }
+            }
+        }
+
+        private void vwMatTypesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
+            if (e.RowIndex >= 0)
+            {
+                // Aquí puedes acceder a la fila en la que se hizo doble clic
+                DataGridViewRow clickedRow = vwMatTypesGridView.Rows[e.RowIndex];
+
+                frmEditMaterialTypePopUp editPopup = new frmEditMaterialTypePopUp(this, connectionString);
+                editPopup.intTypeId = (int)clickedRow.Cells["ID_MatType"].Value;
+                editPopup.Show();
             }
         }
     }

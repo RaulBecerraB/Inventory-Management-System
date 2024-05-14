@@ -65,13 +65,13 @@ namespace TechMate_Inventory
 
 
                     // Asignar DataTable como DataSource del ComboBox.
-                    comboBoxCategories.DataSource = categoriesName;
+                    //comboBoxCategories.DataSource = categoriesName;
                     comboBoxMatTypes.DataSource = matTypeName;
                     comboBoxMatUnit.DataSource = matUnitName;
 
                     // Configurar DisplayMember y ValueMember.
-                    comboBoxCategories.DisplayMember = "Name";  // Columna para mostrar en el ComboBox.
-                    comboBoxCategories.ValueMember = "ID_Category";  // Columna como valor que representa los items.
+                    //comboBoxCategories.DisplayMember = "Name";  // Columna para mostrar en el ComboBox.
+                    //comboBoxCategories.ValueMember = "ID_Category";  // Columna como valor que representa los items.
 
                     // Configurar DisplayMember y ValueMember.
                     comboBoxMatTypes.DisplayMember = "Name";  // Columna para mostrar en el ComboBox.

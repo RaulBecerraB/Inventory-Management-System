@@ -105,9 +105,9 @@ namespace TechMate_Inventory
                     SqlDataAdapter CatAdapter = new SqlDataAdapter(Catquery, connection);
                     DataTable categoriesName = new DataTable();
                     CatAdapter.Fill(categoriesName);
-                    comboBoxCategories.DataSource = categoriesName;
-                    comboBoxCategories.DisplayMember = "Name";
-                    comboBoxCategories.ValueMember = "ID_Category";
+                    //comboBoxCategories.DataSource = categoriesName;
+                    //comboBoxCategories.DisplayMember = "Name";
+                    //comboBoxCategories.ValueMember = "ID_Category";
 
                     // Consulta para obtener todas las Unidades y seleccionar la actual
                     string MatUnitquery = "SELECT ID_Unit, Name FROM MatUnits";
@@ -131,9 +131,10 @@ namespace TechMate_Inventory
         {
             // Consulta para obtener los valores actuales del material
             string query = @"
-        SELECT ID_MatType, ID_Unit, (SELECT ID_Category FROM MatTypes WHERE ID_MatType = Materials.ID_MatType) AS ID_Category
-        FROM Materials
-        WHERE ID_Material = @MaterialId";
+            SELECT ID_MatType, ID_Unit, (SELECT ID_Category FROM MatTypes WHERE ID_MatType = Materials.ID_MatType) AS ID_Category
+            FROM Materials
+            WHERE ID_Material = @MaterialId";
+
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@MaterialId", materialId);
 
@@ -143,7 +144,7 @@ namespace TechMate_Inventory
                 {
                     comboBoxMatTypes.SelectedValue = reader["ID_MatType"];
                     comboBoxMatUnit.SelectedValue = reader["ID_Unit"];
-                    comboBoxCategories.SelectedValue = reader["ID_Category"];
+                    //comboBoxCategories.SelectedValue = reader["ID_Category"];
                 }
             }
         }
