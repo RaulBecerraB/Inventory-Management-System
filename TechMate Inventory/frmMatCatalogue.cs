@@ -292,5 +292,33 @@ namespace TechMate_Inventory
                 editPopup.Show();
             }
         }
+
+        private void vwCategoriesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
+            if (e.RowIndex >= 0)
+            {
+                // Aquí puedes acceder a la fila en la que se hizo doble clic
+                DataGridViewRow clickedRow = vwCategoriesGridView.Rows[e.RowIndex];
+
+                frmEditCategoryPopUp editPopup = new frmEditCategoryPopUp(this, connectionString);
+                editPopup.intCategoryId = (int)clickedRow.Cells["ID_Category"].Value;
+                editPopup.Show();
+            }
+        }
+
+        private void vwMatUnitsGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
+            if (e.RowIndex >= 0)
+            {
+                // Aquí puedes acceder a la fila en la que se hizo doble clic
+                DataGridViewRow clickedRow = vwMatUnitsGridView.Rows[e.RowIndex];
+
+                frmEditUnitPopUp editPopup = new frmEditUnitPopUp(this, connectionString);
+                editPopup.intUnitId = (int)clickedRow.Cells["ID_Unit"].Value;
+                editPopup.Show();
+            }
+        }
     }
 }

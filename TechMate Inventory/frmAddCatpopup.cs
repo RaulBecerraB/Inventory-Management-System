@@ -79,7 +79,7 @@ namespace TechMate_Inventory
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT MAX(ID_Material) FROM Materials";
+                string query = "SELECT MAX(ID_Category) FROM Categories";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     object result = command.ExecuteScalar();

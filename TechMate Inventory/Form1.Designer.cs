@@ -63,7 +63,7 @@
             this.Inicio.Image = ((System.Drawing.Image)(resources.GetObject("Inicio.Image")));
             this.Inicio.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Inicio.Name = "Inicio";
-            this.Inicio.Size = new System.Drawing.Size(78, 95);
+            this.Inicio.Size = new System.Drawing.Size(97, 95);
             this.Inicio.Text = "Inicio";
             this.Inicio.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
@@ -91,7 +91,7 @@
             this.kardexBtn.Image = ((System.Drawing.Image)(resources.GetObject("kardexBtn.Image")));
             this.kardexBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.kardexBtn.Name = "kardexBtn";
-            this.kardexBtn.Size = new System.Drawing.Size(94, 95);
+            this.kardexBtn.Size = new System.Drawing.Size(116, 95);
             this.kardexBtn.Text = "Kardex";
             this.kardexBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
@@ -102,7 +102,7 @@
             this.catalogueBtn.Image = ((System.Drawing.Image)(resources.GetObject("catalogueBtn.Image")));
             this.catalogueBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.catalogueBtn.Name = "catalogueBtn";
-            this.catalogueBtn.Size = new System.Drawing.Size(115, 95);
+            this.catalogueBtn.Size = new System.Drawing.Size(145, 95);
             this.catalogueBtn.Text = "Catálogo";
             this.catalogueBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
@@ -118,6 +118,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "AAAIMX Inventory System";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
