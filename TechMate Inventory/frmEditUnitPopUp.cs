@@ -56,6 +56,7 @@ namespace TechMate_Inventory
                     // Si el formulario padre está configurado, actualízalo
                     if (catalogueParent != null)
                     {
+                        catalogueParent.LoadDataFromView();
                         catalogueParent.LoadLowerTables();
                     }
                     this.Close(); // Opcionalmente cierra este formulario

@@ -99,12 +99,12 @@
             // catMatTitle
             // 
             this.catMatTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.catMatTitle.Location = new System.Drawing.Point(28, 84);
+            this.catMatTitle.Location = new System.Drawing.Point(21, 68);
+            this.catMatTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.catMatTitle.Name = "catMatTitle";
-            this.catMatTitle.Size = new System.Drawing.Size(415, 42);
+            this.catMatTitle.Size = new System.Drawing.Size(311, 34);
             this.catMatTitle.TabIndex = 1;
             this.catMatTitle.Text = "Catálogo de materiales";
-            this.catMatTitle.Click += new System.EventHandler(this.catMatTitle_Click);
             // 
             // vwMaterialCatalogueBindingSource
             // 
@@ -121,10 +121,9 @@
             this.addNewMatBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addNewMatBtn.BackgroundImage")));
             this.addNewMatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addNewMatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewMatBtn.Location = new System.Drawing.Point(35, 21);
-            this.addNewMatBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addNewMatBtn.Location = new System.Drawing.Point(26, 17);
             this.addNewMatBtn.Name = "addNewMatBtn";
-            this.addNewMatBtn.Size = new System.Drawing.Size(53, 49);
+            this.addNewMatBtn.Size = new System.Drawing.Size(40, 40);
             this.addNewMatBtn.TabIndex = 2;
             this.addNewMatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewMatBtn.UseVisualStyleBackColor = true;
@@ -134,10 +133,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(96, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(72, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(276, 31);
+            this.label1.Size = new System.Drawing.Size(221, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "Añadir nuevo material";
             // 
@@ -166,8 +164,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.vwMatCatGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.vwMatCatGridView.Location = new System.Drawing.Point(35, 129);
-            this.vwMatCatGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.vwMatCatGridView.Location = new System.Drawing.Point(26, 105);
+            this.vwMatCatGridView.Margin = new System.Windows.Forms.Padding(2);
             this.vwMatCatGridView.Name = "vwMatCatGridView";
             this.vwMatCatGridView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -183,10 +181,10 @@
             this.vwMatCatGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.vwMatCatGridView.RowTemplate.Height = 32;
             this.vwMatCatGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.vwMatCatGridView.Size = new System.Drawing.Size(1509, 338);
+            this.vwMatCatGridView.Size = new System.Drawing.Size(1132, 275);
             this.vwMatCatGridView.TabIndex = 4;
-            this.vwMatCatGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwMatCatGridView_CellClick);
-            this.vwMatCatGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwMatCatGridView_CellDoubleClick);
+            this.vwMatCatGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeleteMaterial_CellClick);
+            this.vwMatCatGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditMaterial_CellDoubleClick);
             // 
             // addNewCatBtn
             // 
@@ -194,10 +192,9 @@
             this.addNewCatBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addNewCatBtn.BackgroundImage")));
             this.addNewCatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addNewCatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewCatBtn.Location = new System.Drawing.Point(35, 501);
-            this.addNewCatBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addNewCatBtn.Location = new System.Drawing.Point(26, 407);
             this.addNewCatBtn.Name = "addNewCatBtn";
-            this.addNewCatBtn.Size = new System.Drawing.Size(53, 49);
+            this.addNewCatBtn.Size = new System.Drawing.Size(40, 40);
             this.addNewCatBtn.TabIndex = 5;
             this.addNewCatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewCatBtn.UseVisualStyleBackColor = true;
@@ -228,8 +225,8 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.vwCategoriesGridView.DefaultCellStyle = dataGridViewCellStyle6;
-            this.vwCategoriesGridView.Location = new System.Drawing.Point(35, 580);
-            this.vwCategoriesGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.vwCategoriesGridView.Location = new System.Drawing.Point(26, 471);
+            this.vwCategoriesGridView.Margin = new System.Windows.Forms.Padding(2);
             this.vwCategoriesGridView.Name = "vwCategoriesGridView";
             this.vwCategoriesGridView.ReadOnly = true;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -245,17 +242,18 @@
             this.vwCategoriesGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.vwCategoriesGridView.RowTemplate.Height = 32;
             this.vwCategoriesGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.vwCategoriesGridView.Size = new System.Drawing.Size(427, 338);
+            this.vwCategoriesGridView.Size = new System.Drawing.Size(320, 275);
             this.vwCategoriesGridView.TabIndex = 7;
-            this.vwCategoriesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwCategoriesGridView_CellClick);
-            this.vwCategoriesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwCategoriesGridView_CellDoubleClick);
+            this.vwCategoriesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeleteLineCategories_CellClick);
+            this.vwCategoriesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditCategory_CellDoubleClick);
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(93, 507);
+            this.label3.Location = new System.Drawing.Point(70, 412);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(367, 42);
+            this.label3.Size = new System.Drawing.Size(275, 34);
             this.label3.TabIndex = 8;
             this.label3.Text = "Categorías";
             // 
@@ -284,8 +282,8 @@
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.vwMatTypesGridView.DefaultCellStyle = dataGridViewCellStyle10;
-            this.vwMatTypesGridView.Location = new System.Drawing.Point(501, 580);
-            this.vwMatTypesGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.vwMatTypesGridView.Location = new System.Drawing.Point(376, 471);
+            this.vwMatTypesGridView.Margin = new System.Windows.Forms.Padding(2);
             this.vwMatTypesGridView.Name = "vwMatTypesGridView";
             this.vwMatTypesGridView.ReadOnly = true;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -301,10 +299,10 @@
             this.vwMatTypesGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.vwMatTypesGridView.RowTemplate.Height = 32;
             this.vwMatTypesGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.vwMatTypesGridView.Size = new System.Drawing.Size(579, 338);
+            this.vwMatTypesGridView.Size = new System.Drawing.Size(434, 275);
             this.vwMatTypesGridView.TabIndex = 9;
-            this.vwMatTypesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwMatTypesGridView_CellClick);
-            this.vwMatTypesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwMatTypesGridView_CellDoubleClick);
+            this.vwMatTypesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeleteLineMatTypes_CellClick);
+            this.vwMatTypesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditMatType_CellDoubleClick);
             // 
             // addNewTypeBtn
             // 
@@ -312,10 +310,9 @@
             this.addNewTypeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addNewTypeBtn.BackgroundImage")));
             this.addNewTypeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addNewTypeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewTypeBtn.Location = new System.Drawing.Point(503, 502);
-            this.addNewTypeBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addNewTypeBtn.Location = new System.Drawing.Point(377, 408);
             this.addNewTypeBtn.Name = "addNewTypeBtn";
-            this.addNewTypeBtn.Size = new System.Drawing.Size(53, 49);
+            this.addNewTypeBtn.Size = new System.Drawing.Size(40, 40);
             this.addNewTypeBtn.TabIndex = 10;
             this.addNewTypeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewTypeBtn.UseVisualStyleBackColor = true;
@@ -324,9 +321,10 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(561, 508);
+            this.label2.Location = new System.Drawing.Point(421, 413);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(367, 42);
+            this.label2.Size = new System.Drawing.Size(275, 34);
             this.label2.TabIndex = 11;
             this.label2.Text = "Tipos";
             // 
@@ -336,10 +334,9 @@
             this.addNewUnitBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addNewUnitBtn.BackgroundImage")));
             this.addNewUnitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addNewUnitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewUnitBtn.Location = new System.Drawing.Point(1119, 503);
-            this.addNewUnitBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addNewUnitBtn.Location = new System.Drawing.Point(839, 409);
             this.addNewUnitBtn.Name = "addNewUnitBtn";
-            this.addNewUnitBtn.Size = new System.Drawing.Size(53, 49);
+            this.addNewUnitBtn.Size = new System.Drawing.Size(40, 40);
             this.addNewUnitBtn.TabIndex = 12;
             this.addNewUnitBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewUnitBtn.UseVisualStyleBackColor = true;
@@ -348,9 +345,10 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1177, 510);
+            this.label4.Location = new System.Drawing.Point(883, 414);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(367, 42);
+            this.label4.Size = new System.Drawing.Size(275, 34);
             this.label4.TabIndex = 13;
             this.label4.Text = "Unidades de medida";
             // 
@@ -379,8 +377,8 @@
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.vwMatUnitsGridView.DefaultCellStyle = dataGridViewCellStyle14;
-            this.vwMatUnitsGridView.Location = new System.Drawing.Point(1117, 580);
-            this.vwMatUnitsGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.vwMatUnitsGridView.Location = new System.Drawing.Point(838, 471);
+            this.vwMatUnitsGridView.Margin = new System.Windows.Forms.Padding(2);
             this.vwMatUnitsGridView.Name = "vwMatUnitsGridView";
             this.vwMatUnitsGridView.ReadOnly = true;
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -396,17 +394,17 @@
             this.vwMatUnitsGridView.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.vwMatUnitsGridView.RowTemplate.Height = 32;
             this.vwMatUnitsGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.vwMatUnitsGridView.Size = new System.Drawing.Size(427, 338);
+            this.vwMatUnitsGridView.Size = new System.Drawing.Size(320, 275);
             this.vwMatUnitsGridView.TabIndex = 14;
-            this.vwMatUnitsGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwMatUnitsGridView_CellClick);
-            this.vwMatUnitsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwMatUnitsGridView_CellDoubleClick);
+            this.vwMatUnitsGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeleteLineUnits_CellClick);
+            this.vwMatUnitsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditUnit_CellDoubleClick);
             // 
             // frmMatCatalogue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1556, 1065);
+            this.ClientSize = new System.Drawing.Size(1167, 865);
             this.ControlBox = false;
             this.Controls.Add(this.vwMatUnitsGridView);
             this.Controls.Add(this.addNewUnitBtn);
@@ -422,7 +420,7 @@
             this.Controls.Add(this.catMatTitle);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMatCatalogue";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

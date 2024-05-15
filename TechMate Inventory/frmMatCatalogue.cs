@@ -179,34 +179,67 @@ namespace TechMate_Inventory
             AddDeleteButtonColumnToGridView(vwMatTypesGridView);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        private void catMatTitle_Click(object sender, EventArgs e)
-        {
-
-        }
         private void addNewMatBtn_Click(object sender, EventArgs e)
         {
             //THE CREATE MATERIAL
             frmAddMatpopup addMatpopup = new frmAddMatpopup(this, connectionString);
             addMatpopup.Show();
         }
-        // Event handlers refactored to use DeleteItem
-        private void vwMatCatGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void addNewCatBtn_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == vwMatCatGridView.Columns["deleteColumn"].Index)
+            frmAddCatpopup addCatPoPup = new frmAddCatpopup(this, connectionString);
+            addCatPoPup.Show();
+        }
+        private void addNewTypeBtn_Click(object sender, EventArgs e)
+        {
+            frmAddMaterialTypepopup addMatTypePopUp = new frmAddMaterialTypepopup(this, connectionString);
+            addMatTypePopUp.Show();
+        }
+        private void addNewUnitBtn_Click(object sender, EventArgs e)
+        {
+            frmAddUnitPopUp addUnitPopUp = new frmAddUnitPopUp(this, connectionString);
+            addUnitPopUp.Show();
+        }
+        private void EditCategory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
+            if (e.RowIndex >= 0)
             {
-                if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    int materialId = Convert.ToInt32(vwMatCatGridView.Rows[e.RowIndex].Cells["ID_Material"].Value);
-                    DeleteItem("Materials", "ID_Material", materialId);
-                    vwMatCatGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
-                }
+                // Aquí puedes acceder a la fila en la que se hizo doble clic
+                DataGridViewRow clickedRow = vwCategoriesGridView.Rows[e.RowIndex];
+
+                frmEditCategoryPopUp editPopup = new frmEditCategoryPopUp(this, connectionString);
+                editPopup.intCategoryId = (int)clickedRow.Cells["ID_Category"].Value;
+                editPopup.Show();
             }
         }
-        private void vwMatCatGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void EditMatType_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
+            if (e.RowIndex >= 0)
+            {
+                // Aquí puedes acceder a la fila en la que se hizo doble clic
+                DataGridViewRow clickedRow = vwMatTypesGridView.Rows[e.RowIndex];
+
+                frmEditMaterialTypePopUp editPopup = new frmEditMaterialTypePopUp(this, connectionString);
+                editPopup.intTypeId = (int)clickedRow.Cells["ID_MatType"].Value;
+                editPopup.Show();
+            }
+        }
+        private void EditUnit_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
+            if (e.RowIndex >= 0)
+            {
+                // Aquí puedes acceder a la fila en la que se hizo doble clic
+                DataGridViewRow clickedRow = vwMatUnitsGridView.Rows[e.RowIndex];
+
+                frmEditUnitPopUp editPopup = new frmEditUnitPopUp(this, connectionString);
+                editPopup.intUnitId = (int)clickedRow.Cells["ID_Unit"].Value;
+                editPopup.Show();
+            }
+        }
+        private void EditMaterial_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //THE EDIT MATERIAL
 
@@ -224,49 +257,32 @@ namespace TechMate_Inventory
                 //MessageBox.Show($"Doble clic en la fila con ID: {clickedRow.Cells["ID_Material"].Value.ToString()}");
                 //selectedIndex = clickedRow.Cells["ID_Material"].Value;
             }
-
         }
-        private void addNewCatBtn_Click(object sender, EventArgs e)
+        private void DeleteMaterial_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            frmAddCatpopup addCatPoPup = new frmAddCatpopup(this, connectionString);
-            addCatPoPup.Show();
+            if (e.RowIndex >= 0 && e.ColumnIndex == vwMatCatGridView.Columns["deleteColumn"].Index)
+            {
+                if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int materialId = Convert.ToInt32(vwMatCatGridView.Rows[e.RowIndex].Cells["ID_Material"].Value);
+                    DeleteItem("Materials", "ID_Material", materialId);
+                    vwMatCatGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                }
+            }
         }
-        private void vwCategoriesGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DeleteLineCategories_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == vwCategoriesGridView.Columns["deleteColumn"].Index)
             {
                 if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int categoryId = Convert.ToInt32(vwCategoriesGridView.Rows[e.RowIndex].Cells["ID_Category"].Value);
-                    DeleteItem("Categories", "ID_Category", categoryId);
+                    int unitId = Convert.ToInt32(vwCategoriesGridView.Rows[e.RowIndex].Cells["ID_Category"].Value);
+                    DeleteItem("Categories", "ID_Category", unitId);
                     vwCategoriesGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
                 }
             }
         }
-        private void addNewTypeBtn_Click(object sender, EventArgs e)
-        {
-            frmAddMaterialTypepopup addMatTypePopUp = new frmAddMaterialTypepopup(this, connectionString);
-            addMatTypePopUp.Show();
-        }
-        private void addNewUnitBtn_Click(object sender, EventArgs e)
-        {
-            frmAddUnitPopUp addUnitPopUp = new frmAddUnitPopUp(this, connectionString);
-            addUnitPopUp.Show();
-        }
-        private void vwMatUnitsGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex == vwMatUnitsGridView.Columns["deleteColumn"].Index)
-            {
-                if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    int unitId = Convert.ToInt32(vwMatUnitsGridView.Rows[e.RowIndex].Cells["ID_Unit"].Value);
-                    DeleteItem("MatUnits", "ID_Unit", unitId);
-                    vwMatUnitsGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
-                }
-            }
-        }
-
-        private void vwMatTypesGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DeleteLineMatTypes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == vwMatTypesGridView.Columns["deleteColumn"].Index)
             {
@@ -278,46 +294,16 @@ namespace TechMate_Inventory
                 }
             }
         }
-
-        private void vwMatTypesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DeleteLineUnits_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.ColumnIndex == vwMatUnitsGridView.Columns["deleteColumn"].Index)
             {
-                // Aquí puedes acceder a la fila en la que se hizo doble clic
-                DataGridViewRow clickedRow = vwMatTypesGridView.Rows[e.RowIndex];
-
-                frmEditMaterialTypePopUp editPopup = new frmEditMaterialTypePopUp(this, connectionString);
-                editPopup.intTypeId = (int)clickedRow.Cells["ID_MatType"].Value;
-                editPopup.Show();
-            }
-        }
-
-        private void vwCategoriesGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
-            if (e.RowIndex >= 0)
-            {
-                // Aquí puedes acceder a la fila en la que se hizo doble clic
-                DataGridViewRow clickedRow = vwCategoriesGridView.Rows[e.RowIndex];
-
-                frmEditCategoryPopUp editPopup = new frmEditCategoryPopUp(this, connectionString);
-                editPopup.intCategoryId = (int)clickedRow.Cells["ID_Category"].Value;
-                editPopup.Show();
-            }
-        }
-
-        private void vwMatUnitsGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
-            if (e.RowIndex >= 0)
-            {
-                // Aquí puedes acceder a la fila en la que se hizo doble clic
-                DataGridViewRow clickedRow = vwMatUnitsGridView.Rows[e.RowIndex];
-
-                frmEditUnitPopUp editPopup = new frmEditUnitPopUp(this, connectionString);
-                editPopup.intUnitId = (int)clickedRow.Cells["ID_Unit"].Value;
-                editPopup.Show();
+                if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    int unitId = Convert.ToInt32(vwMatUnitsGridView.Rows[e.RowIndex].Cells["ID_Unit"].Value);
+                    DeleteItem("MatUnits", "ID_Unit", unitId);
+                    vwMatUnitsGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                }
             }
         }
     }
