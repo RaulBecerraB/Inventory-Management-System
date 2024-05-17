@@ -132,6 +132,7 @@
             this.addNewMatBtn.TabIndex = 6;
             this.addNewMatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewMatBtn.UseVisualStyleBackColor = true;
+            this.addNewMatBtn.Click += new System.EventHandler(this.addNewMatBtn_Click);
             // 
             // frmKardex
             // 
@@ -144,7 +145,7 @@
             this.Controls.Add(this.vwKardexGridView);
             this.Controls.Add(this.catMatTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmKardex";
             this.Text = "frmKardex";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

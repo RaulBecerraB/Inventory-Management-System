@@ -25,7 +25,7 @@ namespace TechMate_Inventory
             LoadKardexView();
         }
 
-        private void LoadKardexView()
+        public void LoadKardexView()
         {
             string query = @"SELECT 
                                 m.ID_Movement, 
@@ -61,6 +61,12 @@ namespace TechMate_Inventory
                     }
                 }
             }
+        }
+
+        private void addNewMatBtn_Click(object sender, EventArgs e)
+        {
+            frmNewMovement frmNewMovement = new frmNewMovement(this,connectionString);
+            frmNewMovement.Show();
         }
     }
 }

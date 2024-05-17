@@ -28,25 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxBorrowLimitDays = new System.Windows.Forms.TextBox();
+            this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxMatUnit = new System.Windows.Forms.ComboBox();
+            this.comboBoxMoveTypes = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxMatTypes = new System.Windows.Forms.ComboBox();
-            this.richTextBoxMatDesc = new System.Windows.Forms.RichTextBox();
+            this.comboBoxMatDesc = new System.Windows.Forms.ComboBox();
+            this.richTextBoxCommentary = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAccept = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBoxBorrowLimitDays
+            // textBoxQuantity
             // 
-            this.textBoxBorrowLimitDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBorrowLimitDays.Location = new System.Drawing.Point(227, 154);
-            this.textBoxBorrowLimitDays.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxBorrowLimitDays.Name = "textBoxBorrowLimitDays";
-            this.textBoxBorrowLimitDays.Size = new System.Drawing.Size(155, 28);
-            this.textBoxBorrowLimitDays.TabIndex = 26;
+            this.textBoxQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxQuantity.Location = new System.Drawing.Point(227, 154);
+            this.textBoxQuantity.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxQuantity.Name = "textBoxQuantity";
+            this.textBoxQuantity.Size = new System.Drawing.Size(155, 28);
+            this.textBoxQuantity.TabIndex = 26;
             // 
             // label6
             // 
@@ -70,16 +72,16 @@
             this.label5.TabIndex = 24;
             this.label5.Text = "Tipo de movimiento";
             // 
-            // comboBoxMatUnit
+            // comboBoxMoveTypes
             // 
-            this.comboBoxMatUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMatUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxMatUnit.FormattingEnabled = true;
-            this.comboBoxMatUnit.Location = new System.Drawing.Point(29, 154);
-            this.comboBoxMatUnit.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxMatUnit.Name = "comboBoxMatUnit";
-            this.comboBoxMatUnit.Size = new System.Drawing.Size(155, 30);
-            this.comboBoxMatUnit.TabIndex = 23;
+            this.comboBoxMoveTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMoveTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxMoveTypes.FormattingEnabled = true;
+            this.comboBoxMoveTypes.Location = new System.Drawing.Point(29, 154);
+            this.comboBoxMoveTypes.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxMoveTypes.Name = "comboBoxMoveTypes";
+            this.comboBoxMoveTypes.Size = new System.Drawing.Size(155, 30);
+            this.comboBoxMoveTypes.TabIndex = 23;
             // 
             // label4
             // 
@@ -92,26 +94,26 @@
             this.label4.TabIndex = 22;
             this.label4.Text = "Material";
             // 
-            // comboBoxMatTypes
+            // comboBoxMatDesc
             // 
-            this.comboBoxMatTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMatTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxMatTypes.FormattingEnabled = true;
-            this.comboBoxMatTypes.Location = new System.Drawing.Point(28, 90);
-            this.comboBoxMatTypes.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxMatTypes.Name = "comboBoxMatTypes";
-            this.comboBoxMatTypes.Size = new System.Drawing.Size(354, 30);
-            this.comboBoxMatTypes.TabIndex = 21;
+            this.comboBoxMatDesc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMatDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxMatDesc.FormattingEnabled = true;
+            this.comboBoxMatDesc.Location = new System.Drawing.Point(28, 90);
+            this.comboBoxMatDesc.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxMatDesc.Name = "comboBoxMatDesc";
+            this.comboBoxMatDesc.Size = new System.Drawing.Size(354, 30);
+            this.comboBoxMatDesc.TabIndex = 21;
             // 
-            // richTextBoxMatDesc
+            // richTextBoxCommentary
             // 
-            this.richTextBoxMatDesc.Location = new System.Drawing.Point(28, 221);
-            this.richTextBoxMatDesc.Margin = new System.Windows.Forms.Padding(2);
-            this.richTextBoxMatDesc.MaxLength = 150;
-            this.richTextBoxMatDesc.Name = "richTextBoxMatDesc";
-            this.richTextBoxMatDesc.Size = new System.Drawing.Size(354, 79);
-            this.richTextBoxMatDesc.TabIndex = 20;
-            this.richTextBoxMatDesc.Text = "";
+            this.richTextBoxCommentary.Location = new System.Drawing.Point(28, 221);
+            this.richTextBoxCommentary.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextBoxCommentary.MaxLength = 150;
+            this.richTextBoxCommentary.Name = "richTextBoxCommentary";
+            this.richTextBoxCommentary.Size = new System.Drawing.Size(354, 79);
+            this.richTextBoxCommentary.TabIndex = 20;
+            this.richTextBoxCommentary.Text = "";
             // 
             // label2
             // 
@@ -135,36 +137,65 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Nuevo movimiento";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(188, 317);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(88, 41);
+            this.btnCancel.TabIndex = 28;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccept.Location = new System.Drawing.Point(294, 317);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(88, 41);
+            this.btnAccept.TabIndex = 27;
+            this.btnAccept.Text = "Aceptar";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
             // frmNewMovement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 322);
-            this.Controls.Add(this.textBoxBorrowLimitDays);
+            this.ClientSize = new System.Drawing.Size(411, 369);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnAccept);
+            this.Controls.Add(this.textBoxQuantity);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBoxMatUnit);
+            this.Controls.Add(this.comboBoxMoveTypes);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBoxMatTypes);
-            this.Controls.Add(this.richTextBoxMatDesc);
+            this.Controls.Add(this.comboBoxMatDesc);
+            this.Controls.Add(this.richTextBoxCommentary);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmNewMovement";
             this.Text = "frmNewMovement";
+            this.Load += new System.EventHandler(this.frmNewMovement_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBoxBorrowLimitDays;
+        private System.Windows.Forms.TextBox textBoxQuantity;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBoxMatUnit;
+        private System.Windows.Forms.ComboBox comboBoxMoveTypes;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBoxMatTypes;
-        private System.Windows.Forms.RichTextBox richTextBoxMatDesc;
+        private System.Windows.Forms.ComboBox comboBoxMatDesc;
+        private System.Windows.Forms.RichTextBox richTextBoxCommentary;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnAccept;
     }
 }
