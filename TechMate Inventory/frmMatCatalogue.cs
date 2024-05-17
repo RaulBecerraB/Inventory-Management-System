@@ -17,11 +17,12 @@ namespace TechMate_Inventory
 {
     public partial class frmMatCatalogue : Form
     {
-        public string connectionString = ConfigurationManager.ConnectionStrings["TechMate_Inventory.Properties.Settings.TechMateInventoryConnectionString"].ConnectionString;
+        public string connectionString;
         public int selectedIndex = 0;
-        public frmMatCatalogue()
+        public frmMatCatalogue(string connectionString)
         {
             InitializeComponent();
+            this.connectionString = connectionString;
         }
 
         private void frmMatCatalogue_Load(object sender, EventArgs e)
@@ -179,6 +180,10 @@ namespace TechMate_Inventory
             AddDeleteButtonColumnToGridView(vwMatTypesGridView);
         }
 
+        private void LoadAllCatalogueTables()
+        {
+
+        }
         private void addNewMatBtn_Click(object sender, EventArgs e)
         {
             //THE CREATE MATERIAL
@@ -266,7 +271,9 @@ namespace TechMate_Inventory
                 {
                     int materialId = Convert.ToInt32(vwMatCatGridView.Rows[e.RowIndex].Cells["ID_Material"].Value);
                     DeleteItem("Materials", "ID_Material", materialId);
-                    vwMatCatGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                    //vwMatCatGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                    LoadLowerTables();
+                    LoadDataFromView();
                 }
             }
         }
@@ -278,7 +285,9 @@ namespace TechMate_Inventory
                 {
                     int unitId = Convert.ToInt32(vwCategoriesGridView.Rows[e.RowIndex].Cells["ID_Category"].Value);
                     DeleteItem("Categories", "ID_Category", unitId);
-                    vwCategoriesGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                    // vwCategoriesGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                    LoadLowerTables();
+                    LoadDataFromView();
                 }
             }
         }
@@ -290,7 +299,9 @@ namespace TechMate_Inventory
                 {
                     int unitId = Convert.ToInt32(vwMatTypesGridView.Rows[e.RowIndex].Cells["ID_MatType"].Value);
                     DeleteItem("MatTypes", "ID_MatType", unitId);
-                    vwMatTypesGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                    // vwMatTypesGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                    LoadLowerTables();
+                    LoadDataFromView();
                 }
             }
         }
@@ -302,7 +313,9 @@ namespace TechMate_Inventory
                 {
                     int unitId = Convert.ToInt32(vwMatUnitsGridView.Rows[e.RowIndex].Cells["ID_Unit"].Value);
                     DeleteItem("MatUnits", "ID_Unit", unitId);
-                    vwMatUnitsGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                    // vwMatUnitsGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+                    LoadLowerTables();
+                    LoadDataFromView();
                 }
             }
         }

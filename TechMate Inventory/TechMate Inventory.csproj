@@ -121,6 +121,12 @@
     <Compile Include="frmEditMatPopUp.Designer.cs">
       <DependentUpon>frmEditMatPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewMovement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewMovement.Designer.cs">
+      <DependentUpon>frmNewMovement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TechMateInventoryDataSet.cs">
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditMatPopUp.resx">
       <DependentUpon>frmEditMatPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewMovement.resx">
+      <DependentUpon>frmNewMovement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

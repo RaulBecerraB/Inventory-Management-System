@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -13,6 +14,7 @@ namespace TechMate_Inventory
 {
     public partial class Form1 : Form
     {
+        public string connectionString = ConfigurationManager.ConnectionStrings["TechMate_Inventory.Properties.Settings.TechMateInventoryConnectionString"].ConnectionString;
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace TechMate_Inventory
          
                     if (childIndexCatalogue == -1)
                     {
-                        frmMatCatalogue Catalogue = new frmMatCatalogue();
+                        frmMatCatalogue Catalogue = new frmMatCatalogue(connectionString);
                         Catalogue.MdiParent = this;
                         Catalogue.Dock = DockStyle.Fill;
                         Catalogue.Show();
@@ -50,7 +52,7 @@ namespace TechMate_Inventory
 
                     if (childIndexKardex == -1)
                     {
-                        frmKardex Kardex = new frmKardex();
+                        frmKardex Kardex = new frmKardex(connectionString);
                         Kardex.MdiParent = this;
                         Kardex.Dock = DockStyle.Fill;
                         Kardex.Show();
