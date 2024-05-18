@@ -62,7 +62,25 @@ namespace TechMate_Inventory
                         this.MdiChildren[childIndexKardex].Focus();
                     }
                     
-                    break;
+                break;
+
+                case "InventoryBtn":
+
+                    int childIndexInventory = fnBuscaMDIChild("frmGeneralInevntory");
+
+                    if (childIndexInventory == -1)
+                    {
+                        frmGeneralInventory Inventory = new frmGeneralInventory(connectionString);
+                        Inventory.MdiParent = this;
+                        Inventory.Dock = DockStyle.Fill;
+                        Inventory.Show();
+                    }
+                    else
+                    {
+                        this.MdiChildren[childIndexInventory].Focus();
+                    }
+
+                break;
 
                 default:
                     break;
