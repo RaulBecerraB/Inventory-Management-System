@@ -39,8 +39,8 @@ namespace TechMate_Inventory
                     //MessageBox.Show(connectionString);
 
                     //Fill comboBoxes
-                    FillComboBoxWithQuery(comboBoxMatDesc, "Materials", "ID_Material", "shortDescription", connection);
-                    FillComboBoxWithQuery(comboBoxMoveTypes, "MoveTypes", "ID_MoveType", "Name", connection);
+                    Program.FillComboBoxWithQuery(comboBoxMatDesc, "Materials", "ID_Material", "shortDescription", connection);
+                    Program.FillComboBoxWithQuery(comboBoxMoveTypes, "MoveTypes", "ID_MoveType", "Name", connection);
 
                 }
                 catch (Exception ex)
@@ -48,25 +48,6 @@ namespace TechMate_Inventory
                     MessageBox.Show("POPUP ERROR: " + ex.Message);
                 }
             }
-        }
-
-        private void FillComboBoxWithQuery(ComboBox comboBox ,string table,string id,string attribute, SqlConnection connection)
-        {
-            string query = $"SELECT {id} , {attribute} FROM {table}";
-
-            DataTable dataTable = GetDataTable(query,connection);
-
-            comboBox.DataSource = dataTable; // Asignar dataTable como DataSource
-            comboBox.DisplayMember = attribute;  // Columna para mostrar en el ComboBox.
-            comboBox.ValueMember = id;  // Columna como valor que representa los items.
-        }
-
-        private DataTable GetDataTable(string query, SqlConnection connection)
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-            return dataTable;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)

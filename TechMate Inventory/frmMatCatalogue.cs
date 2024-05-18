@@ -31,7 +31,7 @@ namespace TechMate_Inventory
             try
             {
                 // Carga datos en la tabla 'techMateInventoryDataSet.vwMaterialCatalogue'
-                this.vwMaterialCatalogueTableAdapter.Fill(this.techMateInventoryDataSet.vwMaterialCatalogue);
+                //this.vwMaterialCatalogueTableAdapter.Fill(this.techMateInventoryDataSet.vwMaterialCatalogue);
 
                 // Llama a la función para cargar datos desde la vista
                 LoadDataFromView();

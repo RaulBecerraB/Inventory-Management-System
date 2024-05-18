@@ -14,7 +14,7 @@ namespace TechMate_Inventory
 {
     public partial class Form1 : Form
     {
-        public string connectionString = ConfigurationManager.ConnectionStrings["TechMate_Inventory.Properties.Settings.TechMateInventoryConnectionString"].ConnectionString;
+        public string connectionString = ConfigurationManager.ConnectionStrings["Local.TechMateInventoryConnectionString"].ConnectionString;
         public Form1()
         {
             InitializeComponent();

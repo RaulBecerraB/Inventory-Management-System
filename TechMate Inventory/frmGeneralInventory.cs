@@ -23,5 +23,10 @@ namespace TechMate_Inventory
         {
 
         }
+
+        private void LoadGeneralInventoryView()
+        {
+
+        }
     }
 }

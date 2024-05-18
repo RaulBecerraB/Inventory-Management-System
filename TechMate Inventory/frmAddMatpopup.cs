@@ -32,7 +32,7 @@ namespace TechMate_Inventory
         private void frmAddMatpopup_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'techMateInventoryDataSet.Categories' Puede moverla o quitarla según sea necesario.
-            this.categoriesTableAdapter.Fill(this.techMateInventoryDataSet.Categories);
+            //this.categoriesTableAdapter.Fill(this.techMateInventoryDataSet.Categories);
 
             // Asegúrate que esta línea está después de InitializeComponent();
             LoadDataIntoComboBox();

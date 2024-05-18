@@ -44,22 +44,18 @@ namespace TechMate_Inventory
                                 MoveTypes mt ON m.ID_MoveType = mt.ID_MoveType;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
+            {  
                     try
                     {
                         connection.Open();
-                        SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
+
+                        DataTable dt = Program.GetDataTable(query,connection);
                         vwKardexGridView.DataSource = dt;
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("An error occurred: " + ex.Message);
                     }
-                }
             }
         }
 
