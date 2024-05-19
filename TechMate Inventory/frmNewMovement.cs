@@ -68,15 +68,19 @@ namespace TechMate_Inventory
         {
             int materialId = (int)comboBoxMatDesc.SelectedValue;
             int moveTypeId = (int)comboBoxMoveTypes.SelectedValue;
-            int quantity = int.Parse(textBoxQuantity.Text);
             string comment = richTextBoxCommentary.Text;
 
-            //Validar quantity
-            bool isQuantityValid = int.TryParse(textBoxQuantity.Text, out quantity);
-            if (!isQuantityValid)
+            // Validar cantidad
+            if (!int.TryParse(textBoxQuantity.Text, out int quantity))
             {
                 MessageBox.Show("Please enter a valid quantity.");
                 return;
+            }
+
+            // Verificar si el movimiento es "OUT" y hacer negativa la cantidad
+            if (comboBoxMoveTypes.Text == "OUT")
+            {
+                quantity = -quantity;
             }
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -84,14 +88,15 @@ namespace TechMate_Inventory
                 try
                 {
                     connection.Open();
-                    string query = @"INSERT INTO Movements (ID_MoveType, ID_Material, ID_User, movDate, comment, quantity) VALUES (@ID_MoveType, @ID_Material, @ID_User, GETDATE(), @Comment, @Quantity)";
+                    string query = @"INSERT INTO Movements (ID_MoveType, ID_Material, ID_User, movDate, comment, quantity) 
+                             VALUES (@ID_MoveType, @ID_Material, @ID_User, GETDATE(), @Comment, @Quantity)";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         // Asignar valores a los parámetros
                         command.Parameters.AddWithValue("@ID_MoveType", moveTypeId);
                         command.Parameters.AddWithValue("@ID_Material", materialId);
-                        command.Parameters.AddWithValue("@ID_User", 1);
+                        command.Parameters.AddWithValue("@ID_User", 1); // Asignar un valor de ID_User apropiado
                         command.Parameters.AddWithValue("@Comment", comment);
                         command.Parameters.AddWithValue("@Quantity", quantity);
 
@@ -106,13 +111,17 @@ namespace TechMate_Inventory
                     MessageBox.Show("INSERT failed: " + ex.Message);
                 }
 
-                if(parentForm != null && parentForm is frmKardex kardexForm)
+                // Verificar el tipo de formulario padre y actualizar la vista correspondiente
+                if (parentForm != null)
                 {
-                    kardexForm.LoadKardexView();
-                }
-                else if (parentForm != null && parentForm is frmGeneralInventory inventoryForm)
-                {
-                    inventoryForm.LoadInventoryView();
+                    if (parentForm is frmKardex kardexForm)
+                    {
+                        kardexForm.LoadKardexView();
+                    }
+                    else if (parentForm is frmGeneralInventory inventoryForm)
+                    {
+                        inventoryForm.LoadInventoryView();
+                    }
                 }
             }
         }
@@ -122,6 +131,14 @@ namespace TechMate_Inventory
             this.Close();
         }
 
+        private void textBoxQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado es un número, punto decimal o un carácter de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 
 }
