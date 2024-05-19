@@ -30,9 +30,6 @@ namespace TechMate_Inventory
 
             try
             {
-                // Carga datos en la tabla 'techMateInventoryDataSet.vwMaterialCatalogue'
-                //this.vwMaterialCatalogueTableAdapter.Fill(this.techMateInventoryDataSet.vwMaterialCatalogue);
-
                 // Llama a la función para cargar datos desde la vista
                 LoadDataFromView();
                 LoadLowerTables();
@@ -42,11 +39,6 @@ namespace TechMate_Inventory
             {
                 // Muestra un mensaje de error al usuario con información sobre la excepción
                 MessageBox.Show("Error al cargar el catálogo de materiales: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                // Puedes registrar el error si es necesario
-                // LogException(ex); // Si tienes un mecanismo de registro de errores
-
-                // Puedes realizar acciones adicionales para manejar el error, como detener el proceso o limpiar recursos
             }
 
         }

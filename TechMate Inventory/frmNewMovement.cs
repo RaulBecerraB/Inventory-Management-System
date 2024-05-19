@@ -13,14 +13,28 @@ namespace TechMate_Inventory
 {
     public partial class frmNewMovement : Form
     {
-        private frmKardex parentForm;
+        private Form parentForm;
 
         private string connectionString;
-        public frmNewMovement(frmKardex parentForm,string connectionString)
+        public frmNewMovement(Form parentForm,string connectionString)
         {
             InitializeComponent();
             this.connectionString = connectionString;
             this.parentForm = parentForm;
+
+            // Verificar el tipo del formulario padre
+            if (parentForm is frmKardex)
+            {
+                // Lógica específica para frmKardex
+                frmKardex kardexForm = (frmKardex)parentForm;
+                // Usa kardexForm según sea necesario
+            }
+            else if (parentForm is frmGeneralInventory)
+            {
+                // Lógica específica para frmOtherForm
+                frmGeneralInventory Inventory = (frmGeneralInventory)parentForm;
+                // Usa otherForm según sea necesario
+            }
         }
 
         private void frmNewMovement_Load(object sender, EventArgs e)
@@ -92,9 +106,13 @@ namespace TechMate_Inventory
                     MessageBox.Show("INSERT failed: " + ex.Message);
                 }
 
-                if(parentForm != null)
+                if(parentForm != null && parentForm is frmKardex kardexForm)
                 {
-                    parentForm.LoadKardexView();
+                    kardexForm.LoadKardexView();
+                }
+                else if (parentForm != null && parentForm is frmGeneralInventory inventoryForm)
+                {
+                    inventoryForm.LoadInventoryView();
                 }
             }
         }
@@ -104,23 +122,6 @@ namespace TechMate_Inventory
             this.Close();
         }
 
-        private int GetNextId()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                string query = "SELECT MAX(ID_Movement FROM Movements";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    object result = command.ExecuteScalar();
-                    if (result != DBNull.Value)
-                    {
-                        return Convert.ToInt32(result) + 1;
-                    }
-                    return 1; // Devuelve 1 si la tabla está vacía
-                }
-            }
-        }
     }
 
 }
