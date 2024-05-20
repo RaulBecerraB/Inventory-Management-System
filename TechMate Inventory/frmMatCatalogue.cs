@@ -19,6 +19,7 @@ namespace TechMate_Inventory
     {
         public string connectionString;
         public int selectedIndex = 0;
+ 
         public frmMatCatalogue(string connectionString)
         {
             InitializeComponent();
@@ -259,11 +260,13 @@ namespace TechMate_Inventory
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == vwMatCatGridView.Columns["deleteColumn"].Index)
             {
-                if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Estás seguro de que deseas borrar esta fila? (Esto eliminará el producto de los movimientos y el inventario general)", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     int materialId = Convert.ToInt32(vwMatCatGridView.Rows[e.RowIndex].Cells["ID_Material"].Value);
+
+                    DeleteItem("Movements", "ID_Material", materialId);
                     DeleteItem("Materials", "ID_Material", materialId);
-                    //vwMatCatGridView.Rows.RemoveAt(e.RowIndex);  // Elimina la fila de la vista
+
                     LoadLowerTables();
                     LoadDataFromView();
                 }

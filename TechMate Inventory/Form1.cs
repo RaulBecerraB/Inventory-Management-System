@@ -59,6 +59,8 @@ namespace TechMate_Inventory
                     }
                     else
                     {
+                        frmKardex Kardex = (frmKardex)this.MdiChildren[childIndexKardex];
+                        Kardex.LoadKardexView();
                         this.MdiChildren[childIndexKardex].Focus();
                     }
                     
@@ -66,7 +68,7 @@ namespace TechMate_Inventory
 
                 case "InventoryBtn":
 
-                    int childIndexInventory = fnBuscaMDIChild("frmGeneralInevntory");
+                    int childIndexInventory = fnBuscaMDIChild("frmGeneralInventory");
 
                     if (childIndexInventory == -1)
                     {
