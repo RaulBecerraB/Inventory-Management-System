@@ -18,7 +18,8 @@ namespace TechMate_Inventory
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
+            Application.Run(new frmLogin());
         }
 
         public static void FillComboBoxWithQuery(ComboBox comboBox, string table, string id, string attribute, SqlConnection connection)

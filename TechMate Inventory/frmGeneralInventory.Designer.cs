@@ -35,9 +35,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGeneralInventory));
             this.vwInventoryGridView = new System.Windows.Forms.DataGridView();
             this.catMatTitle = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.addNewMatBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.refreshBtn = new System.Windows.Forms.Button();
+            this.scInventoryMove = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.vwInventoryGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scInventoryMove)).BeginInit();
+            this.scInventoryMove.SuspendLayout();
             this.SuspendLayout();
             // 
             // vwInventoryGridView
@@ -84,6 +88,7 @@
             this.vwInventoryGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.vwInventoryGridView.Size = new System.Drawing.Size(745, 338);
             this.vwInventoryGridView.TabIndex = 7;
+            this.vwInventoryGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.vwInventoryGridView_CellFormatting);
             // 
             // catMatTitle
             // 
@@ -93,17 +98,6 @@
             this.catMatTitle.Size = new System.Drawing.Size(415, 42);
             this.catMatTitle.TabIndex = 6;
             this.catMatTitle.Text = "Stock general";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(479, 55);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 31);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Nuevo movimiento";
             // 
             // addNewMatBtn
             // 
@@ -120,18 +114,56 @@
             this.addNewMatBtn.UseVisualStyleBackColor = true;
             this.addNewMatBtn.Click += new System.EventHandler(this.addNewMatBtn_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(39, 470);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(220, 31);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "* = falta prodcuto";
+            // 
+            // refreshBtn
+            // 
+            this.refreshBtn.AutoSize = true;
+            this.refreshBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("refreshBtn.BackgroundImage")));
+            this.refreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.refreshBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshBtn.Location = new System.Drawing.Point(664, 47);
+            this.refreshBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(53, 49);
+            this.refreshBtn.TabIndex = 11;
+            this.refreshBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
+            // scInventoryMove
+            // 
+            this.scInventoryMove.Location = new System.Drawing.Point(831, 12);
+            this.scInventoryMove.Name = "scInventoryMove";
+            this.scInventoryMove.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.scInventoryMove.Size = new System.Drawing.Size(675, 555);
+            this.scInventoryMove.SplitterDistance = 25;
+            this.scInventoryMove.TabIndex = 12;
+            // 
             // frmGeneralInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1535, 1017);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.scInventoryMove);
+            this.Controls.Add(this.refreshBtn);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.addNewMatBtn);
             this.Controls.Add(this.vwInventoryGridView);
             this.Controls.Add(this.catMatTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmGeneralInventory";
@@ -141,6 +173,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmGeneralInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vwInventoryGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scInventoryMove)).EndInit();
+            this.scInventoryMove.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +184,9 @@
 
         private System.Windows.Forms.DataGridView vwInventoryGridView;
         private System.Windows.Forms.Label catMatTitle;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button addNewMatBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button refreshBtn;
+        private System.Windows.Forms.SplitContainer scInventoryMove;
     }
 }

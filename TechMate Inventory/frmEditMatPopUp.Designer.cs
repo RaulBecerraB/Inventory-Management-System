@@ -87,7 +87,7 @@
             this.label2.Location = new System.Drawing.Point(14, 249);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 25);
-            this.label2.TabIndex = 5;
+            this.label2.TabIndex = 9;
             this.label2.Text = "Descripción";
             // 
             // richTextBoxMatDesc
@@ -96,7 +96,7 @@
             this.richTextBoxMatDesc.MaxLength = 150;
             this.richTextBoxMatDesc.Name = "richTextBoxMatDesc";
             this.richTextBoxMatDesc.Size = new System.Drawing.Size(724, 96);
-            this.richTextBoxMatDesc.TabIndex = 6;
+            this.richTextBoxMatDesc.TabIndex = 10;
             this.richTextBoxMatDesc.Text = "";
             this.richTextBoxMatDesc.TextChanged += new System.EventHandler(this.richTextBoxMatDesc_TextChanged);
             // 
@@ -108,7 +108,7 @@
             this.comboBoxMatTypes.Location = new System.Drawing.Point(31, 116);
             this.comboBoxMatTypes.Name = "comboBoxMatTypes";
             this.comboBoxMatTypes.Size = new System.Drawing.Size(205, 37);
-            this.comboBoxMatTypes.TabIndex = 8;
+            this.comboBoxMatTypes.TabIndex = 2;
             // 
             // label4
             // 
@@ -117,7 +117,7 @@
             this.label4.Location = new System.Drawing.Point(26, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 25);
-            this.label4.TabIndex = 9;
+            this.label4.TabIndex = 1;
             this.label4.Text = "Tipo";
             // 
             // comboBoxMatUnit
@@ -128,7 +128,7 @@
             this.comboBoxMatUnit.Location = new System.Drawing.Point(275, 116);
             this.comboBoxMatUnit.Name = "comboBoxMatUnit";
             this.comboBoxMatUnit.Size = new System.Drawing.Size(205, 37);
-            this.comboBoxMatUnit.TabIndex = 10;
+            this.comboBoxMatUnit.TabIndex = 4;
             // 
             // label5
             // 
@@ -137,13 +137,13 @@
             this.label5.Location = new System.Drawing.Point(270, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 25);
-            this.label5.TabIndex = 11;
+            this.label5.TabIndex = 3;
             this.label5.Text = "Unidad";
             // 
             // btnAccept
             // 
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Location = new System.Drawing.Point(503, 388);
+            this.btnAccept.Location = new System.Drawing.Point(638, 388);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(117, 50);
             this.btnAccept.TabIndex = 12;
@@ -154,10 +154,10 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(638, 388);
+            this.btnCancel.Location = new System.Drawing.Point(515, 388);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(117, 50);
-            this.btnCancel.TabIndex = 13;
+            this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -169,7 +169,7 @@
             this.label6.Location = new System.Drawing.Point(514, 91);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(184, 25);
-            this.label6.TabIndex = 14;
+            this.label6.TabIndex = 5;
             this.label6.Text = "Días límite de préstamo";
             // 
             // textBoxBorrowLimitDays
@@ -178,7 +178,7 @@
             this.textBoxBorrowLimitDays.Location = new System.Drawing.Point(519, 119);
             this.textBoxBorrowLimitDays.Name = "textBoxBorrowLimitDays";
             this.textBoxBorrowLimitDays.Size = new System.Drawing.Size(205, 34);
-            this.textBoxBorrowLimitDays.TabIndex = 15;
+            this.textBoxBorrowLimitDays.TabIndex = 6;
             this.textBoxBorrowLimitDays.TextChanged += new System.EventHandler(this.textBoxBorrowLimitDays_TextChanged);
             // 
             // label7
@@ -188,7 +188,7 @@
             this.label7.Location = new System.Drawing.Point(26, 169);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(152, 25);
-            this.label7.TabIndex = 17;
+            this.label7.TabIndex = 7;
             this.label7.Text = "Descripción CORTA";
             // 
             // textBoxshortDescription
@@ -197,7 +197,7 @@
             this.textBoxshortDescription.Location = new System.Drawing.Point(31, 197);
             this.textBoxshortDescription.Name = "textBoxshortDescription";
             this.textBoxshortDescription.Size = new System.Drawing.Size(724, 34);
-            this.textBoxshortDescription.TabIndex = 18;
+            this.textBoxshortDescription.TabIndex = 8;
             // 
             // Material_CRUD_PopUp1
             // 

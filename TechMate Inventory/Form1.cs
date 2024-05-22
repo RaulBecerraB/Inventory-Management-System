@@ -14,22 +14,52 @@ namespace TechMate_Inventory
 {
     public partial class Form1 : Form
     {
-        public string connectionString = ConfigurationManager.ConnectionStrings["Local.TechMateInventoryConnectionString"].ConnectionString;
-        public Form1()
+        public string connectionString = ConfigurationManager.ConnectionStrings["local.TechMateInventoryConnectionString"].ConnectionString;
+
+        public string userName;
+        public frmLogin parentLogin;
+        public Form1(string userName, frmLogin parentLogin)
         {
             InitializeComponent();
+            this.userName = userName;
+            this.parentLogin = parentLogin;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //Used this to solve line break problem
             InventoryBtn.Text = "Inventario\nGeneral";
+
+            frmInicio Home = new frmInicio(connectionString);
+
+            labelUserName.Text = userName;
+            Home.MdiParent = this;
+            Home.Dock = DockStyle.Fill;
+            Home.Show();
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             switch (e.ClickedItem.Name)
             {
+                case "HomeBtn":
+
+                    int childIndexHome = fnBuscaMDIChild("frmInicio");
+
+                    if (childIndexHome == -1)
+                    {
+                        frmInicio Home = new frmInicio(connectionString);
+                        Home.MdiParent = this;
+                        Home.Dock = DockStyle.Fill;
+                        Home.Show();
+                    }
+                    else
+                    {
+                        this.MdiChildren[childIndexHome].Focus();
+                    }
+
+                break;
+
                 case "catalogueBtn":
                     int childIndexCatalogue = fnBuscaMDIChild("frmMatCatalogue");
          
@@ -111,6 +141,11 @@ namespace TechMate_Inventory
         private void InventoryBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parentLogin.Close();
         }
     }
 }

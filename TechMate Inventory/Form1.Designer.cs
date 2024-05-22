@@ -30,19 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.Inicio = new System.Windows.Forms.ToolStripButton();
+            this.HomeBtn = new System.Windows.Forms.ToolStripButton();
             this.InventoryBtn = new System.Windows.Forms.ToolStripButton();
             this.kardexBtn = new System.Windows.Forms.ToolStripButton();
             this.catalogueBtn = new System.Windows.Forms.ToolStripButton();
+            this.labelUserName = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Inicio,
+            this.HomeBtn,
             this.InventoryBtn,
             this.kardexBtn,
             this.catalogueBtn});
@@ -50,22 +54,22 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(10);
-            this.toolStrip1.Size = new System.Drawing.Size(1311, 118);
+            this.toolStrip1.Size = new System.Drawing.Size(1117, 118);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "mainToolStrip";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
-            // Inicio
+            // HomeBtn
             // 
-            this.Inicio.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.Inicio.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Inicio.Image = ((System.Drawing.Image)(resources.GetObject("Inicio.Image")));
-            this.Inicio.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Inicio.Name = "Inicio";
-            this.Inicio.Size = new System.Drawing.Size(78, 95);
-            this.Inicio.Text = "Inicio";
-            this.Inicio.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.HomeBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.HomeBtn.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HomeBtn.Image = ((System.Drawing.Image)(resources.GetObject("HomeBtn.Image")));
+            this.HomeBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.HomeBtn.Name = "HomeBtn";
+            this.HomeBtn.Size = new System.Drawing.Size(97, 95);
+            this.HomeBtn.Text = "Inicio";
+            this.HomeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
             // InventoryBtn
             // 
@@ -91,7 +95,7 @@
             this.kardexBtn.Image = ((System.Drawing.Image)(resources.GetObject("kardexBtn.Image")));
             this.kardexBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.kardexBtn.Name = "kardexBtn";
-            this.kardexBtn.Size = new System.Drawing.Size(94, 95);
+            this.kardexBtn.Size = new System.Drawing.Size(116, 95);
             this.kardexBtn.Text = "Kardex";
             this.kardexBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
@@ -102,15 +106,41 @@
             this.catalogueBtn.Image = ((System.Drawing.Image)(resources.GetObject("catalogueBtn.Image")));
             this.catalogueBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.catalogueBtn.Name = "catalogueBtn";
-            this.catalogueBtn.Size = new System.Drawing.Size(115, 95);
+            this.catalogueBtn.Size = new System.Drawing.Size(145, 95);
             this.catalogueBtn.Text = "Catálogo";
             this.catalogueBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.labelUserName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserName.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelUserName.Location = new System.Drawing.Point(840, 41);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(162, 42);
+            this.labelUserName.TabIndex = 7;
+            this.labelUserName.Text = "userName";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(1008, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(92, 89);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1311, 699);
+            this.ClientSize = new System.Drawing.Size(1117, 699);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.labelUserName);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.HelpButton = true;
@@ -118,11 +148,13 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AAAIMX Inventory System";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,10 +163,12 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton Inicio;
+        private System.Windows.Forms.ToolStripButton HomeBtn;
         private System.Windows.Forms.ToolStripButton InventoryBtn;
         private System.Windows.Forms.ToolStripButton catalogueBtn;
         private System.Windows.Forms.ToolStripButton kardexBtn;
+        private System.Windows.Forms.Label labelUserName;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
