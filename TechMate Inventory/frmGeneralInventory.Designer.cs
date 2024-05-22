@@ -112,6 +112,7 @@
             this.addNewMatBtn.TabIndex = 8;
             this.addNewMatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewMatBtn.UseVisualStyleBackColor = true;
+            this.addNewMatBtn.Visible = false;
             this.addNewMatBtn.Click += new System.EventHandler(this.addNewMatBtn_Click);
             // 
             // label2

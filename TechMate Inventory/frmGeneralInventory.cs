@@ -23,6 +23,15 @@ namespace TechMate_Inventory
         private void frmGeneralInventory_Load(object sender, EventArgs e)
         {
             LoadInventoryView();
+            LoadNewMovementForm();
+        }
+
+        public void LoadNewMovementForm()
+        {
+            usrCtrlNewMovement newMovementControl = new usrCtrlNewMovement(this, connectionString); // Ajusta el constructor según sea necesario
+            newMovementControl.Dock = DockStyle.Fill; // Opcional: Ajusta el control para llenar el panel
+            scInventoryMove.Panel2.Controls.Clear(); // Opcional: Limpia los controles existentes en el panel
+            scInventoryMove.Panel2.Controls.Add(newMovementControl); // Agrega el UserControl al panel
         }
         public void LoadInventoryView()
         {
@@ -54,10 +63,6 @@ namespace TechMate_Inventory
         private void addNewMatBtn_Click(object sender, EventArgs e)
         {
 
-            usrCtrlNewMovement newMovementControl = new usrCtrlNewMovement(this,connectionString); // Ajusta el constructor según sea necesario
-            newMovementControl.Dock = DockStyle.Fill; // Opcional: Ajusta el control para llenar el panel
-            scInventoryMove.Panel2.Controls.Clear(); // Opcional: Limpia los controles existentes en el panel
-            scInventoryMove.Panel2.Controls.Add(newMovementControl); // Agrega el UserControl al panel
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
