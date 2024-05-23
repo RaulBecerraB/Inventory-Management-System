@@ -36,19 +36,19 @@
             // 
             // catMatTitle
             // 
-            this.catMatTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.catMatTitle.Location = new System.Drawing.Point(65, 85);
+            this.catMatTitle.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.catMatTitle.Location = new System.Drawing.Point(395, 55);
             this.catMatTitle.Name = "catMatTitle";
-            this.catMatTitle.Size = new System.Drawing.Size(1004, 42);
+            this.catMatTitle.Size = new System.Drawing.Size(948, 62);
             this.catMatTitle.TabIndex = 7;
-            this.catMatTitle.Text = "SISTEMA DE GESTIÓN DE INVENTARIOS (En construcción)";
+            this.catMatTitle.Text = "SISTEMA DE GESTIÓN DE INVENTARIOS";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-2, 167);
+            this.pictureBox1.Location = new System.Drawing.Point(-3, 120);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1405, 366);
+            this.pictureBox1.Size = new System.Drawing.Size(1507, 366);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
