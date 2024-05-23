@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -39,29 +38,20 @@
             this.richTextBoxCommentary = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelSelectedMaterial = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(308, 387);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(117, 50);
-            this.btnCancel.TabIndex = 20;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnAccept
             // 
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Location = new System.Drawing.Point(449, 387);
+            this.btnAccept.Location = new System.Drawing.Point(94, 400);
             this.btnAccept.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(117, 50);
+            this.btnAccept.Size = new System.Drawing.Size(471, 50);
             this.btnAccept.TabIndex = 21;
-            this.btnAccept.Text = "Aceptar";
+            this.btnAccept.Text = "INSERTAR";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // textBoxQuantity
             // 
@@ -123,6 +113,7 @@
             this.comboBoxMatDesc.Name = "comboBoxMatDesc";
             this.comboBoxMatDesc.Size = new System.Drawing.Size(471, 37);
             this.comboBoxMatDesc.TabIndex = 13;
+            this.comboBoxMatDesc.Visible = false;
             // 
             // richTextBoxCommentary
             // 
@@ -154,11 +145,21 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Nuevo movimiento";
             // 
+            // labelSelectedMaterial
+            // 
+            this.labelSelectedMaterial.AutoSize = true;
+            this.labelSelectedMaterial.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSelectedMaterial.Location = new System.Drawing.Point(89, 108);
+            this.labelSelectedMaterial.Name = "labelSelectedMaterial";
+            this.labelSelectedMaterial.Size = new System.Drawing.Size(291, 38);
+            this.labelSelectedMaterial.TabIndex = 22;
+            this.labelSelectedMaterial.Text = "Selecciona un material";
+            // 
             // usrCtrlNewMovement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.labelSelectedMaterial);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.textBoxQuantity);
             this.Controls.Add(this.label6);
@@ -172,14 +173,13 @@
             this.Name = "usrCtrlNewMovement";
             this.Size = new System.Drawing.Size(685, 486);
             this.Load += new System.EventHandler(this.usrCtrlNewMovement_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.usrCtrlNewMovement_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.TextBox textBoxQuantity;
         private System.Windows.Forms.Label label6;
@@ -190,5 +190,6 @@
         private System.Windows.Forms.RichTextBox richTextBoxCommentary;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelSelectedMaterial;
     }
 }

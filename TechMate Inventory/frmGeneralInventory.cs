@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace TechMate_Inventory
@@ -14,21 +15,28 @@ namespace TechMate_Inventory
     public partial class frmGeneralInventory : Form
     {
         private string connectionString;
+        public string someProperty;
+        private usrCtrlNewMovement newMovementControl;
+        
+
         public frmGeneralInventory(string connectionString)
         {
             InitializeComponent();
             this.connectionString = connectionString;
+            
         }
 
         private void frmGeneralInventory_Load(object sender, EventArgs e)
         {
+            newMovementControl = new usrCtrlNewMovement(this,connectionString);
             LoadInventoryView();
             LoadNewMovementForm();
+
         }
 
         public void LoadNewMovementForm()
         {
-            usrCtrlNewMovement newMovementControl = new usrCtrlNewMovement(this, connectionString); // Ajusta el constructor según sea necesario
+            newMovementControl.vw = vwInventoryGridView;
             newMovementControl.Dock = DockStyle.Fill; // Opcional: Ajusta el control para llenar el panel
             scInventoryMove.Panel2.Controls.Clear(); // Opcional: Limpia los controles existentes en el panel
             scInventoryMove.Panel2.Controls.Add(newMovementControl); // Agrega el UserControl al panel
@@ -36,11 +44,11 @@ namespace TechMate_Inventory
         public void LoadInventoryView()
         {
             string query = @"
-        SELECT m.shortDescription, 
+        SELECT m.ID_Material,m.shortDescription, 
                ISNULL(SUM(mov.quantity), 0) AS TotalQuantity
         FROM Materials m
         LEFT JOIN Movements mov ON m.ID_Material = mov.ID_Material
-        GROUP BY m.shortDescription";
+        GROUP BY m.ID_Material, m.shortDescription";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -48,7 +56,10 @@ namespace TechMate_Inventory
                 {
                     connection.Open();
 
+                    
                     vwInventoryGridView.DataSource = Program.GetDataTable(query,connection);
+
+                    vwInventoryGridView.Columns["ID_Material"].Visible = false;
                     vwInventoryGridView.Columns["shortDescription"].HeaderText = "Material";
                     vwInventoryGridView.Columns["TotalQuantity"].HeaderText = "Cantidad";
 
@@ -109,5 +120,34 @@ namespace TechMate_Inventory
 
             return false;
         }
+
+        private void vwInventoryGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(isSelectedRowAHeader(e))
+            {
+                newMovementControl.intMatId = ReturnSelectedRowID(e, "ID_Material", vwInventoryGridView);
+                newMovementControl.SetLabelTextById(ReturnSelectedRowID(e, "ID_Material", vwInventoryGridView), vwInventoryGridView, "ID_Material", "shortDescription");
+            }
+        }
+
+        private bool isSelectedRowAHeader(DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private int ReturnSelectedRowID(DataGridViewCellEventArgs e, string lookForID, DataGridView vw)
+        {
+            DataGridViewRow clickedRow = vw.Rows[e.RowIndex];
+
+            //selected row ID
+            return (int)clickedRow.Cells[lookForID].Value;
+        }
+
+        
     }
 }

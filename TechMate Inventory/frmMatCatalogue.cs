@@ -78,6 +78,7 @@ namespace TechMate_Inventory
                 try
                 {
                     connection.Open();
+
                     adapter.Fill(table);
                     vwMatCatGridView.DataSource = table;
 
@@ -231,7 +232,6 @@ namespace TechMate_Inventory
             {
                 // Aquí puedes acceder a la fila en la que se hizo doble clic
                 DataGridViewRow clickedRow = vwMatUnitsGridView.Rows[e.RowIndex];
-
                 frmEditUnitPopUp editPopup = new frmEditUnitPopUp(this, connectionString);
                 editPopup.intUnitId = (int)clickedRow.Cells["ID_Unit"].Value;
                 editPopup.Show();

@@ -88,6 +88,7 @@
             this.vwInventoryGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.vwInventoryGridView.Size = new System.Drawing.Size(745, 338);
             this.vwInventoryGridView.TabIndex = 7;
+            this.vwInventoryGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwInventoryGridView_CellClick);
             this.vwInventoryGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.vwInventoryGridView_CellFormatting);
             // 
             // catMatTitle

@@ -13,28 +13,15 @@ namespace TechMate_Inventory
 {
     public partial class usrCtrlNewMovement : UserControl
     {
-        private Form parentForm;
-
+        private frmGeneralInventory parentForm;
+        public int intMatId;
+        public DataGridView vw;
         private string connectionString;
-        public usrCtrlNewMovement(Form parentForm, string connectionString)
+        public usrCtrlNewMovement(frmGeneralInventory parentForm, string connectionString)
         {
             InitializeComponent();
             this.connectionString = connectionString;
             this.parentForm = parentForm;
-
-            // Verificar el tipo del formulario padre
-            if (parentForm is frmKardex)
-            {
-                // Lógica específica para frmKardex
-                frmKardex kardexForm = (frmKardex)parentForm;
-                // Usa kardexForm según sea necesario
-            }
-            else if (parentForm is frmGeneralInventory)
-            {
-                // Lógica específica para frmOtherForm
-                frmGeneralInventory Inventory = (frmGeneralInventory)parentForm;
-                // Usa otherForm según sea necesario
-            }
         }
 
         private void usrCtrlNewMovement_Load(object sender, EventArgs e)
@@ -53,7 +40,8 @@ namespace TechMate_Inventory
                     //MessageBox.Show(connectionString);
 
                     //Fill comboBoxes
-                    Program.FillComboBoxWithQuery(comboBoxMatDesc, "Materials", "ID_Material", "shortDescription", connection);
+                    //Program.FillComboBoxWithQuery(comboBoxMatDesc, "Materials", "ID_Material", "shortDescription", connection);
+                    
                     Program.FillComboBoxWithQuery(comboBoxMoveTypes, "MoveTypes", "ID_MoveType", "Name", connection);
 
                 }
@@ -64,9 +52,22 @@ namespace TechMate_Inventory
             }
         }
 
+        public void SetLabelTextById(int id, DataGridView vw, string idName, string columnToShow)
+        {
+            foreach (DataGridViewRow row in vw.Rows)
+            {
+                if (row.Cells[idName].Value != null && (int)row.Cells[idName].Value == id)
+                {
+                    labelSelectedMaterial.Text = row.Cells[columnToShow].Value.ToString();
+                    break;
+                }
+            }
+        }
+
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            int materialId = (int)comboBoxMatDesc.SelectedValue;
+            //int materialId = intMatId;
+            int materialId = intMatId;
             int moveTypeId = (int)comboBoxMoveTypes.SelectedValue;
             string comment = richTextBoxCommentary.Text;
 
@@ -110,19 +111,7 @@ namespace TechMate_Inventory
                 {
                     MessageBox.Show("INSERT failed: " + ex.Message);
                 }
-
-                // Verificar el tipo de formulario padre y actualizar la vista correspondiente
-                if (parentForm != null)
-                {
-                    if (parentForm is frmKardex kardexForm)
-                    {
-                        kardexForm.LoadKardexView();
-                    }
-                    else if (parentForm is frmGeneralInventory inventoryForm)
-                    {
-                        inventoryForm.LoadInventoryView();
-                    }
-                }
+                        parentForm.LoadInventoryView();     
             }
         }
 
@@ -137,6 +126,11 @@ namespace TechMate_Inventory
             {
                 e.Handled = true;
             }
+        }
+
+        private void usrCtrlNewMovement_MouseMove(object sender, MouseEventArgs e)
+        {
+            //SetLabelTextById(intMatId, vw);
         }
     }
 }

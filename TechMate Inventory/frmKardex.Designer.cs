@@ -58,10 +58,9 @@
             // catMatTitle
             // 
             this.catMatTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.catMatTitle.Location = new System.Drawing.Point(38, 50);
-            this.catMatTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.catMatTitle.Location = new System.Drawing.Point(51, 62);
             this.catMatTitle.Name = "catMatTitle";
-            this.catMatTitle.Size = new System.Drawing.Size(311, 34);
+            this.catMatTitle.Size = new System.Drawing.Size(415, 42);
             this.catMatTitle.TabIndex = 2;
             this.catMatTitle.Text = "Kardex de movimientos";
             // 
@@ -90,8 +89,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.vwKardexGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.vwKardexGridView.Location = new System.Drawing.Point(43, 95);
-            this.vwKardexGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.vwKardexGridView.Location = new System.Drawing.Point(57, 117);
+            this.vwKardexGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.vwKardexGridView.Name = "vwKardexGridView";
             this.vwKardexGridView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -107,16 +106,17 @@
             this.vwKardexGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.vwKardexGridView.RowTemplate.Height = 32;
             this.vwKardexGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.vwKardexGridView.Size = new System.Drawing.Size(1208, 275);
+            this.vwKardexGridView.Size = new System.Drawing.Size(1365, 338);
             this.vwKardexGridView.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1016, 42);
+            this.label1.Location = new System.Drawing.Point(1106, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 25);
+            this.label1.Size = new System.Drawing.Size(238, 31);
             this.label1.TabIndex = 7;
             this.label1.Text = "Nuevo movimiento";
             // 
@@ -126,9 +126,10 @@
             this.addNewMatBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addNewMatBtn.BackgroundImage")));
             this.addNewMatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addNewMatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewMatBtn.Location = new System.Drawing.Point(1211, 36);
+            this.addNewMatBtn.Location = new System.Drawing.Point(1369, 55);
+            this.addNewMatBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addNewMatBtn.Name = "addNewMatBtn";
-            this.addNewMatBtn.Size = new System.Drawing.Size(40, 40);
+            this.addNewMatBtn.Size = new System.Drawing.Size(53, 49);
             this.addNewMatBtn.TabIndex = 6;
             this.addNewMatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewMatBtn.UseVisualStyleBackColor = true;
@@ -136,16 +137,16 @@
             // 
             // frmKardex
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1331, 742);
+            this.ClientSize = new System.Drawing.Size(1775, 913);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addNewMatBtn);
             this.Controls.Add(this.vwKardexGridView);
             this.Controls.Add(this.catMatTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmKardex";
             this.Text = "frmKardex";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

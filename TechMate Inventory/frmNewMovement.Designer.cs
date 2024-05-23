@@ -173,7 +173,7 @@
             this.Controls.Add(this.richTextBoxCommentary);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Location = new System.Drawing.Point(800, 250);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmNewMovement";
