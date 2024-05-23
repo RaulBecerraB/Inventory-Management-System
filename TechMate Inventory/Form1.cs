@@ -18,6 +18,7 @@ namespace TechMate_Inventory
 
         public string userName;
         public frmLogin parentLogin;
+        public int userId;
         public Form1(string userName, frmLogin parentLogin)
         {
             InitializeComponent();
@@ -105,6 +106,7 @@ namespace TechMate_Inventory
                         frmGeneralInventory Inventory = new frmGeneralInventory(connectionString);
                         Inventory.MdiParent = this;
                         Inventory.Dock = DockStyle.Fill;
+                        Inventory.userId = userId;
                         Inventory.Show();
                     }
                     else

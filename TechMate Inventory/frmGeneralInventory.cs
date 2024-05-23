@@ -15,10 +15,9 @@ namespace TechMate_Inventory
     public partial class frmGeneralInventory : Form
     {
         private string connectionString;
-        public string someProperty;
         private usrCtrlNewMovement newMovementControl;
+        public int userId;
         
-
         public frmGeneralInventory(string connectionString)
         {
             InitializeComponent();

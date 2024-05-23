@@ -97,7 +97,7 @@ namespace TechMate_Inventory
                         // Asignar valores a los parámetros
                         command.Parameters.AddWithValue("@ID_MoveType", moveTypeId);
                         command.Parameters.AddWithValue("@ID_Material", materialId);
-                        command.Parameters.AddWithValue("@ID_User", 1); // Asignar un valor de ID_User apropiado
+                        command.Parameters.AddWithValue("@ID_User", parentForm.userId); // Asignar un valor de ID_User apropiado
                         command.Parameters.AddWithValue("@Comment", comment);
                         command.Parameters.AddWithValue("@Quantity", quantity);
 

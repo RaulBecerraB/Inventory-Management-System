@@ -84,7 +84,7 @@ namespace TechMate_Inventory
 
                     // Opcionalmente configurar las cabeceras si es necesario
 
-                    vwMatCatGridView.Columns["ID_Material"].HeaderText = "Índice";
+                    vwMatCatGridView.Columns["ID_Material"].Visible = false;
                     vwMatCatGridView.Columns["shortDescription"].HeaderText = "Descripción corta";
                     vwMatCatGridView.Columns["Category"].HeaderText = "Categoría";
                     vwMatCatGridView.Columns["MaterialType"].HeaderText = "Tipo";
@@ -132,13 +132,13 @@ namespace TechMate_Inventory
 
                     //Renaming rows (READ ONLY)
 
-                    vwCategoriesGridView.Columns["ID_Category"].HeaderText = "Índice";
+                    vwCategoriesGridView.Columns["ID_Category"].Visible = false;
                     vwCategoriesGridView.Columns["Name"].HeaderText = "Nombre";
 
-                    vwMatTypesGridView.Columns["ID_MatType"].HeaderText = "Índice";
+                    vwMatTypesGridView.Columns["ID_MatType"].Visible = false;
                     vwMatTypesGridView.Columns["Name"].HeaderText = "Nombre";
 
-                    vwMatUnitsGridView.Columns["ID_Unit"].HeaderText = "Índice";
+                    vwMatUnitsGridView.Columns["ID_Unit"].Visible = false;
                     vwMatUnitsGridView.Columns["Name"].HeaderText = "Nombre";
 
 

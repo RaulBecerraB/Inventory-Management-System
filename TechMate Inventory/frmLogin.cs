@@ -46,7 +46,7 @@ namespace TechMate_Inventory
 
                     if (isUserInDB(connection, textBoxUserName) && isPasswordCorrect(connection, textBoxUserName, textBoxPassword))
                     {
-                        Login();
+                        Login(connection);
                     }
                     else
                     {
@@ -61,10 +61,11 @@ namespace TechMate_Inventory
             }
         }
 
-        private void Login()
+        private void Login(SqlConnection connection)
         {
             Form1 application = new Form1(textBoxUserName.Text, this);
             application.Show();
+            application.userId = getUserId(connection, textBoxUserName);
             this.Hide();
         }
 
@@ -72,6 +73,7 @@ namespace TechMate_Inventory
         {
             Form1 application = new Form1(forcedUser, this);
             application.Show();
+
             this.Hide();
         }
 
@@ -97,6 +99,28 @@ namespace TechMate_Inventory
                 {
                     MessageBox.Show("ERROR isUserInDB: " + ex.Message);
                     return false;
+                }
+            }
+        }
+
+        private int getUserId(SqlConnection connection, TextBox userName)
+        {
+            string query = @"SELECT ID_User FROM Users WHERE Name = @textBoxUserName";
+
+            using (SqlCommand cmd = new SqlCommand(query, connection))
+            {
+                try
+                {
+                    // Añadiendo los parámetros al comando
+                    cmd.Parameters.AddWithValue("@textBoxUserName", userName.Text);
+
+                    // Ejecutar el comando y obtener el resultado
+                    return (int)cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR getting user ID: " + ex.Message);
+                    return 0;
                 }
             }
         }

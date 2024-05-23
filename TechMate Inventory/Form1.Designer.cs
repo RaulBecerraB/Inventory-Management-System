@@ -122,6 +122,7 @@
             this.labelUserName.Size = new System.Drawing.Size(162, 42);
             this.labelUserName.TabIndex = 7;
             this.labelUserName.Text = "userName";
+            this.labelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pictureBox2
             // 
