@@ -95,8 +95,8 @@
             this.kardexBtn.Image = ((System.Drawing.Image)(resources.GetObject("kardexBtn.Image")));
             this.kardexBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.kardexBtn.Name = "kardexBtn";
-            this.kardexBtn.Size = new System.Drawing.Size(116, 95);
-            this.kardexBtn.Text = "Kardex";
+            this.kardexBtn.Size = new System.Drawing.Size(196, 95);
+            this.kardexBtn.Text = "Movimientos";
             this.kardexBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
             // catalogueBtn

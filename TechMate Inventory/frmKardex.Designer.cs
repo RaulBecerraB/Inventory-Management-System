@@ -62,7 +62,7 @@
             this.catMatTitle.Name = "catMatTitle";
             this.catMatTitle.Size = new System.Drawing.Size(415, 42);
             this.catMatTitle.TabIndex = 2;
-            this.catMatTitle.Text = "Kardex de movimientos";
+            this.catMatTitle.Text = "Movimientos";
             // 
             // vwKardexGridView
             // 
@@ -119,6 +119,7 @@
             this.label1.Size = new System.Drawing.Size(238, 31);
             this.label1.TabIndex = 7;
             this.label1.Text = "Nuevo movimiento";
+            this.label1.Visible = false;
             // 
             // addNewMatBtn
             // 
@@ -127,12 +128,13 @@
             this.addNewMatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addNewMatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addNewMatBtn.Location = new System.Drawing.Point(1369, 55);
-            this.addNewMatBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addNewMatBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addNewMatBtn.Name = "addNewMatBtn";
             this.addNewMatBtn.Size = new System.Drawing.Size(53, 49);
             this.addNewMatBtn.TabIndex = 6;
             this.addNewMatBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewMatBtn.UseVisualStyleBackColor = true;
+            this.addNewMatBtn.Visible = false;
             this.addNewMatBtn.Click += new System.EventHandler(this.addNewMatBtn_Click);
             // 
             // frmKardex

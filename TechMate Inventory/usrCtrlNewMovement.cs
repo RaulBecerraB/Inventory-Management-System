@@ -71,13 +71,21 @@ namespace TechMate_Inventory
             int moveTypeId = (int)comboBoxMoveTypes.SelectedValue;
             string comment = richTextBoxCommentary.Text;
 
+            if (materialId == 0)
+            {
+                MessageBox.Show("Primero seleccione un material");
+                return;
+            }
             // Validar cantidad
             if (!int.TryParse(textBoxQuantity.Text, out int quantity))
             {
                 MessageBox.Show("Please enter a valid quantity.");
                 return;
             }
-
+            if (comboBoxMoveTypes.Text == "ADJ")
+            {
+                MessageBox.Show("ADJ no ha sido implementado, seleccione otro tipo de movimiento");
+            }
             // Verificar si el movimiento es "OUT" y hacer negativa la cantidad
             if (comboBoxMoveTypes.Text == "OUT")
             {

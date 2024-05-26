@@ -40,6 +40,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnHidePwd = new System.Windows.Forms.PictureBox();
             this.forceLoginBtn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHidePwd)).BeginInit();
             this.SuspendLayout();
@@ -159,16 +161,38 @@
             this.forceLoginBtn.TabIndex = 8;
             this.forceLoginBtn.Text = "Forzar login (developer)";
             this.forceLoginBtn.UseVisualStyleBackColor = true;
+            this.forceLoginBtn.Visible = false;
             this.forceLoginBtn.Click += new System.EventHandler(this.forceLoginBtn_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1116, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 25);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Nombre de usuario";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(588, 392);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(173, 75);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Credenciales Teresita:\r\nTeresita\r\nAdmin6\r\n";
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 476);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.forceLoginBtn);
             this.Controls.Add(this.btnHidePwd);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -177,6 +201,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.catMatTitle);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmLogin";
             this.ShowIcon = false;
@@ -203,5 +228,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox btnHidePwd;
         private System.Windows.Forms.Button forceLoginBtn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
