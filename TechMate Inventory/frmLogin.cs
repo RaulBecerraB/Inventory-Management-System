@@ -149,7 +149,6 @@ namespace TechMate_Inventory
                     }
                     else
                     {
-                        MessageBox.Show("Usuario o contraseña incorrectos");
                         return false;
                     }
                 }
