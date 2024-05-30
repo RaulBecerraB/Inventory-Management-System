@@ -43,6 +43,13 @@ namespace TechMate_Inventory
 
                 // Añade la columna de botón al final de todas las columnas existentes
                 gridView.Columns.Add(deleteButtonColumn);
+
+                // Ajusta las propiedades de autoajuste de columnas del DataGridView
+                gridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                deleteButtonColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+
+                // Establece explícitamente el ancho de la columna después de añadirla
+                gridView.Columns[name].Width = 60;
             }
         }
 
