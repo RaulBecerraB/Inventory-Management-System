@@ -40,7 +40,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnHidePwd = new System.Windows.Forms.PictureBox();
             this.forceLoginBtn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHidePwd)).BeginInit();
@@ -63,6 +62,7 @@
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(274, 34);
             this.textBoxUserName.TabIndex = 2;
+            this.textBoxUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUserName_KeyPress);
             // 
             // label6
             // 
@@ -105,6 +105,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(274, 34);
             this.textBoxPassword.TabIndex = 4;
+            this.textBoxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPassword_KeyPress);
             // 
             // label2
             // 
@@ -161,18 +162,7 @@
             this.forceLoginBtn.TabIndex = 8;
             this.forceLoginBtn.Text = "Forzar login (developer)";
             this.forceLoginBtn.UseVisualStyleBackColor = true;
-            this.forceLoginBtn.Visible = false;
             this.forceLoginBtn.Click += new System.EventHandler(this.forceLoginBtn_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1116, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 25);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Nombre de usuario";
             // 
             // label4
             // 
@@ -190,7 +180,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 476);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.forceLoginBtn);
             this.Controls.Add(this.btnHidePwd);
             this.Controls.Add(this.btnRegister);
@@ -228,7 +217,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox btnHidePwd;
         private System.Windows.Forms.Button forceLoginBtn;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
     }
 }

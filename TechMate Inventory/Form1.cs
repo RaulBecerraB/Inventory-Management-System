@@ -14,7 +14,7 @@ namespace TechMate_Inventory
 {
     public partial class Form1 : Form
     {
-        public string connectionString = ConfigurationManager.ConnectionStrings["local.TechMateInventoryConnectionString"].ConnectionString;
+        public string connectionString = ConfigurationManager.ConnectionStrings["AWS.TechMateInventoryConnectionString"].ConnectionString;
 
         public string userName;
         public frmLogin parentLogin;
@@ -116,7 +116,25 @@ namespace TechMate_Inventory
 
                 break;
 
+                case "StoreBtn":
+
+                    int childIndexStore = fnBuscaMDIChild("frmStore");
+
+                    if (childIndexStore == -1)
+                    {
+                        frmStore Store = new frmStore(connectionString);
+                        Store.MdiParent = this;
+                        Store.Dock = DockStyle.Fill;
+                        Store.Show();
+                    }
+                    else
+                    {
+                        this.MdiChildren[childIndexStore].Focus();
+                    }
+                break;
+
                 default:
+
                     break;
             }
             //MessageBox.Show(e.ClickedItem.Name);

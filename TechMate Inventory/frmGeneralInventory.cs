@@ -25,10 +25,16 @@ namespace TechMate_Inventory
             
         }
 
+        // Propiedad pública para acceder al DataGridView
+        public DataGridView vwInventory
+        {
+            get { return vwInventoryGridView; }
+        }
+
         private void frmGeneralInventory_Load(object sender, EventArgs e)
         {
             newMovementControl = new usrCtrlNewMovement(this,connectionString);
-            LoadInventoryView();
+            LoadInventoryView(vwInventoryGridView);
             LoadNewMovementForm();
 
         }
@@ -40,7 +46,7 @@ namespace TechMate_Inventory
             scInventoryMove.Panel2.Controls.Clear(); // Opcional: Limpia los controles existentes en el panel
             scInventoryMove.Panel2.Controls.Add(newMovementControl); // Agrega el UserControl al panel
         }
-        public void LoadInventoryView()
+        public void LoadInventoryView(DataGridView gridView)
         {
             string query = @"
         SELECT m.ID_Material,m.shortDescription, 
@@ -56,11 +62,11 @@ namespace TechMate_Inventory
                     connection.Open();
 
                     
-                    vwInventoryGridView.DataSource = Program.GetDataTable(query,connection);
+                    gridView.DataSource = Program.GetDataTable(query,connection);
 
-                    vwInventoryGridView.Columns["ID_Material"].Visible = false;
-                    vwInventoryGridView.Columns["shortDescription"].HeaderText = "Material";
-                    vwInventoryGridView.Columns["TotalQuantity"].HeaderText = "Cantidad";
+                    gridView.Columns["ID_Material"].Visible = false;
+                    gridView.Columns["shortDescription"].HeaderText = "Material";
+                    gridView.Columns["TotalQuantity"].HeaderText = "Cantidad";
 
                 }
                 catch (Exception ex)
@@ -77,7 +83,7 @@ namespace TechMate_Inventory
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            LoadInventoryView();
+            LoadInventoryView(vwInventoryGridView);
         }
 
         private void vwInventoryGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

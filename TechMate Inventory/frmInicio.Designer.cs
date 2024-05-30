@@ -46,7 +46,7 @@
             this.catMatTitle.BackColor = System.Drawing.SystemColors.ControlLight;
             this.catMatTitle.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.catMatTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.catMatTitle.Location = new System.Drawing.Point(302, 102);
+            this.catMatTitle.Location = new System.Drawing.Point(275, 98);
             this.catMatTitle.Name = "catMatTitle";
             this.catMatTitle.Size = new System.Drawing.Size(984, 65);
             this.catMatTitle.TabIndex = 7;
@@ -65,7 +65,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(497, 333);
+            this.label1.Location = new System.Drawing.Point(485, 333);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(642, 50);
             this.label1.TabIndex = 9;

@@ -120,7 +120,7 @@ namespace TechMate_Inventory
                     }
                     else if (parentForm is frmGeneralInventory inventoryForm)
                     {
-                        inventoryForm.LoadInventoryView();
+                        inventoryForm.LoadInventoryView(inventoryForm.vwInventory);
                     }
                 }
             }

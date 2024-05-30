@@ -36,6 +36,7 @@
             this.catalogueBtn = new System.Windows.Forms.ToolStripButton();
             this.labelUserName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.StoreBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -49,11 +50,13 @@
             this.HomeBtn,
             this.InventoryBtn,
             this.kardexBtn,
-            this.catalogueBtn});
+            this.catalogueBtn,
+            this.StoreBtn});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(10);
+            this.toolStrip1.ShowItemToolTips = false;
             this.toolStrip1.Size = new System.Drawing.Size(1117, 118);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 1;
@@ -135,6 +138,17 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
+            // StoreBtn
+            // 
+            this.StoreBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.StoreBtn.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StoreBtn.Image = ((System.Drawing.Image)(resources.GetObject("StoreBtn.Image")));
+            this.StoreBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.StoreBtn.Name = "StoreBtn";
+            this.StoreBtn.Size = new System.Drawing.Size(113, 95);
+            this.StoreBtn.Text = "Tienda";
+            this.StoreBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -143,14 +157,14 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.labelUserName);
             this.Controls.Add(this.toolStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AAAIMX Inventory System";
+            this.Text = "Sistema de inventario";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
@@ -170,6 +184,7 @@
         private System.Windows.Forms.ToolStripButton kardexBtn;
         private System.Windows.Forms.Label labelUserName;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripButton StoreBtn;
     }
 }
 

@@ -119,7 +119,7 @@ namespace TechMate_Inventory
                 {
                     MessageBox.Show("INSERT failed: " + ex.Message);
                 }
-                        parentForm.LoadInventoryView();     
+                        parentForm.LoadInventoryView(parentForm.vwInventory);     
             }
         }
 

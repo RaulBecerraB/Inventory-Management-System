@@ -187,5 +187,27 @@ namespace TechMate_Inventory
             string forcedUser = "Developer";
             Login(forcedUser);
         }
+
+        private void textBoxUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado es un carácter de control, una letra o un dígito
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
+            {
+                // Si el carácter ingresado no es permitido, se maneja el evento y se evita que el carácter sea ingresado
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado es un carácter de control, una letra o un dígito
+            if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
+            {
+                // Si el carácter ingresado no es permitido, se maneja el evento y se evita que el carácter sea ingresado
+                e.Handled = true;
+            }
+        }
+
+
     }
 }
