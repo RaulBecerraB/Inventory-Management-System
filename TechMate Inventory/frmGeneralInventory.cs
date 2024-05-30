@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace TechMate_Inventory
 {
@@ -66,7 +67,10 @@ namespace TechMate_Inventory
 
                     gridView.Columns["ID_Material"].Visible = false;
                     gridView.Columns["shortDescription"].HeaderText = "Material";
-                    gridView.Columns["TotalQuantity"].HeaderText = "Cantidad";
+                    gridView.Columns["TotalQuantity"].HeaderText = "En existencia";
+
+                    // Establece explícitamente el ancho de la columna después de añadirla
+                    gridView.Columns["shortDescription"].Width = 800;
 
                 }
                 catch (Exception ex)
