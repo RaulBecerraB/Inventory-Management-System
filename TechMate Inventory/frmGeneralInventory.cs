@@ -70,7 +70,7 @@ namespace TechMate_Inventory
                     gridView.Columns["TotalQuantity"].HeaderText = "En existencia";
 
                     // Establece explícitamente el ancho de la columna después de añadirla
-                    gridView.Columns["shortDescription"].Width = 800;
+                    //gridView.Columns["shortDescription"].Width = 800;
 
                 }
                 catch (Exception ex)

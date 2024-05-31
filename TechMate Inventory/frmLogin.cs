@@ -28,7 +28,7 @@ namespace TechMate_Inventory
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
+     
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -71,6 +71,7 @@ namespace TechMate_Inventory
 
         private void Login(string forcedUser)
         {
+            
             Form1 application = new Form1(forcedUser, this);
             application.Show();
 

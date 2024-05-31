@@ -40,5 +40,74 @@ namespace TechMate_Inventory
             adapter.Fill(dataTable);
             return dataTable;
         }
+
+        public static void AddTextBoxToGridView(DataGridView gridView, string text, string name)
+        {
+            // Verifica si la columna ya existe para evitar duplicados
+            if (!gridView.Columns.Contains(text))
+            {
+                DataGridViewTextBoxColumn textBoxColumn = new DataGridViewTextBoxColumn();
+                textBoxColumn.Name = name;
+                textBoxColumn.HeaderText = text;
+
+                // Añade la columna de texto al final de todas las columnas existentes
+                gridView.Columns.Add(textBoxColumn);
+
+            }
+        }
+
+        public static void AddCounterToGridView(DataGridView gridView, string text, string name, int startValue)
+        {
+            // Verifica si la columna ya existe para evitar duplicados
+            if (!gridView.Columns.Contains(name))
+            {
+                DataGridViewTextBoxColumn textBoxColumn = new DataGridViewTextBoxColumn();
+                textBoxColumn.Name = name;
+                textBoxColumn.HeaderText = text;
+
+                // Añade la columna de texto al final de todas las columnas existentes
+                gridView.Columns.Add(textBoxColumn);
+
+                foreach (DataGridViewRow row in gridView.Rows)
+                {
+                    if (!row.IsNewRow) // Asegúrate de no intentar asignar valor a la fila nueva
+                    {
+                        row.Cells[name].Value = startValue;
+                    }
+                }
+            }
+        }
+
+        public static void AddButtonToGridView(DataGridView gridView, string text, string name, int width)
+        {
+            // Verifica si la columna ya existe para evitar duplicados
+            if (!gridView.Columns.Contains(name))
+            {
+                DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+                buttonColumn.Name = name;
+                buttonColumn.HeaderText = "";
+                buttonColumn.Text = text;
+                buttonColumn.UseColumnTextForButtonValue = true;  // Hace que el texto del botón sea el valor por defecto de la columna
+                buttonColumn.Width = width; // Establece el ancho de la columna del botón
+
+                // Añade la columna de botón al final de todas las columnas existentes
+                gridView.Columns.Add(buttonColumn);
+
+                // Ajusta las propiedades de autoajuste de columnas del DataGridView
+                gridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+                buttonColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+
+                // Establece explícitamente el ancho de la columna después de añadirla
+                gridView.Columns[name].Width = width;
+
+                /////////////////////////////////////////////////////////
+                // TODO: AJUSTE DE ALTURA POR ROW SIGUE SIN FUNCIONAR, //
+                // ARREGLAR MÁS TARDE                                  //
+                /////////////////////////////////////////////////////////
+
+                // Establece la altura predeterminada de todas las filas
+                gridView.RowTemplate.Height = 400;
+            }
+        }
     }
 }
