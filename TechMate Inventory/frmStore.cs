@@ -25,11 +25,6 @@ namespace TechMate_Inventory
             frmGeneralInventory frmInventory = new frmGeneralInventory(connectionString);
             frmInventory.LoadInventoryView(vwInventoryGridView);
 
-            Program.AddButtonToGridView(vwInventoryGridView,"+","Add",45);
-            //Program.AddTextBoxToGridView(vwInventoryGridView,"Cantidad","quantity");
-            Program.AddCounterToGridView(vwInventoryGridView, "Cantidad","Quantity",0);
-            Program.AddButtonToGridView(vwInventoryGridView,"-","Remove", 45);
-            Program.AddButtonToGridView(vwInventoryGridView, "Añadir\n al carrito", "Add to cart",120);
         }
 
         private void vwInventoryGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
