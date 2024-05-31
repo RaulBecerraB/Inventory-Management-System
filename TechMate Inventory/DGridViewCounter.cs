@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace TechMate_Inventory
 {
-    internal static class AddCounterToDataGridView
+    internal static class DGridViewCounter
     {
         public static void AddTextBoxToGridView(DataGridView gridView, string text, string name)
         {
@@ -42,7 +42,7 @@ namespace TechMate_Inventory
                 {
                     if (!row.IsNewRow) // Asegúrate de no intentar asignar valor a la fila nueva
                     {
-                        row.Cells[name].Value = startValue;
+                        row.Cells[name].Value = 0;
                         // Verificar el valor asignado
                         Console.WriteLine($"Fila {row.Index}, Columna {name}, Valor Asignado: {row.Cells[name].Value}");
                     }
@@ -75,11 +75,6 @@ namespace TechMate_Inventory
                 // Establece explícitamente el ancho de la columna después de añadirla
                 gridView.Columns[name].Width = width;
 
-                /////////////////////////////////////////////////////////
-                // TODO: AJUSTE DE ALTURA POR ROW SIGUE SIN FUNCIONAR, //
-                // ARREGLAR MÁS TARDE                                  //
-                /////////////////////////////////////////////////////////
-
                 // Establece la altura predeterminada de todas las filas
                 gridView.RowTemplate.Height = 400;
             }
@@ -100,6 +95,19 @@ namespace TechMate_Inventory
             dataGridView.Refresh();
         }
 
+        public static void AddButtonColumn(DataGridView gridView, string name, string text)
+        {
+            DataGridViewButtonColumn incrementButtonColumn = new DataGridViewButtonColumn
+            {
+                Name = name,
+                HeaderText = "",
+                Text = text,
+                UseColumnTextForButtonValue = true
+            };
+
+            // Añadir las columnas de botones al final de todas las columnas existentes
+            gridView.Columns.Add(incrementButtonColumn);
+        }
     }
 
 

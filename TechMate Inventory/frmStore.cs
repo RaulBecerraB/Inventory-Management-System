@@ -23,7 +23,13 @@ namespace TechMate_Inventory
         private void frmStore_Load(object sender, EventArgs e)
         {
             frmGeneralInventory frmInventory = new frmGeneralInventory(connectionString);
+
             frmInventory.LoadInventoryView(vwInventoryGridView);
+
+            DGridViewCounter.AddButtonColumn(vwInventoryGridView,"Increment","+");
+            DGridViewCounter.AddCounterToGridView(vwInventoryGridView, "Cantidad","Quantity",0);
+            DGridViewCounter.AddButtonColumn(vwInventoryGridView, "Decrement", "-");
+            DGridViewCounter.AddButtonColumn(vwInventoryGridView, "AddToCart", "Añadir al carrito");
 
         }
 
@@ -32,12 +38,41 @@ namespace TechMate_Inventory
             // Verificar si es la columna "Quantity"
             if (vwInventoryGridView.Columns[e.ColumnIndex].Name == "Quantity")
             {
-                // Verificar si el valor es 0 y formatear adecuadamente
-                if (e.Value == null || e.Value.Equals(0))
+                // Si el valor es nulo, mostrar "0"
+                if (e.Value == null)
                 {
                     e.Value = "0";
                     e.FormattingApplied = true;
                 }
+                else
+                {
+                    // Asegurarse de que se muestre el valor actual
+                    e.Value = e.Value.ToString();
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
+        private void vwInventoryGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificar si se hizo clic en una celda de tipo botón
+            if (e.RowIndex >= 0 && (vwInventoryGridView.Columns[e.ColumnIndex].Name == "Increment" || vwInventoryGridView.Columns[e.ColumnIndex].Name == "Decrement"))
+            {
+                DataGridViewRow row = vwInventoryGridView.Rows[e.RowIndex];
+                int currentValue = Convert.ToInt32(row.Cells["Quantity"].Value);
+
+                // Incrementar o decrementar el valor según el botón presionado
+                if (vwInventoryGridView.Columns[e.ColumnIndex].Name == "Increment")
+                {
+                    row.Cells["Quantity"].Value = currentValue + 1;
+                }
+                else if (vwInventoryGridView.Columns[e.ColumnIndex].Name == "Decrement" && currentValue > 0)
+                {
+                    row.Cells["Quantity"].Value = currentValue - 1;
+                }
+
+                // Refrescar el DataGridView después de actualizar los valores
+                vwInventoryGridView.Refresh();
             }
         }
     }

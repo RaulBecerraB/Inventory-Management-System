@@ -109,7 +109,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddCounterToDataGridView.cs" />
+    <Compile Include="DGridViewCounter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +145,12 @@
     </Compile>
     <Compile Include="frmBorrowings.Designer.cs">
       <DependentUpon>frmBorrowings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCart.Designer.cs">
+      <DependentUpon>frmCart.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEditCategoryPopUp.cs">
       <SubType>Form</SubType>
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddUnitPopUp.resx">
       <DependentUpon>frmAddUnitPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCart.resx">
+      <DependentUpon>frmCart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditCategoryPopUp.resx">
       <DependentUpon>frmEditCategoryPopUp.cs</DependentUpon>

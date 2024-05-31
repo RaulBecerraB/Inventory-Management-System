@@ -34,11 +34,13 @@
             this.InventoryBtn = new System.Windows.Forms.ToolStripButton();
             this.kardexBtn = new System.Windows.Forms.ToolStripButton();
             this.catalogueBtn = new System.Windows.Forms.ToolStripButton();
+            this.StoreBtn = new System.Windows.Forms.ToolStripButton();
             this.labelUserName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.StoreBtn = new System.Windows.Forms.ToolStripButton();
+            this.CartBtn = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CartBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -113,31 +115,6 @@
             this.catalogueBtn.Text = "Catálogo";
             this.catalogueBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
-            // labelUserName
-            // 
-            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUserName.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.labelUserName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUserName.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelUserName.Location = new System.Drawing.Point(840, 41);
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(162, 42);
-            this.labelUserName.TabIndex = 7;
-            this.labelUserName.Text = "userName";
-            this.labelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1008, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(92, 89);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
             // StoreBtn
             // 
             this.StoreBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -149,11 +126,50 @@
             this.StoreBtn.Text = "Tienda";
             this.StoreBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
+            // labelUserName
+            // 
+            this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.labelUserName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserName.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelUserName.Location = new System.Drawing.Point(739, 41);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(162, 42);
+            this.labelUserName.TabIndex = 7;
+            this.labelUserName.Text = "userName";
+            this.labelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(907, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(92, 89);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // CartBtn
+            // 
+            this.CartBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CartBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CartBtn.Image = ((System.Drawing.Image)(resources.GetObject("CartBtn.Image")));
+            this.CartBtn.Location = new System.Drawing.Point(1010, 16);
+            this.CartBtn.Name = "CartBtn";
+            this.CartBtn.Size = new System.Drawing.Size(87, 80);
+            this.CartBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CartBtn.TabIndex = 9;
+            this.CartBtn.TabStop = false;
+            this.CartBtn.Click += new System.EventHandler(this.CartBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1117, 699);
+            this.Controls.Add(this.CartBtn);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.labelUserName);
             this.Controls.Add(this.toolStrip1);
@@ -170,6 +186,7 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CartBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,6 +202,7 @@
         private System.Windows.Forms.Label labelUserName;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolStripButton StoreBtn;
+        private System.Windows.Forms.PictureBox CartBtn;
     }
 }
 

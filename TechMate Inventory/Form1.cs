@@ -167,5 +167,22 @@ namespace TechMate_Inventory
         {
             parentLogin.Close();
         }
+
+        private void CartBtn_Click(object sender, EventArgs e)
+        {
+            int childIndexCart = fnBuscaMDIChild("frmCart");
+
+            if (childIndexCart == -1)
+            {
+                frmCart Cart = new frmCart(connectionString);
+                Cart.MdiParent = this;
+                Cart.Dock = DockStyle.Fill;
+                Cart.Show();
+            }
+            else
+            {
+                this.MdiChildren[childIndexCart].Focus();
+            }
+        }
     }
 }

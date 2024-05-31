@@ -38,7 +38,12 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.techMateInventoryDataSet = new TechMate_Inventory.TechMateInventoryDataSet();
+            this.matUnitsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.matUnitsTableAdapter = new TechMate_Inventory.TechMateInventoryDataSetTableAdapters.MatUnitsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.vwInventoryGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matUnitsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // catMatTitle
@@ -94,6 +99,7 @@
             this.vwInventoryGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.vwInventoryGridView.Size = new System.Drawing.Size(1300, 338);
             this.vwInventoryGridView.TabIndex = 8;
+            this.vwInventoryGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwInventoryGridView_CellClick);
             this.vwInventoryGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.vwInventoryGridView_CellFormatting);
             // 
             // contextMenuStrip1
@@ -121,6 +127,20 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Descripción";
             // 
+            // techMateInventoryDataSet
+            // 
+            this.techMateInventoryDataSet.DataSetName = "TechMateInventoryDataSet";
+            this.techMateInventoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // matUnitsBindingSource
+            // 
+            this.matUnitsBindingSource.DataMember = "MatUnits";
+            this.matUnitsBindingSource.DataSource = this.techMateInventoryDataSet;
+            // 
+            // matUnitsTableAdapter
+            // 
+            this.matUnitsTableAdapter.ClearBeforeFill = true;
+            // 
             // frmStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -138,6 +158,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmStore_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vwInventoryGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matUnitsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -149,5 +171,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label1;
+        private TechMateInventoryDataSet techMateInventoryDataSet;
+        private System.Windows.Forms.BindingSource matUnitsBindingSource;
+        private TechMateInventoryDataSetTableAdapters.MatUnitsTableAdapter matUnitsTableAdapter;
     }
 }
