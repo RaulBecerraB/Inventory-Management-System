@@ -14,11 +14,21 @@ namespace TechMate_Inventory
 {
     public partial class Form1 : Form
     {
-        public string connectionString = ConfigurationManager.ConnectionStrings["local.TechMateInventoryConnectionString"].ConnectionString;
+        public static string connectionString = ConfigurationManager.ConnectionStrings["local.TechMateInventoryConnectionString"].ConnectionString;
 
         public string userName;
         public frmLogin parentLogin;
         public int userId;
+
+        //Inicializar todas las forms para acceder a ellas de manera universal
+
+        frmStore Store = new frmStore(connectionString);
+        frmGeneralInventory Inventory = new frmGeneralInventory(connectionString);
+        frmKardex Kardex = new frmKardex(connectionString);
+        frmMatCatalogue Catalogue = new frmMatCatalogue(connectionString);
+        frmInicio Home = new frmInicio(connectionString);
+        frmCart Cart = new frmCart(connectionString);
+
         public Form1(string userName, frmLogin parentLogin)
         {
             InitializeComponent();
@@ -30,8 +40,6 @@ namespace TechMate_Inventory
         {
             //Used this to solve line break problem
             InventoryBtn.Text = "Inventario\nGeneral";
-
-            frmInicio Home = new frmInicio(connectionString);
 
             labelUserName.Text = userName;
             Home.MdiParent = this;
@@ -49,7 +57,6 @@ namespace TechMate_Inventory
 
                     if (childIndexHome == -1)
                     {
-                        frmInicio Home = new frmInicio(connectionString);
                         Home.MdiParent = this;
                         Home.Dock = DockStyle.Fill;
                         Home.Show();
@@ -66,7 +73,6 @@ namespace TechMate_Inventory
          
                     if (childIndexCatalogue == -1)
                     {
-                        frmMatCatalogue Catalogue = new frmMatCatalogue(connectionString);
                         Catalogue.MdiParent = this;
                         Catalogue.Dock = DockStyle.Fill;
                         Catalogue.Show();
@@ -83,7 +89,6 @@ namespace TechMate_Inventory
 
                     if (childIndexKardex == -1)
                     {
-                        frmKardex Kardex = new frmKardex(connectionString);
                         Kardex.MdiParent = this;
                         Kardex.Dock = DockStyle.Fill;
                         Kardex.Show();
@@ -103,7 +108,6 @@ namespace TechMate_Inventory
 
                     if (childIndexInventory == -1)
                     {
-                        frmGeneralInventory Inventory = new frmGeneralInventory(connectionString);
                         Inventory.MdiParent = this;
                         Inventory.Dock = DockStyle.Fill;
                         Inventory.userId = userId;
@@ -122,7 +126,6 @@ namespace TechMate_Inventory
 
                     if (childIndexStore == -1)
                     {
-                        frmStore Store = new frmStore(connectionString);
                         Store.MdiParent = this;
                         Store.Dock = DockStyle.Fill;
                         Store.Show();
@@ -174,9 +177,9 @@ namespace TechMate_Inventory
 
             if (childIndexCart == -1)
             {
-                frmCart Cart = new frmCart(connectionString);
                 Cart.MdiParent = this;
                 Cart.Dock = DockStyle.Fill;
+                Cart.parentStore = Store;
                 Cart.Show();
             }
             else

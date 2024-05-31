@@ -14,6 +14,7 @@ namespace TechMate_Inventory
     public partial class frmCart : Form
     {
         private string connectionString;
+        public frmStore parentStore;
         public frmCart(string connectionString)
         {
             InitializeComponent();
