@@ -92,6 +92,7 @@ namespace TechMate_Inventory
 
         private void vwInventoryGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            
             // Reemplaza "ColumnName" con el nombre de la columna que deseas evaluar
             string columnName = "TotalQuantity";
 

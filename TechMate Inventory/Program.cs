@@ -61,9 +61,11 @@ namespace TechMate_Inventory
             // Verifica si la columna ya existe para evitar duplicados
             if (!gridView.Columns.Contains(name))
             {
-                DataGridViewTextBoxColumn textBoxColumn = new DataGridViewTextBoxColumn();
-                textBoxColumn.Name = name;
-                textBoxColumn.HeaderText = text;
+                DataGridViewTextBoxColumn textBoxColumn = new DataGridViewTextBoxColumn
+                {
+                    Name = name,
+                    HeaderText = text
+                };
 
                 // Añade la columna de texto al final de todas las columnas existentes
                 gridView.Columns.Add(textBoxColumn);
@@ -73,7 +75,12 @@ namespace TechMate_Inventory
                     if (!row.IsNewRow) // Asegúrate de no intentar asignar valor a la fila nueva
                     {
                         row.Cells[name].Value = startValue;
+                        // Verificar el valor asignado
+                        Console.WriteLine($"Fila {row.Index}, Columna {name}, Valor Asignado: {row.Cells[name].Value}");
                     }
+
+                    // Refrescar el DataGridView después de asignar los valores
+                    gridView.Refresh();
                 }
             }
         }

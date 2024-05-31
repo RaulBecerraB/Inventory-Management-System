@@ -32,5 +32,18 @@ namespace TechMate_Inventory
             Program.AddButtonToGridView(vwInventoryGridView, "Añadir\n al carrito", "Add to cart",120);
         }
 
+        private void vwInventoryGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Verificar si es la columna "Quantity"
+            if (vwInventoryGridView.Columns[e.ColumnIndex].Name == "Quantity")
+            {
+                // Verificar si el valor es 0 y formatear adecuadamente
+                if (e.Value == null || e.Value.Equals(0))
+                {
+                    e.Value = "0";
+                    e.FormattingApplied = true;
+                }
+            }
+        }
     }
 }
