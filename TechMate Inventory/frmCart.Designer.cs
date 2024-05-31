@@ -51,6 +51,7 @@
             this.comboBoxStudents.Name = "comboBoxStudents";
             this.comboBoxStudents.Size = new System.Drawing.Size(374, 37);
             this.comboBoxStudents.TabIndex = 9;
+            this.comboBoxStudents.SelectedIndexChanged += new System.EventHandler(this.comboBoxStudents_SelectedIndexChanged);
             // 
             // frmCart
             // 

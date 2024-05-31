@@ -128,6 +128,7 @@ namespace TechMate_Inventory
                     {
                         Store.MdiParent = this;
                         Store.Dock = DockStyle.Fill;
+                        Store.childCart = Cart;
                         Store.Show();
                     }
                     else

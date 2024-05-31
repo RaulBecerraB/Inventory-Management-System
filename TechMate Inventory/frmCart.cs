@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TechMate_Inventory
 {
@@ -15,6 +16,8 @@ namespace TechMate_Inventory
     {
         private string connectionString;
         public frmStore parentStore;
+        public int actualID;
+
         public frmCart(string connectionString)
         {
             InitializeComponent();
@@ -37,6 +40,15 @@ namespace TechMate_Inventory
                 }
             }
                 
+        }
+
+        private void comboBoxStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxStudents.SelectedValue != null)
+            {
+                parentStore.selectedStudent = comboBoxStudents.SelectedValue.ToString();
+                parentStore.UpdateLabel2();
+            }
         }
     }
 }

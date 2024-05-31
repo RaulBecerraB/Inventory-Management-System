@@ -14,6 +14,8 @@ namespace TechMate_Inventory
     public partial class frmStore : Form
     {
         private string connectionString;
+        public frmCart childCart;
+        public string selectedStudent;
         public frmStore(string connectionString)
         {
             InitializeComponent();
@@ -21,7 +23,7 @@ namespace TechMate_Inventory
         }
 
         private void frmStore_Load(object sender, EventArgs e)
-        {
+        {   
             frmGeneralInventory frmInventory = new frmGeneralInventory(connectionString);
 
             frmInventory.LoadInventoryView(vwInventoryGridView);
@@ -31,6 +33,11 @@ namespace TechMate_Inventory
             DGridViewCounter.AddButtonColumn(vwInventoryGridView, "Decrement", "-");
             DGridViewCounter.AddButtonColumn(vwInventoryGridView, "AddToCart", "Añadir al carrito");
 
+        }
+
+        public void UpdateLabel2()
+        {
+            label2.Text = selectedStudent;
         }
 
         private void vwInventoryGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
