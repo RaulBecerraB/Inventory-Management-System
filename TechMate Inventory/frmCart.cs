@@ -28,11 +28,11 @@ namespace TechMate_Inventory
                 {
                     connection.Open();
 
-                    Program.FillComboBoxWithQuery(comboBoxStudents, "Students", "Matricula", "name",connection);
+                    Program.FillComboBoxWithQuery(comboBoxStudents, "Students", "Matricula", "name","last_name",connection);
                 }
-                catch 
+                catch(Exception ex)
                 {
-
+                    MessageBox.Show("ERROR cargando a alumnos: " + ex.Message);
                 }
             }
                 

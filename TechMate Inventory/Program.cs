@@ -33,6 +33,17 @@ namespace TechMate_Inventory
             comboBox.ValueMember = id;  // Columna como valor que representa los items.
         }
 
+        public static void FillComboBoxWithQuery(ComboBox comboBox, string table, string id, string attribute1, string attribute2, SqlConnection connection)
+        {
+            string query = $"SELECT {id}, {attribute1} + ' ' + {attribute2} AS FullName FROM {table}";
+
+            DataTable dataTable = GetDataTable(query, connection);
+
+            comboBox.DataSource = dataTable; // Asignar dataTable como DataSource
+            comboBox.DisplayMember = "FullName";  // Columna para mostrar en el ComboBox.
+            comboBox.ValueMember = id;  // Columna como valor que representa los items.
+        }
+
         public static DataTable GetDataTable(string query, SqlConnection connection)
         {
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
