@@ -60,6 +60,11 @@ namespace TechMate_Inventory
                 {
                     command.Parameters.AddWithValue("@selectedStudent", selectedStudent);
                     vwCartGridView.DataSource = Program.GetDataTable(command);
+
+                    vwCartGridView.Columns["StudentName"].HeaderText = "Estudiante";
+                    vwCartGridView.Columns["shortDescription"].HeaderText = "Material";
+                    vwCartGridView.Columns["UserName"].HeaderText = "Usuario";
+                    vwCartGridView.Columns["quantity"].HeaderText = "Cantidad";
                 }
             }
         }
