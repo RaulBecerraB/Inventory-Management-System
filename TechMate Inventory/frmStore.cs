@@ -15,7 +15,9 @@ namespace TechMate_Inventory
     {
         private string connectionString;
         public frmCart childCart;
+        //Atributos para ESTE estudiante y usuario
         public string selectedStudent;
+        public int userId;
         public frmStore(string connectionString)
         {
             InitializeComponent();
@@ -31,10 +33,11 @@ namespace TechMate_Inventory
             DGridViewCounter.AddButtonColumn(vwInventoryGridView,"Increment","+");
             DGridViewCounter.AddCounterToGridView(vwInventoryGridView, "Cantidad","Quantity",0);
             DGridViewCounter.AddButtonColumn(vwInventoryGridView, "Decrement", "-");
-            DGridViewCounter.AddButtonColumn(vwInventoryGridView, "AddToCart", "Añadir al carrito");
+            DGridViewCounter.AddButtonColumn(vwInventoryGridView, "AddToCartBtn", "Añadir al carrito");
 
         }
 
+        //This function is mostly for debugging
         public void UpdateLabel2()
         {
             label2.Text = selectedStudent;
@@ -63,7 +66,7 @@ namespace TechMate_Inventory
         private void vwInventoryGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verificar si se hizo clic en una celda de tipo botón
-            if (e.RowIndex >= 0 && (vwInventoryGridView.Columns[e.ColumnIndex].Name == "Increment" || vwInventoryGridView.Columns[e.ColumnIndex].Name == "Decrement"))
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = vwInventoryGridView.Rows[e.RowIndex];
                 int currentValue = Convert.ToInt32(row.Cells["Quantity"].Value);
@@ -76,6 +79,10 @@ namespace TechMate_Inventory
                 else if (vwInventoryGridView.Columns[e.ColumnIndex].Name == "Decrement" && currentValue > 0)
                 {
                     row.Cells["Quantity"].Value = currentValue - 1;
+                }
+                else if (vwInventoryGridView.Columns[e.ColumnIndex].Name == "AddToCartBtn")
+                {
+                    
                 }
 
                 // Refrescar el DataGridView después de actualizar los valores
