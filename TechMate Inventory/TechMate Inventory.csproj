@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DGridViewCounter.cs" />
+    <Compile Include="DGridViewRows.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

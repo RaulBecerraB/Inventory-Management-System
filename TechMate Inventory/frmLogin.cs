@@ -65,19 +65,19 @@ namespace TechMate_Inventory
         {
             Form1 application = new Form1(textBoxUserName.Text, this);
             application.Show();
-            application.userId = getUserId(connection, textBoxUserName);
+            application.userId = getUserId(connection, textBoxUserName.Text);
             this.Hide();
         }
 
-        private void Login(string forcedUser)
+        private void DevLogin(SqlConnection connection)
         {
-            
-            Form1 application = new Form1(forcedUser, this);
-            application.Show();
+            textBoxUserName.Text = "Developer";
 
+            Form1 application = new Form1(textBoxUserName.Text, this);
+            application.Show();
+            application.userId = 7;
             this.Hide();
         }
-
         private bool isUserInDB(SqlConnection connection, TextBox userName)
         {
             string query = @"SELECT COUNT(1) FROM Users WHERE Name = @textBoxUserName";
@@ -104,7 +104,7 @@ namespace TechMate_Inventory
             }
         }
 
-        private int getUserId(SqlConnection connection, TextBox userName)
+        private int getUserId(SqlConnection connection, string userName)
         {
             string query = @"SELECT ID_User FROM Users WHERE Name = @textBoxUserName";
 
@@ -113,7 +113,7 @@ namespace TechMate_Inventory
                 try
                 {
                     // Añadiendo los parámetros al comando
-                    cmd.Parameters.AddWithValue("@textBoxUserName", userName.Text);
+                    cmd.Parameters.AddWithValue("@textBoxUserName", userName);
 
                     // Ejecutar el comando y obtener el resultado
                     return (int)cmd.ExecuteScalar();
@@ -185,8 +185,19 @@ namespace TechMate_Inventory
 
         private void forceLoginBtn_Click(object sender, EventArgs e)
         {
-            string forcedUser = "Developer";
-            Login(forcedUser);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    DevLogin(connection);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error con DevLogin" + ex.Message);
+                }
+
+            }
+            
         }
 
         private void textBoxUserName_KeyPress(object sender, KeyPressEventArgs e)

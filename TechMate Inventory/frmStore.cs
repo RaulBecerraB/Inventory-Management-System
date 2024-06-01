@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,10 @@ namespace TechMate_Inventory
     {
         private string connectionString;
         public frmCart childCart;
-        //Atributos para ESTE estudiante y usuario
+        //Atributos para ESTE estudiante, usuario y material
         public string selectedStudent;
         public int userId;
+        public int matId;
         public frmStore(string connectionString)
         {
             InitializeComponent();
@@ -28,12 +30,12 @@ namespace TechMate_Inventory
         {   
             frmGeneralInventory frmInventory = new frmGeneralInventory(connectionString);
 
-            frmInventory.LoadInventoryView(vwInventoryGridView);
+            frmInventory.LoadInventoryView(vwStoreGridView);
 
-            DGridViewCounter.AddButtonColumn(vwInventoryGridView,"Increment","+");
-            DGridViewCounter.AddCounterToGridView(vwInventoryGridView, "Cantidad","Quantity",0);
-            DGridViewCounter.AddButtonColumn(vwInventoryGridView, "Decrement", "-");
-            DGridViewCounter.AddButtonColumn(vwInventoryGridView, "AddToCartBtn", "Añadir al carrito");
+            DGridViewCounter.AddButtonColumn(vwStoreGridView,"Increment","+");
+            DGridViewCounter.AddCounterToGridView(vwStoreGridView, "Cantidad","Quantity",0);
+            DGridViewCounter.AddButtonColumn(vwStoreGridView, "Decrement", "-");
+            DGridViewCounter.AddButtonColumn(vwStoreGridView, "AddToCartBtn", "Añadir al carrito");
 
         }
 
@@ -46,7 +48,7 @@ namespace TechMate_Inventory
         private void vwInventoryGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Verificar si es la columna "Quantity"
-            if (vwInventoryGridView.Columns[e.ColumnIndex].Name == "Quantity")
+            if (vwStoreGridView.Columns[e.ColumnIndex].Name == "Quantity")
             {
                 // Si el valor es nulo, mostrar "0"
                 if (e.Value == null)
@@ -63,30 +65,58 @@ namespace TechMate_Inventory
             }
         }
 
+        private void AddItemToCart(int userId, int matId, string selectedStudent, int quantity)
+        {
+            if (string.IsNullOrEmpty(selectedStudent))
+            {
+                MessageBox.Show("El estudiante seleccionado no puede estar vacío.");
+                return;
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Carts (ID_User, ID_Material, Matricula, quantity) VALUES (@userId, @matId, @selectedStudent, @quantity)";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@userId", userId);
+                    command.Parameters.AddWithValue("@matId", matId);
+                    command.Parameters.AddWithValue("@selectedStudent", selectedStudent);
+                    command.Parameters.AddWithValue("@quantity", quantity);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
+
+
         private void vwInventoryGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verificar si se hizo clic en una celda de tipo botón
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = vwInventoryGridView.Rows[e.RowIndex];
+                DataGridViewRow row = vwStoreGridView.Rows[e.RowIndex];
                 int currentValue = Convert.ToInt32(row.Cells["Quantity"].Value);
 
                 // Incrementar o decrementar el valor según el botón presionado
-                if (vwInventoryGridView.Columns[e.ColumnIndex].Name == "Increment")
+                if (vwStoreGridView.Columns[e.ColumnIndex].Name == "Increment")
                 {
                     row.Cells["Quantity"].Value = currentValue + 1;
                 }
-                else if (vwInventoryGridView.Columns[e.ColumnIndex].Name == "Decrement" && currentValue > 0)
+                else if (vwStoreGridView.Columns[e.ColumnIndex].Name == "Decrement" && currentValue > 0)
                 {
                     row.Cells["Quantity"].Value = currentValue - 1;
                 }
-                else if (vwInventoryGridView.Columns[e.ColumnIndex].Name == "AddToCartBtn")
+                else if (vwStoreGridView.Columns[e.ColumnIndex].Name == "AddToCartBtn")
                 {
-                    
+                    matId = DGridViewRows.ReturnSelectedRowID(e, "ID_Material", vwStoreGridView);
+                    AddItemToCart(userId, matId, selectedStudent, currentValue);
+                    MessageBox.Show("Añadido al carrito!");
                 }
 
                 // Refrescar el DataGridView después de actualizar los valores
-                vwInventoryGridView.Refresh();
+                vwStoreGridView.Refresh();
             }
         }
     }

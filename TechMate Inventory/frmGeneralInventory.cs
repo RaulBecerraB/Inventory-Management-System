@@ -133,31 +133,12 @@ namespace TechMate_Inventory
 
         private void vwInventoryGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(isSelectedRowAHeader(e))
+            if(DGridViewRows.isSelectedRowAHeader(e))
             {
-                newMovementControl.intMatId = ReturnSelectedRowID(e, "ID_Material", vwInventoryGridView);
-                newMovementControl.SetLabelTextById(ReturnSelectedRowID(e, "ID_Material", vwInventoryGridView), vwInventoryGridView, "ID_Material", "shortDescription");
+                newMovementControl.intMatId = DGridViewRows.ReturnSelectedRowID(e, "ID_Material", vwInventoryGridView);
+                newMovementControl.SetLabelTextById(newMovementControl.intMatId, vwInventoryGridView, "ID_Material", "shortDescription");
             }
         }
-
-        private bool isSelectedRowAHeader(DataGridViewCellEventArgs e)
-        {
-            if(e.RowIndex >= 0)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private int ReturnSelectedRowID(DataGridViewCellEventArgs e, string lookForID, DataGridView vw)
-        {
-            DataGridViewRow clickedRow = vw.Rows[e.RowIndex];
-
-            //selected row ID
-            return (int)clickedRow.Cells[lookForID].Value;
-        }
-
         
     }
 }
