@@ -26,8 +26,8 @@ namespace TechMate_Inventory
             this.connectionString = connectionString;
         }
 
-        private void frmStore_Load(object sender, EventArgs e)
-        {   
+        public void frmStore_Load(object sender, EventArgs e)
+        {
             frmGeneralInventory frmInventory = new frmGeneralInventory(connectionString);
 
             frmInventory.LoadInventoryView(vwStoreGridView);
@@ -67,12 +67,6 @@ namespace TechMate_Inventory
 
         private void AddItemToCart(int userId, int matId, string selectedStudent, int quantity)
         {
-            if (string.IsNullOrEmpty(selectedStudent))
-            {
-                MessageBox.Show("El estudiante seleccionado no puede estar vacío.");
-                return;
-            }
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = "INSERT INTO Carts (ID_User, ID_Material, Matricula, quantity) VALUES (@userId, @matId, @selectedStudent, @quantity)";
@@ -110,9 +104,21 @@ namespace TechMate_Inventory
                 }
                 else if (vwStoreGridView.Columns[e.ColumnIndex].Name == "AddToCartBtn")
                 {
-                    matId = DGridViewRows.ReturnSelectedRowID(e, "ID_Material", vwStoreGridView);
-                    AddItemToCart(userId, matId, selectedStudent, currentValue);
-                    MessageBox.Show("Añadido al carrito!");
+                    try
+                    {
+                        //Obtener parámetro faltante para ejcutar el query
+                        matId = DGridViewRows.ReturnSelectedRowID(e, "ID_Material", vwStoreGridView);
+                        //Ejecutar el query usando los valores globales
+                        AddItemToCart(userId, matId, selectedStudent, currentValue);
+                        MessageBox.Show("Añadido al carrito!");
+
+                        childCart.LoadCartData(selectedStudent);
+                    }
+                    catch 
+                    {
+                        MessageBox.Show("El estudiante seleccionado no puede estar vacío.");
+                    }
+                    
                 }
 
                 // Refrescar el DataGridView después de actualizar los valores

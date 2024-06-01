@@ -28,18 +28,57 @@ namespace TechMate_Inventory
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                try
-                {
-                    connection.Open();
+                FillStudentsComboBox(connection);
+            }
 
-                    Program.FillComboBoxWithQuery(comboBoxStudents, "Students", "Matricula", "name","last_name",connection);
-                }
-                catch(Exception ex)
+            LoadCartData(parentStore.selectedStudent);
+                
+        }
+
+        public void LoadCartData(string selectedStudent)
+        {
+            string query = @"
+                SELECT 
+                    M.shortDescription,
+                    U.Name AS UserName,
+                    S.name AS StudentName,
+                    C.quantity
+                FROM 
+                    Carts C
+                JOIN 
+                    Materials M ON C.ID_Material = M.ID_Material
+                JOIN 
+                    Users U ON C.ID_User = U.ID_User
+                JOIN 
+                    Students S ON C.Matricula = S.Matricula
+                WHERE 
+                    C.Matricula = @selectedStudent";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    MessageBox.Show("ERROR cargando a alumnos: " + ex.Message);
+                    command.Parameters.AddWithValue("@selectedStudent", selectedStudent);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    vwCartGridView.DataSource = dataTable;
                 }
             }
-                
+        }
+
+        private void FillStudentsComboBox(SqlConnection connection)
+        {
+            try
+            {
+                connection.Open();
+
+                Program.FillComboBoxWithQuery(comboBoxStudents, "Students", "Matricula", "name", "last_name", connection);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR cargando a alumnos: " + ex.Message);
+            }
         }
 
         private void comboBoxStudents_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,6 +87,8 @@ namespace TechMate_Inventory
             {
                 parentStore.selectedStudent = comboBoxStudents.SelectedValue.ToString();
                 parentStore.UpdateLabel2();
+
+                LoadCartData(parentStore.selectedStudent);
             }
         }
     }
