@@ -31,7 +31,7 @@ namespace TechMate_Inventory
                 FillStudentsComboBox(connection);
             }
 
-            LoadCartData(parentStore.selectedStudent);
+            LoadCartData(comboBoxStudents.SelectedValue.ToString());
                 
         }
 
@@ -39,9 +39,9 @@ namespace TechMate_Inventory
         {
             string query = @"
                 SELECT 
+                    S.name AS StudentName,
                     M.shortDescription,
                     U.Name AS UserName,
-                    S.name AS StudentName,
                     C.quantity
                 FROM 
                     Carts C
@@ -59,10 +59,7 @@ namespace TechMate_Inventory
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@selectedStudent", selectedStudent);
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    vwCartGridView.DataSource = dataTable;
+                    vwCartGridView.DataSource = Program.GetDataTable(command);
                 }
             }
         }

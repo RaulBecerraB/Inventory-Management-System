@@ -52,6 +52,14 @@ namespace TechMate_Inventory
             return dataTable;
         }
 
-        
+        public static DataTable GetDataTable(SqlCommand command)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+
     }
 }
