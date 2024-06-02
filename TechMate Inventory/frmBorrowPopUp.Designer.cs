@@ -30,8 +30,8 @@
         {
             this.catMatTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.StudentDataRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.MaterialDataRichTextBox = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BorrowingStatusTextBox = new System.Windows.Forms.RichTextBox();
             this.btnDeleteCart = new System.Windows.Forms.Button();
@@ -56,27 +56,27 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Material prestado";
             // 
-            // richTextBox2
+            // StudentDataRichTextBox
             // 
-            this.richTextBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.richTextBox2.Font = new System.Drawing.Font("Franklin Gothic Medium", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.Location = new System.Drawing.Point(72, 104);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(481, 286);
-            this.richTextBox2.TabIndex = 11;
-            this.richTextBox2.Text = "";
+            this.StudentDataRichTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.StudentDataRichTextBox.Font = new System.Drawing.Font("Franklin Gothic Medium", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StudentDataRichTextBox.Location = new System.Drawing.Point(72, 104);
+            this.StudentDataRichTextBox.Name = "StudentDataRichTextBox";
+            this.StudentDataRichTextBox.ReadOnly = true;
+            this.StudentDataRichTextBox.Size = new System.Drawing.Size(481, 286);
+            this.StudentDataRichTextBox.TabIndex = 11;
+            this.StudentDataRichTextBox.Text = "";
             // 
-            // richTextBox1
+            // MaterialDataRichTextBox
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.richTextBox1.Font = new System.Drawing.Font("Franklin Gothic Medium", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(628, 104);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(481, 286);
-            this.richTextBox1.TabIndex = 12;
-            this.richTextBox1.Text = "";
+            this.MaterialDataRichTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.MaterialDataRichTextBox.Font = new System.Drawing.Font("Franklin Gothic Medium", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaterialDataRichTextBox.Location = new System.Drawing.Point(628, 104);
+            this.MaterialDataRichTextBox.Name = "MaterialDataRichTextBox";
+            this.MaterialDataRichTextBox.ReadOnly = true;
+            this.MaterialDataRichTextBox.Size = new System.Drawing.Size(481, 286);
+            this.MaterialDataRichTextBox.TabIndex = 12;
+            this.MaterialDataRichTextBox.Text = "";
             // 
             // label2
             // 
@@ -101,7 +101,7 @@
             // 
             // btnDeleteCart
             // 
-            this.btnDeleteCart.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCart.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteCart.Location = new System.Drawing.Point(628, 468);
             this.btnDeleteCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteCart.Name = "btnDeleteCart";
@@ -112,7 +112,7 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(895, 468);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
@@ -130,8 +130,8 @@
             this.Controls.Add(this.btnDeleteCart);
             this.Controls.Add(this.BorrowingStatusTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.MaterialDataRichTextBox);
+            this.Controls.Add(this.StudentDataRichTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.catMatTitle);
             this.Name = "frmBorrowPopUp";
@@ -145,8 +145,8 @@
 
         private System.Windows.Forms.Label catMatTitle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox StudentDataRichTextBox;
+        private System.Windows.Forms.RichTextBox MaterialDataRichTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox BorrowingStatusTextBox;
         private System.Windows.Forms.Button btnDeleteCart;

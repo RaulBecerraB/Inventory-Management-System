@@ -143,12 +143,12 @@
             this.labelUserName.BackColor = System.Drawing.Color.WhiteSmoke;
             this.labelUserName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserName.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelUserName.Location = new System.Drawing.Point(863, 0);
+            this.labelUserName.Location = new System.Drawing.Point(897, 0);
             this.labelUserName.Name = "labelUserName";
             this.labelUserName.Size = new System.Drawing.Size(156, 40);
             this.labelUserName.TabIndex = 7;
             this.labelUserName.Text = "userName";
-            this.labelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
             // 

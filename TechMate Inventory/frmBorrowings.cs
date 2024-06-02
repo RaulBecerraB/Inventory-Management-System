@@ -101,6 +101,7 @@ namespace TechMate_Inventory
                 BorrowPopUp.borrowId = (int)clickedRow.Cells["ID_Borrowing"].Value;
                 BorrowPopUp.studentId = (string)clickedRow.Cells["Matricula"].Value;
                 BorrowPopUp.materialId = (int)clickedRow.Cells["ID_Material"].Value;
+                BorrowPopUp.quantity = (int)clickedRow.Cells["quantity"].Value;
                 BorrowPopUp.Show();
 
                 // Por ejemplo, mostrar información de la fila
