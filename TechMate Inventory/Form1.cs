@@ -116,6 +116,8 @@ namespace TechMate_Inventory
                     }
                     else
                     {
+                        frmGeneralInventory Inventory = (frmGeneralInventory)this.MdiChildren[childIndexInventory];
+                        Inventory.LoadInventoryView();
                         this.MdiChildren[childIndexInventory].Focus();
                     }
 

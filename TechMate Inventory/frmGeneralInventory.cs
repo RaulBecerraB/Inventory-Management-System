@@ -41,6 +41,11 @@ namespace TechMate_Inventory
 
         }
 
+        public void LoadInventoryView()
+        {
+            LoadInventoryView(vwInventoryGridView);
+        }
+
         public void LoadNewMovementForm()
         {
             newMovementControl.vw = vwInventoryGridView;
