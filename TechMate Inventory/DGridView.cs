@@ -28,5 +28,10 @@ namespace TechMate_Inventory
                 }
             }
         }
+
+        public static void RenameDGVColumn(DataGridView gridView, string columnName, string text)
+        {
+            gridView.Columns[columnName].HeaderText = text;
+        }
     }
 }

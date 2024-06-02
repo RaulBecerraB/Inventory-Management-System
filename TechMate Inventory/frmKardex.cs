@@ -14,6 +14,7 @@ namespace TechMate_Inventory
     public partial class frmKardex : Form
     {
         private string connectionString;
+        private DataTable originalDataTable;
         public frmKardex(string connectionString)
         {
             InitializeComponent();
@@ -49,20 +50,39 @@ namespace TechMate_Inventory
                     {
                         connection.Open();
 
-                        DataTable dt = Program.GetDataTable(query,connection);
-                        vwKardexGridView.DataSource = dt;
+                        vwKardexGridView.DataSource = Program.GetDataTable(query,connection);
+                        originalDataTable = Program.GetDataTable(query,connection);
+                        
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("An error occurred: " + ex.Message);
                     }
             }
+
+            DGridView.RenameDGVColumn(vwKardexGridView, "shortDescription", "Material");
+            DGridView.RenameDGVColumn(vwKardexGridView, "UserName", "Usuario");
+            DGridView.RenameDGVColumn(vwKardexGridView, "MoveTypeName", "Tipo de mov");
+            DGridView.RenameDGVColumn(vwKardexGridView, "quantity", "Cantidad");
+            DGridView.RenameDGVColumn(vwKardexGridView, "movDate", "Fecha del movimiento");
+
         }
 
         private void addNewMatBtn_Click(object sender, EventArgs e)
         {
             frmNewMovement frmNewMovement = new frmNewMovement(this,connectionString);
             frmNewMovement.Show();
+        }
+
+        private void SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            string filterText = SearchBar.Text.ToLower();
+            if (originalDataTable != null)
+            {
+                DataView dv = originalDataTable.DefaultView;
+                dv.RowFilter = $"shortDescription LIKE '%{filterText}%' OR UserName LIKE '%{filterText}%' OR MoveTypeName LIKE '%{filterText}%'"; // Ajusta los nombres de las columnas según sea necesario
+                vwKardexGridView.DataSource = dv;
+            }
         }
     }
 }

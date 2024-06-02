@@ -40,9 +40,14 @@
             this.vwKardexGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.addNewMatBtn = new System.Windows.Forms.Button();
+            this.SearchBarPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.SearchBar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwKardexGridView)).BeginInit();
+            this.SearchBarPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // techMateInventoryDataSet
@@ -113,7 +118,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1106, 63);
+            this.label1.Location = new System.Drawing.Point(220, 64);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 31);
@@ -127,7 +132,7 @@
             this.addNewMatBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addNewMatBtn.BackgroundImage")));
             this.addNewMatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addNewMatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewMatBtn.Location = new System.Drawing.Point(1369, 55);
+            this.addNewMatBtn.Location = new System.Drawing.Point(483, 56);
             this.addNewMatBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addNewMatBtn.Name = "addNewMatBtn";
             this.addNewMatBtn.Size = new System.Drawing.Size(53, 49);
@@ -137,12 +142,44 @@
             this.addNewMatBtn.Visible = false;
             this.addNewMatBtn.Click += new System.EventHandler(this.addNewMatBtn_Click);
             // 
+            // SearchBarPanel
+            // 
+            this.SearchBarPanel.Controls.Add(this.pictureBox1);
+            this.SearchBarPanel.Controls.Add(this.SearchBar);
+            this.SearchBarPanel.Location = new System.Drawing.Point(852, 62);
+            this.SearchBarPanel.Name = "SearchBarPanel";
+            this.SearchBarPanel.Size = new System.Drawing.Size(570, 42);
+            this.SearchBarPanel.TabIndex = 12;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(534, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 22);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
+            // SearchBar
+            // 
+            this.SearchBar.BackColor = System.Drawing.SystemColors.Info;
+            this.SearchBar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.SearchBar.Location = new System.Drawing.Point(14, 4);
+            this.SearchBar.Name = "SearchBar";
+            this.SearchBar.Size = new System.Drawing.Size(553, 30);
+            this.SearchBar.TabIndex = 10;
+            this.SearchBar.TextChanged += new System.EventHandler(this.SearchBar_TextChanged);
+            // 
             // frmKardex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1775, 913);
+            this.Controls.Add(this.SearchBarPanel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addNewMatBtn);
             this.Controls.Add(this.vwKardexGridView);
@@ -156,6 +193,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwKardexGridView)).EndInit();
+            this.SearchBarPanel.ResumeLayout(false);
+            this.SearchBarPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,5 +208,8 @@
         private System.Windows.Forms.DataGridView vwKardexGridView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button addNewMatBtn;
+        private System.Windows.Forms.Panel SearchBarPanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox SearchBar;
     }
 }

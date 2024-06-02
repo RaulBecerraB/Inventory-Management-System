@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace TechMate_Inventory
     public partial class frmBorrowings : Form
     {
         private string connectionString;
+        private DataTable originalDataTable;
         public frmBorrowings(string connectionString)
         {
             InitializeComponent();
@@ -44,21 +46,41 @@ namespace TechMate_Inventory
         JOIN 
             Students S ON B.Matricula = S.Matricula";
 
-            DGridView.LoadDataGridWithQuery(vwBorrowingsGridView,query,connectionString);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
 
-            
-            RenameDGVColumn(vwBorrowingsGridView,"shortDescription","Material");
-            RenameDGVColumn(vwBorrowingsGridView, "UserName", "Prestamista");
-            RenameDGVColumn(vwBorrowingsGridView, "StudentName", "Estudiante");
-            RenameDGVColumn(vwBorrowingsGridView, "quantity", "Cantidad prestada");
-            RenameDGVColumn(vwBorrowingsGridView, "return_date", "Fecha máxima de retorno");
-            RenameDGVColumn(vwBorrowingsGridView, "borrow_date", "Fecha del préstamo");
+
+                    vwBorrowingsGridView.DataSource = Program.GetDataTable(query, connection);
+                    originalDataTable = Program.GetDataTable(query, connection);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR cargando la gridView: " + ex.Message);
+                }
+            }
+
+            DGridView.RenameDGVColumn(vwBorrowingsGridView,"shortDescription","Material");
+            DGridView.RenameDGVColumn(vwBorrowingsGridView, "UserName", "Prestamista");
+            DGridView.RenameDGVColumn(vwBorrowingsGridView, "StudentName", "Estudiante");
+            DGridView.RenameDGVColumn(vwBorrowingsGridView, "quantity", "Cantidad prestada");
+            DGridView.RenameDGVColumn(vwBorrowingsGridView, "return_date", "Fecha máxima de retorno");
+            DGridView.RenameDGVColumn(vwBorrowingsGridView, "borrow_date", "Fecha del préstamo");
 
         }
 
-        private void RenameDGVColumn(DataGridView gridView, string columnName, string text)
+        private void SearchBar_TextChanged(object sender, EventArgs e)
         {
-            gridView.Columns[columnName].HeaderText = text;
+            string filterText = SearchBar.Text.ToLower();
+            if (originalDataTable != null)
+            {
+                DataView dv = originalDataTable.DefaultView;
+                dv.RowFilter = $"shortDescription LIKE '%{filterText}%' OR UserName LIKE '%{filterText}%' OR StudentName LIKE '%{filterText}%'"; // Ajusta los nombres de las columnas según sea necesario
+                vwBorrowingsGridView.DataSource = dv;
+            }
         }
     }
 }
