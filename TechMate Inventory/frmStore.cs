@@ -37,6 +37,17 @@ namespace TechMate_Inventory
             DGridViewCounter.AddButtonColumn(vwStoreGridView, "Decrement", "-");
             DGridViewCounter.AddButtonColumn(vwStoreGridView, "AddToCartBtn", "Añadir al carrito");
 
+            // Permitir la edición de celdas en la DataGridView
+            vwStoreGridView.ReadOnly = false;
+
+            // Hacer que todas las columnas sean de solo lectura excepto "Cantidad prestada"
+            foreach (DataGridViewColumn column in vwStoreGridView.Columns)
+            {
+                if (column.Name != "Quantity")
+                {
+                    column.ReadOnly = true;
+                }
+            }
         }
 
         //This function is mostly for debugging
@@ -149,6 +160,29 @@ namespace TechMate_Inventory
 
                 // Refrescar el DataGridView después de actualizar los valores
                 vwStoreGridView.Refresh();
+            }
+        }
+
+        private void vwStoreGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            // Solo validar la columna "Cantidad prestada"
+            if (vwStoreGridView.Columns[e.ColumnIndex].Name == "Quantity")
+            {
+                // Si el valor está vacío, establecerlo a 0
+                if (string.IsNullOrWhiteSpace(e.FormattedValue.ToString()))
+                {
+                    vwStoreGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
+                }
+                else
+                {
+                    // Validar que el valor ingresado sea un número válido
+                    if (!int.TryParse(e.FormattedValue.ToString(), out int result))
+                    {
+                        // Cancelar la edición y mostrar un mensaje de error
+                        e.Cancel = true;
+                        MessageBox.Show("Por favor, ingrese un número válido.");
+                    }
+                }
             }
         }
     }

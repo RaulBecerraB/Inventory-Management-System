@@ -102,6 +102,7 @@
             this.vwStoreGridView.TabIndex = 8;
             this.vwStoreGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwInventoryGridView_CellClick);
             this.vwStoreGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.vwInventoryGridView_CellFormatting);
+            this.vwStoreGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.vwStoreGridView_CellValidating);
             // 
             // contextMenuStrip1
             // 

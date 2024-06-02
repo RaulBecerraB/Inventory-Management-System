@@ -69,9 +69,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.MaterialsTable = new System.Windows.Forms.TableLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.vwMaterialCatalogueBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSet)).BeginInit();
@@ -85,9 +82,6 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.MaterialsTable.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // vwMaterialCatalogueBindingSource2
@@ -113,7 +107,7 @@
             // catMatTitle
             // 
             this.catMatTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.catMatTitle.Location = new System.Drawing.Point(3, 0);
+            this.catMatTitle.Location = new System.Drawing.Point(97, 81);
             this.catMatTitle.Name = "catMatTitle";
             this.catMatTitle.Size = new System.Drawing.Size(985, 42);
             this.catMatTitle.TabIndex = 1;
@@ -134,7 +128,7 @@
             this.addNewMatBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addNewMatBtn.BackgroundImage")));
             this.addNewMatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addNewMatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewMatBtn.Location = new System.Drawing.Point(4, 4);
+            this.addNewMatBtn.Location = new System.Drawing.Point(1047, 74);
             this.addNewMatBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addNewMatBtn.Name = "addNewMatBtn";
             this.addNewMatBtn.Size = new System.Drawing.Size(53, 49);
@@ -147,7 +141,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 11);
+            this.label1.Location = new System.Drawing.Point(1108, 81);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(276, 31);
@@ -179,7 +173,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.vwMatCatGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.vwMatCatGridView.Location = new System.Drawing.Point(3, 120);
+            this.vwMatCatGridView.Location = new System.Drawing.Point(103, 152);
             this.vwMatCatGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.vwMatCatGridView.Name = "vwMatCatGridView";
             this.vwMatCatGridView.ReadOnly = true;
@@ -196,7 +190,7 @@
             this.vwMatCatGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.vwMatCatGridView.RowTemplate.Height = 32;
             this.vwMatCatGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.vwMatCatGridView.Size = new System.Drawing.Size(1366, 276);
+            this.vwMatCatGridView.Size = new System.Drawing.Size(1281, 276);
             this.vwMatCatGridView.TabIndex = 4;
             this.vwMatCatGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeleteMaterial_CellClick);
             this.vwMatCatGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditMaterial_CellDoubleClick);
@@ -258,7 +252,7 @@
             this.vwCategoriesGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.vwCategoriesGridView.RowTemplate.Height = 32;
             this.vwCategoriesGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.vwCategoriesGridView.Size = new System.Drawing.Size(405, 291);
+            this.vwCategoriesGridView.Size = new System.Drawing.Size(378, 291);
             this.vwCategoriesGridView.TabIndex = 7;
             this.vwCategoriesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeleteLineCategories_CellClick);
             this.vwCategoriesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditCategory_CellDoubleClick);
@@ -297,7 +291,7 @@
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.vwMatTypesGridView.DefaultCellStyle = dataGridViewCellStyle10;
-            this.vwMatTypesGridView.Location = new System.Drawing.Point(482, 75);
+            this.vwMatTypesGridView.Location = new System.Drawing.Point(451, 75);
             this.vwMatTypesGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.vwMatTypesGridView.Name = "vwMatTypesGridView";
             this.vwMatTypesGridView.ReadOnly = true;
@@ -314,7 +308,7 @@
             this.vwMatTypesGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.vwMatTypesGridView.RowTemplate.Height = 32;
             this.vwMatTypesGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.vwMatTypesGridView.Size = new System.Drawing.Size(405, 291);
+            this.vwMatTypesGridView.Size = new System.Drawing.Size(378, 291);
             this.vwMatTypesGridView.TabIndex = 9;
             this.vwMatTypesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeleteLineMatTypes_CellClick);
             this.vwMatTypesGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditMatType_CellDoubleClick);
@@ -392,7 +386,7 @@
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.vwMatUnitsGridView.DefaultCellStyle = dataGridViewCellStyle14;
-            this.vwMatUnitsGridView.Location = new System.Drawing.Point(961, 75);
+            this.vwMatUnitsGridView.Location = new System.Drawing.Point(899, 75);
             this.vwMatUnitsGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.vwMatUnitsGridView.Name = "vwMatUnitsGridView";
             this.vwMatUnitsGridView.ReadOnly = true;
@@ -409,7 +403,7 @@
             this.vwMatUnitsGridView.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.vwMatUnitsGridView.RowTemplate.Height = 32;
             this.vwMatUnitsGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.vwMatUnitsGridView.Size = new System.Drawing.Size(408, 291);
+            this.vwMatUnitsGridView.Size = new System.Drawing.Size(379, 291);
             this.vwMatUnitsGridView.TabIndex = 14;
             this.vwMatUnitsGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DeleteLineUnits_CellClick);
             this.vwMatUnitsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditUnit_CellDoubleClick);
@@ -428,12 +422,12 @@
             this.LowerTablesLayout.Controls.Add(this.panel1, 2, 0);
             this.LowerTablesLayout.Controls.Add(this.panel2, 4, 0);
             this.LowerTablesLayout.Controls.Add(this.panel3, 0, 0);
-            this.LowerTablesLayout.Location = new System.Drawing.Point(48, 509);
+            this.LowerTablesLayout.Location = new System.Drawing.Point(103, 483);
             this.LowerTablesLayout.Name = "LowerTablesLayout";
             this.LowerTablesLayout.RowCount = 2;
             this.LowerTablesLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.LowerTablesLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.LowerTablesLayout.Size = new System.Drawing.Size(1372, 368);
+            this.LowerTablesLayout.Size = new System.Drawing.Size(1281, 368);
             this.LowerTablesLayout.TabIndex = 15;
             // 
             // panel1
@@ -441,9 +435,9 @@
             this.panel1.Controls.Add(this.addNewTypeBtn);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(482, 3);
+            this.panel1.Location = new System.Drawing.Point(451, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(405, 67);
+            this.panel1.Size = new System.Drawing.Size(378, 67);
             this.panel1.TabIndex = 15;
             // 
             // panel2
@@ -451,9 +445,9 @@
             this.panel2.Controls.Add(this.addNewUnitBtn);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(961, 3);
+            this.panel2.Location = new System.Drawing.Point(899, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(408, 67);
+            this.panel2.Size = new System.Drawing.Size(379, 67);
             this.panel2.TabIndex = 16;
             // 
             // panel3
@@ -463,43 +457,8 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(405, 67);
+            this.panel3.Size = new System.Drawing.Size(378, 67);
             this.panel3.TabIndex = 17;
-            // 
-            // MaterialsTable
-            // 
-            this.MaterialsTable.ColumnCount = 1;
-            this.MaterialsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MaterialsTable.Controls.Add(this.panel4, 0, 1);
-            this.MaterialsTable.Controls.Add(this.panel5, 0, 0);
-            this.MaterialsTable.Controls.Add(this.vwMatCatGridView, 0, 2);
-            this.MaterialsTable.Location = new System.Drawing.Point(48, 44);
-            this.MaterialsTable.Name = "MaterialsTable";
-            this.MaterialsTable.RowCount = 3;
-            this.MaterialsTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.MaterialsTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.MaterialsTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.MaterialsTable.Size = new System.Drawing.Size(1372, 398);
-            this.MaterialsTable.TabIndex = 16;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.catMatTitle);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 62);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1366, 53);
-            this.panel4.TabIndex = 5;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.addNewMatBtn);
-            this.panel5.Controls.Add(this.label1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1366, 53);
-            this.panel5.TabIndex = 6;
             // 
             // frmMatCatalogue
             // 
@@ -509,8 +468,11 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1556, 1065);
             this.ControlBox = false;
-            this.Controls.Add(this.MaterialsTable);
+            this.Controls.Add(this.addNewMatBtn);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.catMatTitle);
             this.Controls.Add(this.LowerTablesLayout);
+            this.Controls.Add(this.vwMatCatGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -538,11 +500,8 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.MaterialsTable.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -570,8 +529,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TableLayoutPanel MaterialsTable;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
     }
 }

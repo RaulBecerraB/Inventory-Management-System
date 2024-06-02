@@ -63,7 +63,7 @@
             // catMatTitle
             // 
             this.catMatTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.catMatTitle.Location = new System.Drawing.Point(51, 62);
+            this.catMatTitle.Location = new System.Drawing.Point(97, 81);
             this.catMatTitle.Name = "catMatTitle";
             this.catMatTitle.Size = new System.Drawing.Size(415, 42);
             this.catMatTitle.TabIndex = 2;
@@ -94,7 +94,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.vwKardexGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.vwKardexGridView.Location = new System.Drawing.Point(57, 117);
+            this.vwKardexGridView.Location = new System.Drawing.Point(103, 152);
             this.vwKardexGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.vwKardexGridView.Name = "vwKardexGridView";
             this.vwKardexGridView.ReadOnly = true;
@@ -118,7 +118,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(220, 64);
+            this.label1.Location = new System.Drawing.Point(362, 83);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 31);
@@ -132,7 +132,7 @@
             this.addNewMatBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addNewMatBtn.BackgroundImage")));
             this.addNewMatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addNewMatBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addNewMatBtn.Location = new System.Drawing.Point(483, 56);
+            this.addNewMatBtn.Location = new System.Drawing.Point(625, 75);
             this.addNewMatBtn.Margin = new System.Windows.Forms.Padding(4);
             this.addNewMatBtn.Name = "addNewMatBtn";
             this.addNewMatBtn.Size = new System.Drawing.Size(53, 49);
@@ -146,14 +146,14 @@
             // 
             this.SearchBarPanel.Controls.Add(this.pictureBox1);
             this.SearchBarPanel.Controls.Add(this.SearchBar);
-            this.SearchBarPanel.Location = new System.Drawing.Point(852, 62);
+            this.SearchBarPanel.Location = new System.Drawing.Point(898, 81);
             this.SearchBarPanel.Name = "SearchBarPanel";
             this.SearchBarPanel.Size = new System.Drawing.Size(570, 42);
             this.SearchBarPanel.TabIndex = 12;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(534, 8);
             this.pictureBox1.Name = "pictureBox1";
@@ -164,7 +164,7 @@
             // 
             // SearchBar
             // 
-            this.SearchBar.BackColor = System.Drawing.SystemColors.Info;
+            this.SearchBar.BackColor = System.Drawing.SystemColors.Window;
             this.SearchBar.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.SearchBar.Location = new System.Drawing.Point(14, 4);
