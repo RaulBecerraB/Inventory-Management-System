@@ -35,6 +35,7 @@
             this.kardexBtn = new System.Windows.Forms.ToolStripButton();
             this.catalogueBtn = new System.Windows.Forms.ToolStripButton();
             this.StoreBtn = new System.Windows.Forms.ToolStripButton();
+            this.BorrowingBtn = new System.Windows.Forms.ToolStripButton();
             this.labelUserName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.CartBtn = new System.Windows.Forms.PictureBox();
@@ -53,7 +54,8 @@
             this.InventoryBtn,
             this.kardexBtn,
             this.catalogueBtn,
-            this.StoreBtn});
+            this.StoreBtn,
+            this.BorrowingBtn});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -74,7 +76,7 @@
             this.HomeBtn.Name = "HomeBtn";
             this.HomeBtn.Size = new System.Drawing.Size(97, 95);
             this.HomeBtn.Text = "Inicio";
-            this.HomeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.HomeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // InventoryBtn
             // 
@@ -118,24 +120,32 @@
             // StoreBtn
             // 
             this.StoreBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.StoreBtn.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StoreBtn.Image = ((System.Drawing.Image)(resources.GetObject("StoreBtn.Image")));
+            this.StoreBtn.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StoreBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.StoreBtn.Name = "StoreBtn";
             this.StoreBtn.Size = new System.Drawing.Size(113, 95);
             this.StoreBtn.Text = "Tienda";
             this.StoreBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
+            // BorrowingBtn
+            // 
+            this.BorrowingBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BorrowingBtn.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BorrowingBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BorrowingBtn.Name = "BorrowingBtn";
+            this.BorrowingBtn.Size = new System.Drawing.Size(167, 95);
+            this.BorrowingBtn.Text = "Préstamos";
+            // 
             // labelUserName
             // 
             this.labelUserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelUserName.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.labelUserName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserName.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelUserName.Location = new System.Drawing.Point(739, 41);
+            this.labelUserName.Location = new System.Drawing.Point(863, 0);
             this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(162, 42);
+            this.labelUserName.Size = new System.Drawing.Size(156, 40);
             this.labelUserName.TabIndex = 7;
             this.labelUserName.Text = "userName";
             this.labelUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -144,9 +154,9 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(907, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(935, 26);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(92, 89);
+            this.pictureBox2.Size = new System.Drawing.Size(84, 71);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -156,9 +166,9 @@
             this.CartBtn.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CartBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.CartBtn.Image = ((System.Drawing.Image)(resources.GetObject("CartBtn.Image")));
-            this.CartBtn.Location = new System.Drawing.Point(1010, 16);
+            this.CartBtn.Location = new System.Drawing.Point(1025, 26);
             this.CartBtn.Name = "CartBtn";
-            this.CartBtn.Size = new System.Drawing.Size(87, 80);
+            this.CartBtn.Size = new System.Drawing.Size(61, 67);
             this.CartBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.CartBtn.TabIndex = 9;
             this.CartBtn.TabStop = false;
@@ -203,6 +213,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ToolStripButton StoreBtn;
         private System.Windows.Forms.PictureBox CartBtn;
+        private System.Windows.Forms.ToolStripButton BorrowingBtn;
     }
 }
 

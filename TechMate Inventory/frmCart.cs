@@ -235,8 +235,8 @@ namespace TechMate_Inventory
         private void InsertBorrowing(SqlConnection connection, int idMaterial, int idUser, string matricula, int quantity, int borrowLimitDays)
         {
             string insertQuery = @"
-        INSERT INTO Borrowings (ID_Material, ID_User, Matricula, quantity, return_date)
-        VALUES (@idMaterial, @idUser, @matricula, @quantity, DATEADD(DD,@borrowLimitDays,GETDATE()))";
+        INSERT INTO Borrowings (ID_Material, ID_User, Matricula, quantity, return_date, borrow_date)
+        VALUES (@idMaterial, @idUser, @matricula, @quantity, DATEADD(DD,@borrowLimitDays,GETDATE()),GETDATE())";
 
             using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
             {

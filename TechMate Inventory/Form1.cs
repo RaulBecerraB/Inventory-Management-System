@@ -28,6 +28,7 @@ namespace TechMate_Inventory
         frmMatCatalogue Catalogue = new frmMatCatalogue(connectionString);
         frmInicio Home = new frmInicio(connectionString);
         frmCart Cart = new frmCart(connectionString);
+        frmBorrowings Borrowings = new frmBorrowings(connectionString);  
 
         public Form1(string userName, frmLogin parentLogin)
         {
@@ -135,6 +136,21 @@ namespace TechMate_Inventory
                     else
                     {
                         this.MdiChildren[childIndexStore].Focus();
+                    }
+                break;
+                case "BorrowingBtn":
+
+                    int childIndexBorrowing = fnBuscaMDIChild("frmBorrowings");
+
+                    if (childIndexBorrowing == -1)
+                    {
+                        Borrowings.MdiParent = this;
+                        Borrowings.Dock = DockStyle.Fill;
+                        Borrowings.Show();
+                    }
+                    else
+                    {
+                        this.MdiChildren[childIndexBorrowing].Focus();
                     }
                 break;
 
