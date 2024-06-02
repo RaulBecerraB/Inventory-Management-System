@@ -63,6 +63,28 @@ namespace TechMate_Inventory
                     e.FormattingApplied = true;
                 }
             }
+            // Reemplaza "ColumnName" con el nombre de la columna que deseas evaluar
+            string columnName = "TotalQuantity";
+
+            // Verifica si la celda actual pertenece a la columna que deseas cambiar
+            if (vwStoreGridView.Columns[e.ColumnIndex].Name == columnName)
+            {
+                // Intenta obtener el valor de la celda como un número
+                if (e.Value != null && int.TryParse(e.Value.ToString(), out int cellValue))
+                {
+                    // Cambia el color de fondo a rojo si el valor es menor a 0
+                    if (frmGeneralInventory.isNegative(cellValue))
+                    {
+                        frmGeneralInventory.changeCellTextColor(e, Color.Red);
+                        e.Value = cellValue + " *"; // Concatenar un asterisco al valor
+                    }
+                    else
+                    {
+                        frmGeneralInventory.changeCellTextColor(e, Color.Black); // Restablece el color si no es menor a 0
+                        e.Value = cellValue; // Asegura que el valor se muestre correctamente si no se cumple la condición
+                    }
+                }
+            }
         }
 
         private void AddItemToCart(int userId, int matId, string selectedStudent, int quantity)

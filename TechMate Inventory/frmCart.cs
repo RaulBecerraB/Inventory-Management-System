@@ -16,6 +16,7 @@ namespace TechMate_Inventory
     {
         private string connectionString;
         public frmStore parentStore;
+        public frmBorrowings parentBorrowings; 
         public int actualID;
 
         public frmCart(string connectionString)

@@ -18,6 +18,7 @@ namespace TechMate_Inventory
         private string connectionString;
         private usrCtrlNewMovement newMovementControl;
         public int userId;
+        private DataTable originalDataTable;
         
         public frmGeneralInventory(string connectionString)
         {
@@ -64,6 +65,7 @@ namespace TechMate_Inventory
 
                     
                     gridView.DataSource = Program.GetDataTable(query,connection);
+                    originalDataTable = Program.GetDataTable(query,connection); 
 
                     gridView.Columns["ID_Material"].Visible = false;
                     gridView.Columns["shortDescription"].HeaderText = "Material";
@@ -117,11 +119,11 @@ namespace TechMate_Inventory
             }
         }
 
-        private void changeCellTextColor(DataGridViewCellFormattingEventArgs celda, Color color)
+        public static void changeCellTextColor(DataGridViewCellFormattingEventArgs celda, Color color)
         {
             celda.CellStyle.ForeColor = color;
         }
-        private bool isNegative(int cellValue)
+        public static bool isNegative(int cellValue)
         {
             if (cellValue < 0)
             {
@@ -139,6 +141,16 @@ namespace TechMate_Inventory
                 newMovementControl.SetLabelTextById(newMovementControl.intMatId, vwInventoryGridView, "ID_Material", "shortDescription");
             }
         }
-        
+
+        private void SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            string filterText = SearchBar.Text.ToLower();
+            if (originalDataTable != null)
+            {
+                DataView dv = originalDataTable.DefaultView;
+                dv.RowFilter = $"shortDescription LIKE '%{filterText}%'"; // Ajusta los nombres de las columnas según sea necesario
+                vwInventoryGridView.DataSource = dv;
+            }
+        }
     }
 }

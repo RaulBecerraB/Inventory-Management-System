@@ -135,6 +135,8 @@ namespace TechMate_Inventory
                     }
                     else
                     {
+                        frmStore Store = (frmStore)this.MdiChildren[childIndexStore];
+                     
                         this.MdiChildren[childIndexStore].Focus();
                     }
                 break;
@@ -150,6 +152,8 @@ namespace TechMate_Inventory
                     }
                     else
                     {
+                        frmBorrowings Borrowings = (frmBorrowings)this.MdiChildren[childIndexBorrowing];
+                        Borrowings.LoadBorrowingsView();
                         this.MdiChildren[childIndexBorrowing].Focus();
                     }
                 break;

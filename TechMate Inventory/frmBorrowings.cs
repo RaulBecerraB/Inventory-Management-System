@@ -27,7 +27,7 @@ namespace TechMate_Inventory
             LoadBorrowingsView();
         }
 
-        private void LoadBorrowingsView()
+        public void LoadBorrowingsView()
         {
             string query = @"
         SELECT 
