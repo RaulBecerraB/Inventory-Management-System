@@ -104,9 +104,24 @@ namespace TechMate_Inventory
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                // Primero verificamos si isBorrowed es TRUE
+                string checkQuery = "SELECT isBorrowed FROM Borrowings WHERE ID_Borrowing = @borrowId";
+                SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
+                checkCommand.Parameters.AddWithValue("@borrowId", borrowId);
+
+                connection.Open();
+                bool isBorrowed = Convert.ToBoolean(checkCommand.ExecuteScalar());
+
+                if (!isBorrowed)
+                {
+                    connection.Close();
+                    return; // No hacer nada si isBorrowed es FALSE
+                }
+
+                // Si isBorrowed es TRUE, insertamos el movimiento
                 string query = @"
-                    INSERT INTO Movements (ID_MoveType, ID_Material, ID_User, movDate, comment, quantity)
-                    VALUES (@ID_MoveType, @ID_Material, @ID_User, GETDATE(), NULL, @quantity)";
+            INSERT INTO Movements (ID_MoveType, ID_Material, ID_User, movDate, comment, quantity)
+            VALUES (@ID_MoveType, @ID_Material, @ID_User, GETDATE(), NULL, @quantity)";
                 SqlCommand command = new SqlCommand(query, connection);
 
                 int moveTypeId = 1;
@@ -114,11 +129,11 @@ namespace TechMate_Inventory
 
                 command.Parameters.AddWithValue("@ID_MoveType", moveTypeId);
                 command.Parameters.AddWithValue("@ID_Material", materialId);
-                command.Parameters.AddWithValue("@ID_User", userId); // Asumiendo que ID_User es el mismo que studentId
+                command.Parameters.AddWithValue("@ID_User", userId);
                 command.Parameters.AddWithValue("@quantity", quantity);
 
-                connection.Open();
                 command.ExecuteNonQuery();
+                connection.Close();
             }
         }
 
@@ -169,16 +184,18 @@ namespace TechMate_Inventory
 
         private void btnCancelBorrowing_Click(object sender, EventArgs e)
         {
-            CancelBorrowing();
             RecordMovement();
+            CancelBorrowing();
+            
             parentBorrowings.LoadBorrowingsView();
             this.Close();
         }
 
         private void ConfirmReturnBtn_Click(object sender, EventArgs e)
         {
-            UpdateBorrowingStatusToFalse();
             RecordMovement();
+            UpdateBorrowingStatusToFalse();
+            
             parentBorrowings.LoadBorrowingsView();
             this.Close();
         }
