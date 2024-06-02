@@ -100,11 +100,26 @@ namespace TechMate_Inventory
             }
         }
 
-        private void btnDeleteCart_Click(object sender, EventArgs e)
+        private void RecordMovement()
         {
-            CancelBorrowing();
-            parentBorrowings.LoadBorrowingsView();
-            this.Close();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+                    INSERT INTO Movements (ID_MoveType, ID_Material, ID_User, movDate, comment, quantity)
+                    VALUES (@ID_MoveType, @ID_Material, @ID_User, GETDATE(), NULL, @quantity)";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                int moveTypeId = 1;
+                int userId = parentBorrowings.userId;
+
+                command.Parameters.AddWithValue("@ID_MoveType", moveTypeId);
+                command.Parameters.AddWithValue("@ID_Material", materialId);
+                command.Parameters.AddWithValue("@ID_User", userId); // Asumiendo que ID_User es el mismo que studentId
+                command.Parameters.AddWithValue("@quantity", quantity);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
         }
 
         public void CancelBorrowing()
@@ -127,6 +142,45 @@ namespace TechMate_Inventory
                     MessageBox.Show("No se encontró el préstamo a cancelar.");
                 }
             }
+        }
+
+        public void UpdateBorrowingStatusToFalse()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE Borrowings SET isBorrowed = @isBorrowed WHERE ID_Borrowing = @borrowId";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@isBorrowed", false);
+                command.Parameters.AddWithValue("@borrowId", borrowId);
+
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("El estado del préstamo ha sido actualizado a 'Devuelto'.");
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el préstamo a actualizar.");
+                }
+            }
+        }
+
+        private void btnCancelBorrowing_Click(object sender, EventArgs e)
+        {
+            CancelBorrowing();
+            RecordMovement();
+            parentBorrowings.LoadBorrowingsView();
+            this.Close();
+        }
+
+        private void ConfirmReturnBtn_Click(object sender, EventArgs e)
+        {
+            UpdateBorrowingStatusToFalse();
+            RecordMovement();
+            parentBorrowings.LoadBorrowingsView();
+            this.Close();
         }
     }
 }

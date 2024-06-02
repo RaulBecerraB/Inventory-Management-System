@@ -99,6 +99,7 @@
             this.vwBorrowingsGridView.Size = new System.Drawing.Size(1295, 338);
             this.vwBorrowingsGridView.TabIndex = 9;
             this.vwBorrowingsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwBorrowingsGridView_CellDoubleClick);
+            this.vwBorrowingsGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.vwBorrowingsGridView_DataBindingComplete);
             // 
             // SearchBar
             // 

@@ -148,6 +148,7 @@ namespace TechMate_Inventory
                     {
                         Borrowings.MdiParent = this;
                         Borrowings.Dock = DockStyle.Fill;
+                        Borrowings.userId = userId;
                         Borrowings.Show();
                     }
                     else

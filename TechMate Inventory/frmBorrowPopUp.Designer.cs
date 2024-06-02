@@ -34,8 +34,8 @@
             this.MaterialDataRichTextBox = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BorrowingStatusTextBox = new System.Windows.Forms.RichTextBox();
-            this.btnDeleteCart = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancelBorrowing = new System.Windows.Forms.Button();
+            this.ConfirmReturnBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // catMatTitle
@@ -99,36 +99,37 @@
             this.BorrowingStatusTextBox.TabIndex = 14;
             this.BorrowingStatusTextBox.Text = "";
             // 
-            // btnDeleteCart
+            // btnCancelBorrowing
             // 
-            this.btnDeleteCart.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCart.Location = new System.Drawing.Point(628, 468);
-            this.btnDeleteCart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDeleteCart.Name = "btnDeleteCart";
-            this.btnDeleteCart.Size = new System.Drawing.Size(214, 91);
-            this.btnDeleteCart.TabIndex = 15;
-            this.btnDeleteCart.Text = "Cancelar préstamo";
-            this.btnDeleteCart.UseVisualStyleBackColor = true;
-            this.btnDeleteCart.Click += new System.EventHandler(this.btnDeleteCart_Click);
+            this.btnCancelBorrowing.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelBorrowing.Location = new System.Drawing.Point(628, 468);
+            this.btnCancelBorrowing.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancelBorrowing.Name = "btnCancelBorrowing";
+            this.btnCancelBorrowing.Size = new System.Drawing.Size(214, 91);
+            this.btnCancelBorrowing.TabIndex = 15;
+            this.btnCancelBorrowing.Text = "Cancelar préstamo";
+            this.btnCancelBorrowing.UseVisualStyleBackColor = true;
+            this.btnCancelBorrowing.Click += new System.EventHandler(this.btnCancelBorrowing_Click);
             // 
-            // button1
+            // ConfirmReturnBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(895, 468);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(214, 91);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Confirmar devolución";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ConfirmReturnBtn.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmReturnBtn.Location = new System.Drawing.Point(895, 468);
+            this.ConfirmReturnBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ConfirmReturnBtn.Name = "ConfirmReturnBtn";
+            this.ConfirmReturnBtn.Size = new System.Drawing.Size(214, 91);
+            this.ConfirmReturnBtn.TabIndex = 16;
+            this.ConfirmReturnBtn.Text = "Confirmar devolución";
+            this.ConfirmReturnBtn.UseVisualStyleBackColor = true;
+            this.ConfirmReturnBtn.Click += new System.EventHandler(this.ConfirmReturnBtn_Click);
             // 
             // frmBorrowPopUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 592);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnDeleteCart);
+            this.Controls.Add(this.ConfirmReturnBtn);
+            this.Controls.Add(this.btnCancelBorrowing);
             this.Controls.Add(this.BorrowingStatusTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.MaterialDataRichTextBox);
@@ -150,7 +151,7 @@
         private System.Windows.Forms.RichTextBox MaterialDataRichTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox BorrowingStatusTextBox;
-        private System.Windows.Forms.Button btnDeleteCart;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancelBorrowing;
+        private System.Windows.Forms.Button ConfirmReturnBtn;
     }
 }
