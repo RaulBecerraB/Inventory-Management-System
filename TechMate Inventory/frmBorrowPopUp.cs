@@ -100,5 +100,33 @@ namespace TechMate_Inventory
             }
         }
 
+        private void btnDeleteCart_Click(object sender, EventArgs e)
+        {
+            CancelBorrowing();
+            parentBorrowings.LoadBorrowingsView();
+            this.Close();
+        }
+
+        public void CancelBorrowing()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM Borrowings WHERE ID_Borrowing = @borrowId";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@borrowId", borrowId);
+
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Préstamo cancelado exitosamente.");
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el préstamo a cancelar.");
+                }
+            }
+        }
     }
 }
