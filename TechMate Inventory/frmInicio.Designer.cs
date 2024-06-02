@@ -43,21 +43,22 @@
             // 
             // catMatTitle
             // 
-            this.catMatTitle.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.catMatTitle.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.catMatTitle.Font = new System.Drawing.Font("Franklin Gothic Demi Cond", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.catMatTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.catMatTitle.Location = new System.Drawing.Point(275, 98);
+            this.catMatTitle.Location = new System.Drawing.Point(-1, -1);
             this.catMatTitle.Name = "catMatTitle";
-            this.catMatTitle.Size = new System.Drawing.Size(984, 65);
+            this.catMatTitle.Size = new System.Drawing.Size(1535, 184);
             this.catMatTitle.TabIndex = 7;
             this.catMatTitle.Text = "SISTEMA DE GESTIÓN DE INVENTARIOS";
+            this.catMatTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-6, -36);
+            this.pictureBox1.Location = new System.Drawing.Point(664, 186);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1507, 366);
+            this.pictureBox1.Size = new System.Drawing.Size(808, 453);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -65,65 +66,71 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(485, 333);
+            this.label1.Location = new System.Drawing.Point(42, 249);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(642, 50);
+            this.label1.Size = new System.Drawing.Size(616, 72);
             this.label1.TabIndex = 9;
             this.label1.Text = "TALLER DE BASES DE DATOS 5sA";
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(613, 499);
+            this.label2.Location = new System.Drawing.Point(54, 421);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(567, 50);
             this.label2.TabIndex = 10;
             this.label2.Text = "Manrique Flores Alejandro";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(613, 549);
+            this.label3.Location = new System.Drawing.Point(54, 471);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(567, 50);
             this.label3.TabIndex = 11;
             this.label3.Text = "Diaz Sanches Edwin Ulises";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(613, 649);
+            this.label4.Location = new System.Drawing.Point(54, 571);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(567, 50);
             this.label4.TabIndex = 12;
             this.label4.Text = "Ferrer Chacón Diego Felipe";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(613, 449);
+            this.label5.Location = new System.Drawing.Point(54, 371);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(567, 50);
             this.label5.TabIndex = 13;
             this.label5.Text = "Becerra Barceló José Raúl";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(613, 599);
+            this.label6.Location = new System.Drawing.Point(54, 521);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(567, 50);
             this.label6.TabIndex = 14;
             this.label6.Text = "Sierra Tuz Brayan Jacobo";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(613, 399);
+            this.label7.Location = new System.Drawing.Point(141, 321);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(372, 50);
             this.label7.TabIndex = 15;
             this.label7.Text = "Integrantes del equipo:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmInicio
             // 
