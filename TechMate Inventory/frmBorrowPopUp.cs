@@ -30,6 +30,7 @@ namespace TechMate_Inventory
         {
             LoadStudentData();
             LoadMaterialData();
+            LoadBorrowingStatus();
         }
 
         private void LoadStudentData()
@@ -60,7 +61,12 @@ namespace TechMate_Inventory
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT shortDescription, Description FROM Materials WHERE ID_Material = @materialId";
+                string query = @"
+                    SELECT m.shortDescription, m.Description, u.Name
+                    FROM Materials m
+                    INNER JOIN MatUnits u ON m.ID_Unit = u.ID_Unit
+                    WHERE m.ID_Material = @materialId";
+
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@materialId", materialId);
 
@@ -71,10 +77,26 @@ namespace TechMate_Inventory
                     StringBuilder materialData = new StringBuilder();
                     materialData.AppendLine(reader["shortDescription"].ToString());
                     materialData.AppendLine(reader["Description"].ToString());
+                    materialData.AppendLine($"{quantity} {reader["Name"]}");
 
                     MaterialDataRichTextBox.Text = materialData.ToString();
                 }
                 reader.Close();
+            }
+        }
+
+        private void LoadBorrowingStatus()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT isBorrowed FROM Borrowings WHERE ID_Borrowing = @borrowId";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@borrowId", borrowId);
+
+                connection.Open();
+                bool isBorrowed = (bool)command.ExecuteScalar();
+                BorrowingStatusTextBox.Text = isBorrowed ? "Préstamo en curso" : "Material devuelto";
+                BorrowingStatusTextBox.BackColor = isBorrowed ? Color.FromArgb(255, 223, 186) : Color.FromArgb(198, 239, 206);
             }
         }
 
