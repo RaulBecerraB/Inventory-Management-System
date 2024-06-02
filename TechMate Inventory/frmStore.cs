@@ -84,7 +84,11 @@ namespace TechMate_Inventory
             }
         }
 
-
+        public void RefreshStoreView()
+        {
+            frmGeneralInventory frmInventory = new frmGeneralInventory(connectionString);
+            frmInventory.LoadInventoryView(vwStoreGridView);
+        }
         private void vwInventoryGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verificar si se hizo clic en una celda de tipo botón

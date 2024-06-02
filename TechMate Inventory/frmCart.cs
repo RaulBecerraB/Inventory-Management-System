@@ -131,6 +131,8 @@ namespace TechMate_Inventory
                 TransferCartToBorrowings();
                 DeleteStudentCart();
 
+                parentStore.RefreshStoreView();
+
                 MessageBox.Show("Prestamo realizado a " + parentStore.selectedStudent, "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
