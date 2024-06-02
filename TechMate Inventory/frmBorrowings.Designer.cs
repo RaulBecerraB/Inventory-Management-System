@@ -98,6 +98,7 @@
             this.vwBorrowingsGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.vwBorrowingsGridView.Size = new System.Drawing.Size(1295, 338);
             this.vwBorrowingsGridView.TabIndex = 9;
+            this.vwBorrowingsGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwBorrowingsGridView_CellDoubleClick);
             // 
             // SearchBar
             // 

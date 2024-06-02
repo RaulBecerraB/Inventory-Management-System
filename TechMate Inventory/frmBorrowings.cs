@@ -63,12 +63,12 @@ namespace TechMate_Inventory
                 }
             }
 
-            DGridView.RenameDGVColumn(vwBorrowingsGridView,"shortDescription","Material");
-            DGridView.RenameDGVColumn(vwBorrowingsGridView, "UserName", "Prestamista");
-            DGridView.RenameDGVColumn(vwBorrowingsGridView, "StudentName", "Estudiante");
-            DGridView.RenameDGVColumn(vwBorrowingsGridView, "quantity", "Cantidad prestada");
-            DGridView.RenameDGVColumn(vwBorrowingsGridView, "return_date", "Fecha máxima de retorno");
-            DGridView.RenameDGVColumn(vwBorrowingsGridView, "borrow_date", "Fecha del préstamo");
+            DGridViewUtils.RenameDGVColumn(vwBorrowingsGridView,"shortDescription","Material");
+            DGridViewUtils.RenameDGVColumn(vwBorrowingsGridView, "UserName", "Prestamista");
+            DGridViewUtils.RenameDGVColumn(vwBorrowingsGridView, "StudentName", "Estudiante");
+            DGridViewUtils.RenameDGVColumn(vwBorrowingsGridView, "quantity", "Cantidad prestada");
+            DGridViewUtils.RenameDGVColumn(vwBorrowingsGridView, "return_date", "Fecha máxima de retorno");
+            DGridViewUtils.RenameDGVColumn(vwBorrowingsGridView, "borrow_date", "Fecha del préstamo");
 
         }
 
@@ -80,6 +80,24 @@ namespace TechMate_Inventory
                 DataView dv = originalDataTable.DefaultView;
                 dv.RowFilter = $"shortDescription LIKE '%{filterText}%' OR UserName LIKE '%{filterText}%' OR StudentName LIKE '%{filterText}%'"; // Ajusta los nombres de las columnas según sea necesario
                 vwBorrowingsGridView.DataSource = dv;
+            }
+        }
+
+        private void vwBorrowingsGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Comprueba si el doble clic fue sobre una fila (y no en el área de encabezado)
+            if (e.RowIndex >= 0)
+            {
+                // Aquí puedes acceder a la fila en la que se hizo doble clic
+                DataGridViewRow clickedRow = vwBorrowingsGridView.Rows[e.RowIndex];
+
+                Material_CRUD_PopUp1 editPopup = new Material_CRUD_PopUp1(this, connectionString);
+                editPopup.intMaterialId = (int)clickedRow.Cells["ID_Material"].Value;
+                editPopup.Show();
+
+                // Por ejemplo, mostrar información de la fila
+                //MessageBox.Show($"Doble clic en la fila con ID: {clickedRow.Cells["ID_Material"].Value.ToString()}");
+                //selectedIndex = clickedRow.Cells["ID_Material"].Value;
             }
         }
     }

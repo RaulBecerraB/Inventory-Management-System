@@ -138,7 +138,7 @@ namespace TechMate_Inventory
             if(DGridViewRows.isSelectedRowAHeader(e))
             {
                 newMovementControl.intMatId = DGridViewRows.ReturnSelectedRowID(e, "ID_Material", vwInventoryGridView);
-                newMovementControl.SetLabelTextById(newMovementControl.intMatId, vwInventoryGridView, "ID_Material", "shortDescription");
+                DGridViewUtils.SetLabelTextById(newMovementControl.intMatId, vwInventoryGridView, "ID_Material", "shortDescription",newMovementControl.labelSelectedMat);
             }
         }
 

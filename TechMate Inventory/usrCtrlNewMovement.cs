@@ -24,6 +24,11 @@ namespace TechMate_Inventory
             this.parentForm = parentForm;
         }
 
+        public Label labelSelectedMat
+        {
+            get { return labelSelectedMaterial; }
+        }
+
         private void usrCtrlNewMovement_Load(object sender, EventArgs e)
         {
             LoadDataIntoComboBox();
@@ -48,18 +53,6 @@ namespace TechMate_Inventory
                 catch (Exception ex)
                 {
                     MessageBox.Show("POPUP ERROR: " + ex.Message);
-                }
-            }
-        }
-
-        public void SetLabelTextById(int id, DataGridView vw, string idName, string columnToShow)
-        {
-            foreach (DataGridViewRow row in vw.Rows)
-            {
-                if (row.Cells[idName].Value != null && (int)row.Cells[idName].Value == id)
-                {
-                    labelSelectedMaterial.Text = row.Cells[columnToShow].Value.ToString();
-                    break;
                 }
             }
         }

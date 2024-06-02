@@ -20,6 +20,7 @@ namespace TechMate_Inventory
         public string selectedStudent;
         public int userId;
         public int matId;
+        private int clickedMatId;
         public frmStore(string connectionString)
         {
             InitializeComponent();
@@ -160,6 +161,12 @@ namespace TechMate_Inventory
 
                 // Refrescar el DataGridView después de actualizar los valores
                 vwStoreGridView.Refresh();
+            }
+
+            if (DGridViewRows.isSelectedRowAHeader(e))
+            {
+                clickedMatId = DGridViewRows.ReturnSelectedRowID(e, "ID_Material", vwStoreGridView);
+                DGridViewUtils.SetRichTextBoxTextById(clickedMatId, vwStoreGridView, "ID_Material", "shortDescription", DescriptionTextBox);
             }
         }
 

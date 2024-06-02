@@ -60,11 +60,11 @@ namespace TechMate_Inventory
                     }
             }
 
-            DGridView.RenameDGVColumn(vwKardexGridView, "shortDescription", "Material");
-            DGridView.RenameDGVColumn(vwKardexGridView, "UserName", "Usuario");
-            DGridView.RenameDGVColumn(vwKardexGridView, "MoveTypeName", "Tipo de mov");
-            DGridView.RenameDGVColumn(vwKardexGridView, "quantity", "Cantidad");
-            DGridView.RenameDGVColumn(vwKardexGridView, "movDate", "Fecha del movimiento");
+            DGridViewUtils.RenameDGVColumn(vwKardexGridView, "shortDescription", "Material");
+            DGridViewUtils.RenameDGVColumn(vwKardexGridView, "UserName", "Usuario");
+            DGridViewUtils.RenameDGVColumn(vwKardexGridView, "MoveTypeName", "Tipo de mov");
+            DGridViewUtils.RenameDGVColumn(vwKardexGridView, "quantity", "Cantidad");
+            DGridViewUtils.RenameDGVColumn(vwKardexGridView, "movDate", "Fecha del movimiento");
 
         }
 
