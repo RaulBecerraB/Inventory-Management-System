@@ -31,6 +31,9 @@ namespace TechMate_Inventory
         {
             string query = @"
         SELECT 
+            B.ID_Borrowing,
+            M.ID_Material,
+            S.Matricula,
             M.shortDescription,
             U.Name AS UserName,
             S.name AS StudentName,
@@ -62,6 +65,9 @@ namespace TechMate_Inventory
                     MessageBox.Show("ERROR cargando la gridView: " + ex.Message);
                 }
             }
+            vwBorrowingsGridView.Columns["ID_Material"].Visible = false;
+            vwBorrowingsGridView.Columns["ID_Borrowing"].Visible = false; 
+            vwBorrowingsGridView.Columns["Matricula"].Visible = false; 
 
             DGridViewUtils.RenameDGVColumn(vwBorrowingsGridView,"shortDescription","Material");
             DGridViewUtils.RenameDGVColumn(vwBorrowingsGridView, "UserName", "Prestamista");
@@ -91,9 +97,11 @@ namespace TechMate_Inventory
                 // Aquí puedes acceder a la fila en la que se hizo doble clic
                 DataGridViewRow clickedRow = vwBorrowingsGridView.Rows[e.RowIndex];
 
-                Material_CRUD_PopUp1 editPopup = new Material_CRUD_PopUp1(this, connectionString);
-                editPopup.intMaterialId = (int)clickedRow.Cells["ID_Material"].Value;
-                editPopup.Show();
+                frmBorrowPopUp BorrowPopUp = new frmBorrowPopUp(this, connectionString);
+                BorrowPopUp.borrowId = (int)clickedRow.Cells["ID_Borrowing"].Value;
+                BorrowPopUp.studentId = (string)clickedRow.Cells["Matricula"].Value;
+                BorrowPopUp.materialId = (int)clickedRow.Cells["ID_Material"].Value;
+                BorrowPopUp.Show();
 
                 // Por ejemplo, mostrar información de la fila
                 //MessageBox.Show($"Doble clic en la fila con ID: {clickedRow.Cells["ID_Material"].Value.ToString()}");

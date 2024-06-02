@@ -14,7 +14,10 @@ namespace TechMate_Inventory
     {
         private string connectionString;
         private frmBorrowings parentBorrowings;
-        public frmBorrowPopUp(string connectionString, frmBorrowings parentBorrowings)
+        public int borrowId;
+        public string studentId;
+        public int materialId;
+        public frmBorrowPopUp(frmBorrowings parentBorrowings, string connectionString)
         {
             InitializeComponent();
             this.connectionString = connectionString;
@@ -25,5 +28,6 @@ namespace TechMate_Inventory
         {
 
         }
+
     }
 }
