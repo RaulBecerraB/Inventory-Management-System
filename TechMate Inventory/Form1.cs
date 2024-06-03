@@ -232,7 +232,6 @@ namespace TechMate_Inventory
                 if (userRole == 2) // Usuario
                 {
                     // Esconde ciertas formas para usuarios no administradores
-                    kardexBtn.Visible = false;
                     InventoryBtn.Visible = false;
                     catalogueBtn.Visible = false;
                 }
