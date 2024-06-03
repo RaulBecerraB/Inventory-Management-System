@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace TechMate_Inventory
 
         public string userName;
         public frmLogin parentLogin;
-        public int userId;
+        private int userId;
 
         //Inicializar todas las forms para acceder a ellas de manera universal
 
@@ -30,11 +31,12 @@ namespace TechMate_Inventory
         frmCart Cart = new frmCart(connectionString);
         frmBorrowings Borrowings = new frmBorrowings(connectionString);  
 
-        public Form1(string userName, frmLogin parentLogin)
+        public Form1(string userName, frmLogin parentLogin, int userId)
         {
             InitializeComponent();
             this.userName = userName;
             this.parentLogin = parentLogin;
+            this.userId = userId;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,6 +48,9 @@ namespace TechMate_Inventory
             Home.MdiParent = this;
             Home.Dock = DockStyle.Fill;
             Home.Show();
+
+            CheckUserRole();
+ 
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -210,6 +215,27 @@ namespace TechMate_Inventory
             else
             {
                 this.MdiChildren[childIndexCart].Focus();
+            }
+        }
+
+        private void CheckUserRole()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT ID_Role FROM Users WHERE ID_User = @userId";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@userId", userId);
+
+                connection.Open();
+                int userRole = Convert.ToInt32(command.ExecuteScalar());
+
+                if (userRole == 2) // Usuario
+                {
+                    // Esconde ciertas formas para usuarios no administradores
+                    kardexBtn.Visible = false;
+                    InventoryBtn.Visible = false;
+                    catalogueBtn.Visible = false;
+                }
             }
         }
     }

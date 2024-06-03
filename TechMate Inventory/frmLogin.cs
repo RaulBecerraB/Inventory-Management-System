@@ -63,9 +63,8 @@ namespace TechMate_Inventory
 
         private void Login(SqlConnection connection)
         {
-            Form1 application = new Form1(textBoxUserName.Text, this);
+            Form1 application = new Form1(textBoxUserName.Text, this, getUserId(connection, textBoxUserName.Text));
             application.Show();
-            application.userId = getUserId(connection, textBoxUserName.Text);
             this.Hide();
         }
 
@@ -73,9 +72,8 @@ namespace TechMate_Inventory
         {
             textBoxUserName.Text = "Developer";
 
-            Form1 application = new Form1(textBoxUserName.Text, this);
+            Form1 application = new Form1(textBoxUserName.Text, this,7);
             application.Show();
-            application.userId = 7;
             this.Hide();
         }
         private bool isUserInDB(SqlConnection connection, TextBox userName)
@@ -104,7 +102,7 @@ namespace TechMate_Inventory
             }
         }
 
-        private int getUserId(SqlConnection connection, string userName)
+        public int getUserId(SqlConnection connection, string userName)
         {
             string query = @"SELECT ID_User FROM Users WHERE Name = @textBoxUserName";
 
@@ -116,7 +114,8 @@ namespace TechMate_Inventory
                     cmd.Parameters.AddWithValue("@textBoxUserName", userName);
 
                     // Ejecutar el comando y obtener el resultado
-                    return (int)cmd.ExecuteScalar();
+                    int obtainedId = (int)cmd.ExecuteScalar();
+                    return obtainedId;
                 }
                 catch (Exception ex)
                 {
