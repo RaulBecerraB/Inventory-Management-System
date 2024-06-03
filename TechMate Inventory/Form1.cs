@@ -15,21 +15,10 @@ namespace TechMate_Inventory
 {
     public partial class Form1 : Form
     {
-        public static string connectionString = ConfigurationManager.ConnectionStrings["local.TechMateInventoryConnectionString"].ConnectionString;
-
         public string userName;
         public frmLogin parentLogin;
+        public static string connectionString = frmLogin.connectionString;
         private int userId;
-
-        //Inicializar todas las forms para acceder a ellas de manera universal
-
-        frmStore Store = new frmStore(connectionString);
-        frmGeneralInventory Inventory = new frmGeneralInventory(connectionString);
-        frmKardex Kardex = new frmKardex(connectionString);
-        frmMatCatalogue Catalogue = new frmMatCatalogue(connectionString);
-        frmInicio Home = new frmInicio(connectionString);
-        frmCart Cart = new frmCart(connectionString);
-        frmBorrowings Borrowings = new frmBorrowings(connectionString);  
 
         public Form1(string userName, frmLogin parentLogin, int userId)
         {
@@ -38,7 +27,15 @@ namespace TechMate_Inventory
             this.parentLogin = parentLogin;
             this.userId = userId;
         }
+        //Inicializar todas las forms para acceder a ellas de manera universal
 
+        frmStore Store = new frmStore(connectionString);
+        frmGeneralInventory Inventory = new frmGeneralInventory(connectionString);
+        frmKardex Kardex = new frmKardex(connectionString);
+        frmMatCatalogue Catalogue = new frmMatCatalogue(connectionString);
+        frmInicio Home = new frmInicio(connectionString);
+        frmCart Cart = new frmCart(connectionString);
+        frmBorrowings Borrowings = new frmBorrowings(connectionString); 
         private void Form1_Load(object sender, EventArgs e)
         {
             //Used this to solve line break problem

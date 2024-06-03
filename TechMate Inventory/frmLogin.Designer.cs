@@ -162,6 +162,7 @@
             this.forceLoginBtn.TabIndex = 8;
             this.forceLoginBtn.Text = "Forzar login (developer)";
             this.forceLoginBtn.UseVisualStyleBackColor = true;
+            this.forceLoginBtn.Visible = false;
             this.forceLoginBtn.Click += new System.EventHandler(this.forceLoginBtn_Click);
             // 
             // label4
