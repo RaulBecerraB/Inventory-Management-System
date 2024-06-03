@@ -27,6 +27,7 @@ namespace TechMate_Inventory
 
         private void frmCart_Load(object sender, EventArgs e)
         {
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 FillStudentsComboBox(connection);
@@ -76,7 +77,7 @@ namespace TechMate_Inventory
             {
                 connection.Open();
 
-                Program.FillComboBoxWithQuery(comboBoxStudents, "Students", "Matricula", "name", "last_name", connection);
+                Program.FillComboBoxWithQuerySelectItem(comboBoxStudents, "Students", "Matricula", "name", "last_name", connection);
             }
             catch (Exception ex)
             {

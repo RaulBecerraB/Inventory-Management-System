@@ -143,7 +143,7 @@ namespace TechMate_Inventory
                     else
                     {
                         frmStore Store = (frmStore)this.MdiChildren[childIndexStore];
-                     
+                        Store.RefreshStoreView();
                         this.MdiChildren[childIndexStore].Focus();
                     }
                 break;

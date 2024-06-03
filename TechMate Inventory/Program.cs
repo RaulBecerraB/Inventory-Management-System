@@ -44,6 +44,24 @@ namespace TechMate_Inventory
             comboBox.ValueMember = id;  // Columna como valor que representa los items.
         }
 
+        public static void FillComboBoxWithQuerySelectItem(ComboBox comboBox, string table, string id, string attribute1, string attribute2, SqlConnection connection)
+        {
+            string query = $"SELECT {id}, {attribute1} + ' ' + {attribute2} AS FullName FROM {table}";
+            DataTable dataTable = GetDataTable(query, connection);
+
+            // Añade una fila adicional para el ítem por defecto
+            DataRow defaultRow = dataTable.NewRow();
+            defaultRow[id] = DBNull.Value;
+            defaultRow["FullName"] = "Seleccione una opción";
+            dataTable.Rows.InsertAt(defaultRow, 0);
+
+            comboBox.DataSource = dataTable; // Asignar dataTable como DataSource
+            comboBox.DisplayMember = "FullName";  // Columna para mostrar en el ComboBox
+            comboBox.ValueMember = id;  // Columna como valor que representa los items
+
+            // Selecciona el ítem por defecto
+            comboBox.SelectedIndex = 0;
+        }
         public static DataTable GetDataTable(string query, SqlConnection connection)
         {
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);

@@ -19,6 +19,7 @@ namespace TechMate_Inventory
     {
         public string connectionString;
         public int selectedIndex = 0;
+        private DataTable originalDataTable;
  
         public frmMatCatalogue(string connectionString)
         {
@@ -81,7 +82,7 @@ namespace TechMate_Inventory
 
                     adapter.Fill(table);
                     vwMatCatGridView.DataSource = table;
-
+                    originalDataTable = Program.GetDataTable(query, connection);
                     // Opcionalmente configurar las cabeceras si es necesario
 
                     vwMatCatGridView.Columns["ID_Material"].Visible = false;
@@ -264,6 +265,7 @@ namespace TechMate_Inventory
                 {
                     int materialId = Convert.ToInt32(vwMatCatGridView.Rows[e.RowIndex].Cells["ID_Material"].Value);
 
+                    DeleteItem("Borrowings", "ID_Material", materialId);
                     DeleteItem("Movements", "ID_Material", materialId);
                     DeleteItem("Materials", "ID_Material", materialId);
 
@@ -312,6 +314,17 @@ namespace TechMate_Inventory
                     LoadLowerTables();
                     LoadDataFromView();
                 }
+            }
+        }
+
+        private void SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            string filterText = SearchBar.Text.ToLower();
+            if (originalDataTable != null)
+            {
+                DataView dv = originalDataTable.DefaultView;
+                dv.RowFilter = $"shortDescription LIKE '%{filterText}%' OR Category LIKE '%{filterText}%' OR MaterialType LIKE '%{filterText}%'"; // Ajusta los nombres de las columnas según sea necesario
+                vwMatCatGridView.DataSource = dv;
             }
         }
     }

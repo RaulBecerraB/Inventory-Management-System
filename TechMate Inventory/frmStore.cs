@@ -21,6 +21,7 @@ namespace TechMate_Inventory
         public int userId;
         public int matId;
         private int clickedMatId;
+        private DataTable originalDataTable;
         public frmStore(string connectionString)
         {
             InitializeComponent();
@@ -123,6 +124,7 @@ namespace TechMate_Inventory
             frmGeneralInventory frmInventory = new frmGeneralInventory(connectionString);
             frmInventory.LoadInventoryView(vwStoreGridView);
         }
+
         private void vwInventoryGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verificar si se hizo clic en una celda de tipo botón
@@ -166,7 +168,7 @@ namespace TechMate_Inventory
             if (DGridViewRows.isSelectedRowAHeader(e))
             {
                 clickedMatId = DGridViewRows.ReturnSelectedRowID(e, "ID_Material", vwStoreGridView);
-                DGridViewUtils.SetRichTextBoxTextById(clickedMatId, vwStoreGridView, "ID_Material", "shortDescription", DescriptionTextBox);
+                DGridViewUtils.SetRichTextBoxTextById(clickedMatId, vwStoreGridView, "ID_Material", "Description", DescriptionTextBox);
             }
         }
 
@@ -190,6 +192,17 @@ namespace TechMate_Inventory
                         MessageBox.Show("Por favor, ingrese un número válido.");
                     }
                 }
+            }
+        }
+
+        private void SearchBar_TextChanged(object sender, EventArgs e)
+        {
+            string filterText = SearchBar.Text.ToLower();
+            if (originalDataTable != null)
+            {
+                DataView dv = originalDataTable.DefaultView;
+                dv.RowFilter = $"shortDescription LIKE %{filterText}%"; // Ajusta los nombres de las columnas según sea necesario
+                vwStoreGridView.DataSource = dv;
             }
         }
     }

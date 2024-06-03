@@ -43,6 +43,8 @@
             this.SearchBarPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SearchBar = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.commentTextBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.techMateInventoryDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwKardexGridView)).BeginInit();
@@ -111,8 +113,9 @@
             this.vwKardexGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.vwKardexGridView.RowTemplate.Height = 32;
             this.vwKardexGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.vwKardexGridView.Size = new System.Drawing.Size(1365, 338);
+            this.vwKardexGridView.Size = new System.Drawing.Size(1300, 338);
             this.vwKardexGridView.TabIndex = 5;
+            this.vwKardexGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vwKardexGridView_CellClick);
             // 
             // label1
             // 
@@ -146,7 +149,7 @@
             // 
             this.SearchBarPanel.Controls.Add(this.pictureBox1);
             this.SearchBarPanel.Controls.Add(this.SearchBar);
-            this.SearchBarPanel.Location = new System.Drawing.Point(898, 81);
+            this.SearchBarPanel.Location = new System.Drawing.Point(833, 81);
             this.SearchBarPanel.Name = "SearchBarPanel";
             this.SearchBarPanel.Size = new System.Drawing.Size(570, 42);
             this.SearchBarPanel.TabIndex = 12;
@@ -173,12 +176,34 @@
             this.SearchBar.TabIndex = 10;
             this.SearchBar.TextChanged += new System.EventHandler(this.SearchBar_TextChanged);
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(97, 518);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(415, 42);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Comentario:";
+            // 
+            // commentTextBox
+            // 
+            this.commentTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.commentTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.commentTextBox.Location = new System.Drawing.Point(103, 582);
+            this.commentTextBox.Name = "commentTextBox";
+            this.commentTextBox.ReadOnly = true;
+            this.commentTextBox.Size = new System.Drawing.Size(1300, 84);
+            this.commentTextBox.TabIndex = 16;
+            this.commentTextBox.Text = "";
+            // 
             // frmKardex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1775, 913);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.commentTextBox);
             this.Controls.Add(this.SearchBarPanel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addNewMatBtn);
@@ -211,5 +236,7 @@
         private System.Windows.Forms.Panel SearchBarPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox SearchBar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox commentTextBox;
     }
 }

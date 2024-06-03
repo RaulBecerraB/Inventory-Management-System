@@ -19,12 +19,12 @@ namespace TechMate_Inventory
         private usrCtrlNewMovement newMovementControl;
         public int userId;
         private DataTable originalDataTable;
+        private int clickedMatId;
         
         public frmGeneralInventory(string connectionString)
         {
             InitializeComponent();
             this.connectionString = connectionString;
-            
         }
 
         // Propiedad pública para acceder al DataGridView
@@ -56,11 +56,24 @@ namespace TechMate_Inventory
         public void LoadInventoryView(DataGridView gridView)
         {
             string query = @"
-        SELECT m.ID_Material,m.shortDescription, 
-               ISNULL(SUM(mov.quantity), 0) AS TotalQuantity
-        FROM Materials m
-        LEFT JOIN Movements mov ON m.ID_Material = mov.ID_Material
-        GROUP BY m.ID_Material, m.shortDescription";
+SELECT 
+    m.ID_Material,
+    m.shortDescription, 
+    m.Description,
+    ISNULL(SUM(mov.quantity), 0) AS TotalQuantity,
+    u.Name AS UnitName
+FROM 
+    Materials m
+LEFT JOIN 
+    Movements mov ON m.ID_Material = mov.ID_Material
+LEFT JOIN
+    MatUnits u ON m.ID_Unit = u.ID_Unit
+GROUP BY 
+    m.ID_Material, 
+    m.shortDescription, 
+    m.Description,
+    u.Name";
+
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -73,8 +86,10 @@ namespace TechMate_Inventory
                     originalDataTable = Program.GetDataTable(query,connection); 
 
                     gridView.Columns["ID_Material"].Visible = false;
+                    gridView.Columns["Description"].Visible = false;
                     gridView.Columns["shortDescription"].HeaderText = "Material";
                     gridView.Columns["TotalQuantity"].HeaderText = "En existencia";
+                    gridView.Columns["UnitName"].HeaderText = "Unidad de medida";
 
                     // Establece explícitamente el ancho de la columna después de añadirla
                     //gridView.Columns["shortDescription"].Width = 800;
@@ -144,7 +159,10 @@ namespace TechMate_Inventory
             {
                 newMovementControl.intMatId = DGridViewRows.ReturnSelectedRowID(e, "ID_Material", vwInventoryGridView);
                 DGridViewUtils.SetLabelTextById(newMovementControl.intMatId, vwInventoryGridView, "ID_Material", "shortDescription",newMovementControl.labelSelectedMat);
+                clickedMatId = DGridViewRows.ReturnSelectedRowID(e, "ID_Material", vwInventory);
+                DGridViewUtils.SetRichTextBoxTextById(clickedMatId, vwInventory, "ID_Material", "Description", DescriptionTextBox);
             }
+
         }
 
         private void SearchBar_TextChanged(object sender, EventArgs e)
