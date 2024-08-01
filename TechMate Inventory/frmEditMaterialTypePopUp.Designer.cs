@@ -40,10 +40,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(273, 80);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(205, 65);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 25);
+            this.label2.Size = new System.Drawing.Size(188, 20);
             this.label2.TabIndex = 34;
             this.label2.Text = "Seleccione una categoría";
             // 
@@ -52,19 +53,19 @@
             this.comboBoxCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategories.FormattingEnabled = true;
-            this.comboBoxCategories.Location = new System.Drawing.Point(278, 108);
-            this.comboBoxCategories.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxCategories.Location = new System.Drawing.Point(208, 88);
+            this.comboBoxCategories.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCategories.Name = "comboBoxCategories";
-            this.comboBoxCategories.Size = new System.Drawing.Size(205, 37);
+            this.comboBoxCategories.Size = new System.Drawing.Size(155, 30);
             this.comboBoxCategories.TabIndex = 33;
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(245, 186);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCancel.Location = new System.Drawing.Point(184, 151);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(117, 50);
+            this.btnCancel.Size = new System.Drawing.Size(88, 41);
             this.btnCancel.TabIndex = 32;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -73,10 +74,10 @@
             // btnAccept
             // 
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Location = new System.Drawing.Point(367, 186);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAccept.Location = new System.Drawing.Point(275, 151);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(117, 50);
+            this.btnAccept.Size = new System.Drawing.Size(88, 41);
             this.btnAccept.TabIndex = 31;
             this.btnAccept.Text = "Aceptar";
             this.btnAccept.UseVisualStyleBackColor = true;
@@ -85,38 +86,40 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 20);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(31, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 38);
+            this.label1.Size = new System.Drawing.Size(145, 31);
             this.label1.TabIndex = 30;
             this.label1.Text = "Editar Tipo";
             // 
             // textBoxEditType
             // 
             this.textBoxEditType.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEditType.Location = new System.Drawing.Point(49, 108);
-            this.textBoxEditType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxEditType.Location = new System.Drawing.Point(37, 88);
+            this.textBoxEditType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxEditType.Name = "textBoxEditType";
-            this.textBoxEditType.Size = new System.Drawing.Size(205, 34);
+            this.textBoxEditType.Size = new System.Drawing.Size(155, 28);
             this.textBoxEditType.TabIndex = 29;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(43, 80);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(32, 65);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 25);
+            this.label6.Size = new System.Drawing.Size(113, 20);
             this.label6.TabIndex = 28;
             this.label6.Text = "Ingrese el Tipo";
             // 
             // frmEditMaterialTypePopUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(524, 256);
+            this.ClientSize = new System.Drawing.Size(435, 208);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxCategories);
             this.Controls.Add(this.btnCancel);
@@ -124,6 +127,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxEditType);
             this.Controls.Add(this.label6);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmEditMaterialTypePopUp";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "frmEditMaterialTypePopUp";

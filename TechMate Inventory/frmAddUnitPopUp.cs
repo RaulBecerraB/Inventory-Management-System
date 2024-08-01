@@ -89,5 +89,10 @@ namespace TechMate_Inventory
         {
             this.Close();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

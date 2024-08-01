@@ -17,7 +17,7 @@ namespace TechMate_Inventory
 {
     public partial class frmLogin : Form
     {
-        public static string connectionString = ConfigurationManager.ConnectionStrings["AWS.TechMateInventoryConnectionString"].ConnectionString;
+        public static string connectionString = ConfigurationManager.ConnectionStrings["LocalPC.TechMateInventoryConnectionString"].ConnectionString;
 
         public frmLogin()
         {
