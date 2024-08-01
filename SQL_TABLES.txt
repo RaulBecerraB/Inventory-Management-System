@@ -1,0 +1,308 @@
+USE [TechMate Inventory]
+GO
+
+/****** Object:  Table [dbo].[Borrowings]    Script Date: 02/06/2024 08:54:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Borrowings](
+	[ID_Borrowing] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Material] [int] NOT NULL,
+	[ID_User] [int] NOT NULL,
+	[Matricula] [varchar](10) NOT NULL,
+	[quantity] [int] NOT NULL,
+	[return_date] [datetime] NOT NULL,
+	[borrow_date] [datetime] NOT NULL,
+	[isBorrowed] [bit] NOT NULL,
+ CONSTRAINT [PK__Borrowin__0D875020D61AC6B8] PRIMARY KEY CLUSTERED 
+(
+	[ID_Borrowing] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Carts]    Script Date: 02/06/2024 08:54:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Carts](
+	[ID_Cart] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Material] [int] NOT NULL,
+	[ID_User] [int] NOT NULL,
+	[Matricula] [varchar](10) NOT NULL,
+	[quantity] [int] NOT NULL,
+ CONSTRAINT [PK__Carts__72140ECF579E2EF6] PRIMARY KEY CLUSTERED 
+(
+	[ID_Cart] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Categories]    Script Date: 02/06/2024 08:54:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Categories](
+	[ID_Category] [int] NOT NULL,
+	[Name] [varchar](25) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Category] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Materials]    Script Date: 02/06/2024 08:54:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Materials](
+	[ID_Material] [int] NOT NULL,
+	[shortDescription] [varchar](60) NOT NULL,
+	[Description] [varchar](200) NOT NULL,
+	[ID_MatType] [int] NOT NULL,
+	[ID_Unit] [int] NOT NULL,
+	[BorrowLimitDays] [int] NOT NULL,
+ CONSTRAINT [PK__Material__A7F521BB1A0C78E8] PRIMARY KEY CLUSTERED 
+(
+	[ID_Material] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[MatTypes]    Script Date: 02/06/2024 08:54:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MatTypes](
+	[ID_MatType] [int] NOT NULL,
+	[Name] [varchar](20) NOT NULL,
+	[ID_Category] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_MatType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[MatUnits]    Script Date: 02/06/2024 08:54:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MatUnits](
+	[ID_Unit] [int] NOT NULL,
+	[Name] [varchar](10) NULL,
+ CONSTRAINT [PK__MatUnits__EB4517D3A0B51B5B] PRIMARY KEY CLUSTERED 
+(
+	[ID_Unit] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Movements]    Script Date: 02/06/2024 08:54:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Movements](
+	[ID_Movement] [int] IDENTITY(1,1) NOT NULL,
+	[ID_MoveType] [int] NOT NULL,
+	[ID_Material] [int] NOT NULL,
+	[ID_User] [int] NOT NULL,
+	[movDate] [datetime] NOT NULL,
+	[comment] [nchar](10) NULL,
+	[quantity] [int] NOT NULL,
+ CONSTRAINT [PK__Movement__7D835EE58127277F] PRIMARY KEY CLUSTERED 
+(
+	[ID_Movement] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[MoveTypes]    Script Date: 02/06/2024 08:54:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MoveTypes](
+	[ID_MoveType] [int] NOT NULL,
+	[Name] [varchar](10) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_MoveType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Roles]    Script Date: 02/06/2024 08:54:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Roles](
+	[ID_Role] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Role] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Students]    Script Date: 02/06/2024 08:54:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Students](
+	[Matricula] [varchar](10) NOT NULL,
+	[name] [varchar](25) NOT NULL,
+	[last_name] [varchar](25) NOT NULL,
+	[phone] [varchar](12) NOT NULL,
+	[email] [varchar](25) NOT NULL,
+	[is_verificated] [bit] NULL,
+ CONSTRAINT [PK_Students] PRIMARY KEY CLUSTERED 
+(
+	[Matricula] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Users]    Script Date: 02/06/2024 08:54:22 p. m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Users](
+	[ID_User] [int] NOT NULL,
+	[Name] [varchar](20) NOT NULL,
+	[lastName] [varchar](20) NULL,
+	[phone] [int] NULL,
+	[email] [varchar](50) NOT NULL,
+	[password] [varchar](10) NOT NULL,
+	[ID_Role] [int] NULL,
+ CONSTRAINT [PK__Users__ED4DE4425849DE41] PRIMARY KEY CLUSTERED 
+(
+	[ID_User] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Borrowings]  WITH CHECK ADD  CONSTRAINT [FK__Borrowing__ID_Ma__32AB8735] FOREIGN KEY([ID_Material])
+REFERENCES [dbo].[Materials] ([ID_Material])
+GO
+
+ALTER TABLE [dbo].[Borrowings] CHECK CONSTRAINT [FK__Borrowing__ID_Ma__32AB8735]
+GO
+
+ALTER TABLE [dbo].[Borrowings]  WITH CHECK ADD  CONSTRAINT [FK__Borrowing__ID_Us__339FAB6E] FOREIGN KEY([ID_User])
+REFERENCES [dbo].[Users] ([ID_User])
+GO
+
+ALTER TABLE [dbo].[Borrowings] CHECK CONSTRAINT [FK__Borrowing__ID_Us__339FAB6E]
+GO
+
+ALTER TABLE [dbo].[Borrowings]  WITH CHECK ADD  CONSTRAINT [FK__Borrowing__Matri__3493CFA7] FOREIGN KEY([Matricula])
+REFERENCES [dbo].[Students] ([Matricula])
+GO
+
+ALTER TABLE [dbo].[Borrowings] CHECK CONSTRAINT [FK__Borrowing__Matri__3493CFA7]
+GO
+
+ALTER TABLE [dbo].[Carts]  WITH CHECK ADD  CONSTRAINT [FK_Carts_Materials] FOREIGN KEY([ID_Material])
+REFERENCES [dbo].[Materials] ([ID_Material])
+GO
+
+ALTER TABLE [dbo].[Carts] CHECK CONSTRAINT [FK_Carts_Materials]
+GO
+
+ALTER TABLE [dbo].[Carts]  WITH CHECK ADD  CONSTRAINT [FK_Carts_Students] FOREIGN KEY([Matricula])
+REFERENCES [dbo].[Students] ([Matricula])
+GO
+
+ALTER TABLE [dbo].[Carts] CHECK CONSTRAINT [FK_Carts_Students]
+GO
+
+ALTER TABLE [dbo].[Carts]  WITH CHECK ADD  CONSTRAINT [FK_Carts_Users] FOREIGN KEY([ID_User])
+REFERENCES [dbo].[Users] ([ID_User])
+GO
+
+ALTER TABLE [dbo].[Carts] CHECK CONSTRAINT [FK_Carts_Users]
+GO
+
+ALTER TABLE [dbo].[Materials]  WITH CHECK ADD  CONSTRAINT [FK__Materials__ID_Ma__778AC167] FOREIGN KEY([ID_MatType])
+REFERENCES [dbo].[MatTypes] ([ID_MatType])
+GO
+
+ALTER TABLE [dbo].[Materials] CHECK CONSTRAINT [FK__Materials__ID_Ma__778AC167]
+GO
+
+ALTER TABLE [dbo].[Materials]  WITH CHECK ADD  CONSTRAINT [FK__Materials__ID_Un__787EE5A0] FOREIGN KEY([ID_Unit])
+REFERENCES [dbo].[MatUnits] ([ID_Unit])
+GO
+
+ALTER TABLE [dbo].[Materials] CHECK CONSTRAINT [FK__Materials__ID_Un__787EE5A0]
+GO
+
+ALTER TABLE [dbo].[MatTypes]  WITH CHECK ADD  CONSTRAINT [FK_Category] FOREIGN KEY([ID_Category])
+REFERENCES [dbo].[Categories] ([ID_Category])
+GO
+
+ALTER TABLE [dbo].[MatTypes] CHECK CONSTRAINT [FK_Category]
+GO
+
+ALTER TABLE [dbo].[Movements]  WITH CHECK ADD  CONSTRAINT [FK__Movements__ID_Ma__02FC7413] FOREIGN KEY([ID_Material])
+REFERENCES [dbo].[Materials] ([ID_Material])
+GO
+
+ALTER TABLE [dbo].[Movements] CHECK CONSTRAINT [FK__Movements__ID_Ma__02FC7413]
+GO
+
+ALTER TABLE [dbo].[Movements]  WITH CHECK ADD  CONSTRAINT [FK__Movements__ID_Us__02084FDA] FOREIGN KEY([ID_MoveType])
+REFERENCES [dbo].[MoveTypes] ([ID_MoveType])
+GO
+
+ALTER TABLE [dbo].[Movements] CHECK CONSTRAINT [FK__Movements__ID_Us__02084FDA]
+GO
+
+ALTER TABLE [dbo].[Movements]  WITH CHECK ADD  CONSTRAINT [FK__Movements__ID_Us__03F0984C] FOREIGN KEY([ID_User])
+REFERENCES [dbo].[Users] ([ID_User])
+GO
+
+ALTER TABLE [dbo].[Movements] CHECK CONSTRAINT [FK__Movements__ID_Us__03F0984C]
+GO
+
+ALTER TABLE [dbo].[Users]  WITH CHECK ADD  CONSTRAINT [FK_Users_Roles] FOREIGN KEY([ID_Role])
+REFERENCES [dbo].[Roles] ([ID_Role])
+GO
+
+ALTER TABLE [dbo].[Users] CHECK CONSTRAINT [FK_Users_Roles]
+GO
