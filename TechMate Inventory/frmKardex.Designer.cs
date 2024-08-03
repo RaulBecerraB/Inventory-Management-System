@@ -1,4 +1,6 @@
-﻿namespace TechMate_Inventory
+﻿using InventoryManagement;
+
+namespace TechMate_Inventory
 {
     partial class frmKardex
     {

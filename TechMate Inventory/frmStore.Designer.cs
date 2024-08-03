@@ -1,4 +1,6 @@
-﻿namespace TechMate_Inventory
+﻿using InventoryManagement;
+
+namespace TechMate_Inventory
 {
     partial class frmStore
     {
@@ -228,7 +230,7 @@
         private System.Windows.Forms.Label label1;
         private TechMateInventoryDataSet techMateInventoryDataSet;
         private System.Windows.Forms.BindingSource matUnitsBindingSource;
-        private TechMateInventoryDataSetTableAdapters.MatUnitsTableAdapter matUnitsTableAdapter;
+        private InventoryManagement.TechMateInventoryDataSetTableAdapters.MatUnitsTableAdapter matUnitsTableAdapter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel SearchBarPanel;
         private System.Windows.Forms.PictureBox pictureBox1;

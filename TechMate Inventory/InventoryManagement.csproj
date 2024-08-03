@@ -244,6 +244,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TechMateInventoryDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TechMate_Inventory\TechMateInventoryDataSet.cs" />
+    <Compile Include="TechMate_Inventory\TechMateInventoryDataSetTableAdapters.cs" />
     <Compile Include="usrCtrlNewMovement.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -1,4 +1,6 @@
-﻿namespace TechMate_Inventory
+﻿using InventoryManagement;
+
+namespace TechMate_Inventory
 {
     partial class frmMatCatalogue
     {
@@ -550,7 +552,7 @@
         private System.Windows.Forms.BindingSource techMateInventoryDataSetBindingSource;
         private TechMateInventoryDataSet techMateInventoryDataSet;
         private System.Windows.Forms.BindingSource vwMaterialCatalogueBindingSource;
-        private TechMateInventoryDataSetTableAdapters.vwMaterialCatalogueTableAdapter vwMaterialCatalogueTableAdapter;
+        private InventoryManagement.TechMateInventoryDataSetTableAdapters.vwMaterialCatalogueTableAdapter vwMaterialCatalogueTableAdapter;
         private System.Windows.Forms.BindingSource vwMaterialCatalogueBindingSource1;
         private System.Windows.Forms.Button addNewMatBtn;
         private System.Windows.Forms.Label label1;

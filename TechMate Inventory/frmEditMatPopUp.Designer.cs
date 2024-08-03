@@ -232,9 +232,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource techMateInventoryDataSetBindingSource;
-        private TechMateInventoryDataSet techMateInventoryDataSet;
+        private InventoryManagement.TechMateInventoryDataSet techMateInventoryDataSet;
         private System.Windows.Forms.BindingSource categoriesBindingSource;
-        private TechMateInventoryDataSetTableAdapters.CategoriesTableAdapter categoriesTableAdapter;
+        private InventoryManagement.TechMateInventoryDataSetTableAdapters.CategoriesTableAdapter categoriesTableAdapter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBoxMatDesc;
         private System.Windows.Forms.ComboBox comboBoxMatTypes;

@@ -316,10 +316,10 @@
 
         #endregion
 
-        private TechMateInventoryDataSet techMateInventoryDataSet;
+        private InventoryManagement.TechMateInventoryDataSet techMateInventoryDataSet;
         private System.Windows.Forms.BindingSource materialsBindingSource;
-        private TechMateInventoryDataSetTableAdapters.MaterialsTableAdapter materialsTableAdapter;
-        private TechMateInventoryDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private InventoryManagement.TechMateInventoryDataSetTableAdapters.MaterialsTableAdapter materialsTableAdapter;
+        private InventoryManagement.TechMateInventoryDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator materialsBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
