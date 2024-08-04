@@ -64,21 +64,19 @@ The database is all set, now let´s install de application
 4. Login:
 
 <table>
-  <tr>
-    <td align="center"><strong>Admin </strong></td>
-    <td align="center"><strong>User </strong></td>
-  </tr>
-  <tr>
-    <td valign="top">
-      <td align="center"><strong>Raúl </strong></td>
-      <td align="center"><strong>Admin1 </strong></td> 
-    </td>
-    <td valign="top">
-      <td align="center"><strong>Edwin </strong></td>
-      <td align="center"><strong>Admin2 </strong></td>
-    </td>
-  </tr>
-</table>
+        <tr>
+            <th>Tipo de Cuenta</th>
+            <th>Nombre de Usuario</th>
+        </tr>
+        <tr>
+            <td>Admin account</td>
+            <td>Raúl Admin1</td>
+        </tr>
+        <tr>
+            <td>User account</td>
+            <td>Edwin Admin2</td>
+        </tr>
+    </table>
    
 Admin account:
    
