@@ -30,13 +30,13 @@ The system includes a Kardex-type movements table that provides a comprehensive 
 
 Having a detailed history of movements can be immensely valuable for several reasons:
 
-1. Enhanced Tracking and Accountability: It allows for precise tracking of inventory changes, making it easier to identify discrepancies and ensure accurate inventory levels.
+1.  **Enhanced Tracking and Accountability**: It allows for precise tracking of inventory changes, making it easier to identify discrepancies and ensure accurate inventory levels.
 
-2. Improved Decision-Making: Historical data provides insights into inventory trends and usage patterns, helping to make informed decisions regarding stock management and replenishment strategies.
+2.  **Improved Decision-Making**: Historical data provides insights into inventory trends and usage patterns, helping to make informed decisions regarding stock management and replenishment strategies.
 
-3. Regulatory Compliance: For industries with strict regulatory requirements, maintaining a detailed log of inventory movements can help meet compliance standards and provide necessary documentation during audits.
+3.  **Regulatory Compliance**: For industries with strict regulatory requirements, maintaining a detailed log of inventory movements can help meet compliance standards and provide necessary documentation during audits.
 
-4. Operational Efficiency: By analyzing movement patterns, businesses can optimize their inventory processes, reduce waste, and improve overall efficiency.
+4.  **Operational Efficiency**: By analyzing movement patterns, businesses can optimize their inventory processes, reduce waste, and improve overall efficiency.
 
 ## Search and Filtering
 
