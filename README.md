@@ -44,7 +44,7 @@ I will not describe the full installation process of SQL Server.
 
 ![step1](README_Assets/step1.png)
 
-[!NOTE] Note
+[!NOTE] 
 The server name doesn´t has to be the same i use, SQL server will suggest you automatically, remember this is the name of your server, not the database
 
 2. Open a new query and paste the content of the file SQL_TABLES.txt in it and execute.
