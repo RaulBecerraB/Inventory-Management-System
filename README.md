@@ -81,13 +81,3 @@ The database is all set, now let´s install de application
         </tr>
     </table>
    
-Admin account:
-   
-Raúl 
-Admin1
-
-User account:
-
-Edwin
-Admin2
-
