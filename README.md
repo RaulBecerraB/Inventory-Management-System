@@ -55,11 +55,30 @@ The database is all set, now let´s install de application
 
 1. Download the latest release.
 
-2. Modify the InventoryManagement.exe.config file and replace "CHANGE_THIS_ONE" field with the connection string of the database you just created.
+2. Modify the InventoryManagement.exe.config file and replace "CHANGE_THIS_ONE" field with the server name of the database you just created.
+
+![connection](README_Assets/config.png)
 
 3. Save the file and execute the .exe file.
 
 4. Login:
+
+<table>
+  <tr>
+    <td align="center"><strong>Admin </strong></td>
+    <td align="center"><strong>User </strong></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <td align="center"><strong>Raúl </strong></td>
+      <td align="center"><strong>Admin1 </strong></td> 
+    </td>
+    <td valign="top">
+      <td align="center"><strong>Edwin </strong></td>
+      <td align="center"><strong>Admin2 </strong></td>
+    </td>
+  </tr>
+</table>
    
 Admin account:
    
