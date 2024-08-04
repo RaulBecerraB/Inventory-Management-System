@@ -65,16 +65,19 @@ The database is all set, now let´s install de application
 
 <table>
         <tr>
-            <th>Tipo de Cuenta</th>
-            <th>Nombre de Usuario</th>
+            <th>Account type</th>
+            <th>Username</th>
+            <th>Password</th>
         </tr>
         <tr>
             <td>Admin account</td>
-            <td>Raúl Admin1</td>
+            <td>Raúl</td>
+            <td>Admin1</td>
         </tr>
         <tr>
             <td>User account</td>
-            <td>Edwin Admin2</td>
+            <td>Edwin</td>
+            <td>Admin2</td>
         </tr>
     </table>
    
