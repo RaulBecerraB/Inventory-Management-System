@@ -17,7 +17,7 @@ namespace TechMate_Inventory
 {
     public partial class frmLogin : Form
     {
-        public static string connectionString = ConfigurationManager.ConnectionStrings["LocalPC.TechMateInventoryConnectionString"].ConnectionString;
+        public static string connectionString = ConfigurationManager.ConnectionStrings["LocalLaptop.TechMateInventoryConnectionString"].ConnectionString;
 
         public frmLogin()
         {
@@ -65,6 +65,7 @@ namespace TechMate_Inventory
         {
             Form1 application = new Form1(textBoxUserName.Text, this, getUserId(connection, textBoxUserName.Text));
             application.Show();
+            application.ShowInTaskbar = true;
             this.Hide();
         }
 
